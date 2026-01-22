@@ -69,7 +69,7 @@ export const Hero = () => {
               variants={itemVariants}
               className="text-xl md:text-2xl text-gray-300 font-space font-light leading-relaxed"
             >
-              National technical Fest
+          one and only fest 
             </motion.p>
 
             <motion.div
