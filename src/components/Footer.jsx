@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Twitter, Youtube, Facebook } from 'lucide-react';
 
 export const Footer = () => {
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Github, href: '#', label: 'GitHub' }
-  ];
+    { icon: Facebook, href: 'https://www.facebook.com/ieeeuvce', label: 'Facebook' },
+    { icon: Instagram, href: 'https://www.instagram.com/ieeeuvce', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ieee-uvce-66563332/', label: 'LinkedIn' },
+    { icon: Mail, href: 'ieeeuvce26@gmail.com', label: 'Gmail' },
+    { icon: Twitter, href: 'https://x.com/ieeeuvce?s=21', label: 'Twitter' },
+    { icon: Youtube, href: 'https://www.youtube.com/channel/UCt9I0q7BzuuRBcJKvMcdpow', label: 'YouTube' }
+   ];
 
   return (
     <footer className="relative border-t border-white/10 backdrop-blur-xl bg-white/5">
@@ -27,7 +29,7 @@ export const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-gray-400 font-space">
-              Engineering Tomorrow. Celebrating 26 years of technical excellence.
+              FutureTech: Engineering Tomorrow. Celebrating 26 years of technical excellence.
             </p>
           </div>
 
@@ -59,13 +61,13 @@ export const Footer = () => {
               <li className="flex items-center gap-3 text-gray-400 font-space text-sm">
                 <Mail className="w-4 h-4 text-neon-cyan" />
                 <a href="mailto:impetus@ieeeuvce.org" className="hover:text-neon-cyan transition-colors">
-                  impetus@ieeeuvce.org
+                  impetus.ieeeuvce@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3 text-gray-400 font-space text-sm">
                 <Phone className="w-4 h-4 text-neon-violet" />
                 <a href="tel:+919876543210" className="hover:text-neon-violet transition-colors">
-                  +91 98765 43210
+                  +91 63609 65351
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-400 font-space text-sm">
@@ -102,7 +104,7 @@ export const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-white/10 text-center">
           <p className="text-gray-400 font-space text-sm">
-            © 2024 IMPETUS 26.0 - IEEE UVCE. All rights reserved.
+            © 2026 IMPETUS 26.0 - IEEE UVCE. All rights reserved.
           </p>
         </div>
       </div>

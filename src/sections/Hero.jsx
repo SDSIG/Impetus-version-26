@@ -27,37 +27,58 @@ export const Hero = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          {/* IEEE UVCE — NOW CLEAR & VISIBLE */}
-          <p className="font-rajdhani text-lg md:text-xl uppercase tracking-[0.25em] text-white mb-6">
-            IEEE UVCE PRESENTS ANNUAL NATIONAL-LEVEL <br />
-            <span className="text-purple-400">
-              TECHNICAL STUDENT EXTRAVAGANZA
-            </span>
-          </p>
+          {/* Left Column - Text */}
+          <div className="space-y-8">
+            <motion.div variants={itemVariants} className="space-y-4">
+              <div className="flex flex-wrap gap-2">
+                {letters.map((letter, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 50, rotateX: -90 }}
+                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.5 }}
+                    className="text-5xl md:text-7xl font-orbitron font-black text-white uppercase tracking-wider inline-block"
+                    style={{
+                      textShadow:
+                        "0 0 20px rgba(0, 242, 255, 0.5), 0 0 40px rgba(0, 242, 255, 0.3)",
+                    }}
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
 
-          {/* IMPETUS TITLE — NOT WIDE */}
-          <h1 className="font-oxanium text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-white tracking-normal">
-            IMPETUS 26.0
-          </h1>
-        </motion.div>
+            <motion.p
+              variants={itemVariants}
+              className="text-xl md:text-2xl text-gray-300 font-space font-light leading-relaxed"
+            >
+          one and only fest 
+            </motion.p>
 
-        {/* ================= BUTTONS + LOGO ================= */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10">
-          {/* BUTTONS */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="flex flex-col gap-6 items-start"
-          >
-            <button className="arrow-btn primary">
-              REGISTER NOW <ArrowRight />
-            </button>
-
-            <button className="arrow-btn primary">
-              <Ticket /> ALL-IN-ONE PASS
-            </button>
-          </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4"
+            >
+              <Button
+                variant="primary"
+                onClick={() =>
+                  document
+                    .getElementById("events")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Explore Events
+                <ArrowRight className="inline ml-2 w-4 h-4" />
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => window.open("#register", "_self")}
+              >
+                <Play className="inline mr-2 w-4 h-4" />
+                get lost
+              </Button>
+            </motion.div>
 
           {/* LOGO */}
           <motion.div
