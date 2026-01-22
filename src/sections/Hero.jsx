@@ -53,7 +53,7 @@ export const Hero = () => {
                     initial={{ opacity: 0, y: 50, rotateX: -90 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ delay: index * 0.05, duration: 0.5 }}
-                    className="text-5xl md:text-7xl font-orbitron font-black text-white uppercase tracking-wider inline-block"
+                    className="text-5xl md:text-5xl font-orbitron font-black text-white uppercase tracking-wider inline-block"
                     style={{
                       textShadow:
                         "0 0 20px rgba(0, 242, 255, 0.5), 0 0 40px rgba(0, 242, 255, 0.3)",
