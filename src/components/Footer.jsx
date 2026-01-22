@@ -61,7 +61,7 @@ export const Footer = () => {
               <li className="flex items-center gap-3 text-gray-400 font-space text-sm">
                 <Mail className="w-4 h-4 text-neon-cyan" />
                 <a href="mailto:impetus@ieeeuvce.org" className="hover:text-neon-cyan transition-colors">
-                  ieeeuvce26@gmail.com
+                  impetus.ieeeuvce@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3 text-gray-400 font-space text-sm">
