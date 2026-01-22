@@ -1,77 +1,104 @@
-import { motion } from 'framer-motion';
-import { Target, Award, Users, Zap } from 'lucide-react';
+import { motion } from "framer-motion";
 
 export const About = () => {
-  const features = [
+  const cards = [
     {
-      icon: Target,
-      title: 'Mission',
-      description: 'To foster innovation, creativity, and technical excellence among engineering students across India.'
+      title: "ABOUT IEEE UVCE",
+      content: `IEEE UVCE is an IEEE student branch at the University of Visvesvaraya College of Engineering,
+      under the aegis of the IEEE Bangalore Section. Started in 2001, IEEE UVCE is dedicated to spreading
+      knowledge through workshops, symposiums, guest lectures, conferences, and technical interest groups.
+      It promotes collaboration with the global IEEE community and has become one of the most recognized
+      student branches in IEEE Region 10.
+
+      This year marks a special milestone as IEEE UVCE celebrates its Silver Jubilee — 25 years of fostering
+      innovation, professional growth, and academic excellence.`,
     },
     {
-      icon: Award,
-      title: 'Excellence',
-      description: '26 years of delivering world-class technical competitions and industry-leading events.'
+      title: "ABOUT IMPETUS",
+      content: `IMPETUS is the Annual National-Level Technical Extravaganza of IEEE UVCE, conducted since 2001.
+      Held over two days with a unique theme every year, IMPETUS focuses on trending and relevant
+      technological domains.
+
+      The fest serves as a platform for participants to showcase ideas and talent through flagship events,
+      general events, and gaming arenas. Over the years, IMPETUS has grown significantly, witnessing a peak
+      participation of 2472 students in 2023.`,
     },
     {
-      icon: Users,
-      title: 'Community',
-      description: 'Bringing together 2500+ participants from 50+ colleges nationwide.'
+      title: "FLAGSHIP & GENERAL EVENTS",
+      content: `IEEE UVCE hosts a variety of flagship events during IMPETUS, bringing together professionals,
+      industries, and students from diverse domains to network, learn, and share knowledge.
+
+      In addition, IMPETUS welcomes external teams and individuals to organize general events aligned with
+      the fest’s mission and values — creating opportunities for creativity, innovation, and community
+      engagement.`,
     },
     {
-      icon: Zap,
-      title: 'Innovation',
-      description: 'Showcasing cutting-edge technologies in AI, Robotics, Sustainability, and Space.'
-    }
+      title: "GAMING EVENTS & ARENAS",
+      content: `Extending beyond technical events, IMPETUS also hosts Gaming Events and Arenas where gaming
+      enthusiasts compete with participants from various colleges and universities.
+
+      Popular games include BGMI, Valorant, Online Chess, and more — making IMPETUS a complete blend of
+      technology, competition, and entertainment.`,
+    },
   ];
 
   return (
-    <section id="about" className="relative py-24 bg-base">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative py-28 bg-black overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* SECTION HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
+          <h2 className="text-4xl md:text-5xl font-oxanium font-extrabold text-white uppercase tracking-widest mb-4">
             About IMPETUS
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-violet mx-auto mb-6" />
-          <p className="text-lg text-gray-300 font-space max-w-3xl mx-auto leading-relaxed">
-            IMPETUS is the annual national-level technical fest organized by IEEE UVCE, 
-            celebrating engineering excellence and innovation. Now in its 26th edition, 
-            IMPETUS continues to be a platform where the brightest minds converge to compete, 
-            learn, and shape the future of technology.
+
+          <p className="text-purple-300 font-rajdhani text-lg max-w-3xl mx-auto">
+            Discover the legacy, vision, and events that make IMPETUS a
+            national-level technical extravaganza.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 hover:bg-white/10 hover:border-cyan-400/50 transition-all duration-300"
-              >
-                <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center mb-6">
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-orbitron font-bold text-white uppercase tracking-wide mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-300 font-space leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            );
-          })}
+        {/* CARDS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {cards.map((card, index) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="
+                relative
+                backdrop-blur-xl
+                bg-black
+                p-8
+                transition-all duration-300
+              "
+              style={{
+                clipPath: 'polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%)',
+                border: '2px solid rgb(168, 85, 247)',
+                boxShadow: '0 0 20px rgba(168, 85, 247, 0.3)',
+              }}
+            >
+              {/* CARD TITLE */}
+              <h3 className="text-2xl font-oxanium font-bold text-white uppercase tracking-wide mb-4">
+                {card.title}
+              </h3>
+
+              {/* DIVIDER */}
+              <div className="w-16 h-[2px] bg-purple-500 mb-6" />
+
+              {/* CARD CONTENT */}
+              <p className="text-gray-300 font-space leading-relaxed whitespace-pre-line">
+                {card.content}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

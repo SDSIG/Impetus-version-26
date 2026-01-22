@@ -1,17 +1,7 @@
-import { ArrowRight, Ticket, Play } from "lucide-react";
+import { ArrowRight, Ticket } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "../components/Button";
 
 export const Hero = () => {
-  // ✅ DEFINE LETTERS
-  const letters = "IMPETUS 26.0".split("");
-
-  // ✅ DEFINE VARIANTS
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <section className="relative min-h-screen flex items-center bg-black overflow-hidden">
       {/* VIDEO BACKGROUND */}
@@ -25,54 +15,48 @@ export const Hero = () => {
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
       </video>
 
-      {/* OVERLAY */}
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/60" />
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-40">
+        {/* ================= HEADER ================= */}
         <motion.div
-          initial="hidden"
-          animate="visible"
-          className="text-center space-y-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
         >
-          {/* TITLE */}
-          <motion.div variants={itemVariants}>
-            <div className="flex justify-center flex-wrap gap-2">
-              {letters.map((letter, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 50, rotateX: -90 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.5 }}
-                  className="text-5xl md:text-7xl font-orbitron font-black text-white uppercase tracking-wider inline-block"
-                >
-                  {letter === " " ? "\u00A0" : letter}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
+          {/* IEEE UVCE — NOW CLEAR & VISIBLE */}
+          <p className="font-rajdhani text-lg md:text-xl uppercase tracking-[0.25em] text-white mb-6">
+            IEEE UVCE PRESENTS ANNUAL NATIONAL-LEVEL <br />
+            <span className="text-purple-400">
+              TECHNICAL STUDENT EXTRAVAGANZA
+            </span>
+          </p>
 
-          {/* SUBTITLE */}
-          <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-300 font-space font-light"
-          >
-            One and only fest
-          </motion.p>
+          {/* IMPETUS TITLE — NOT WIDE */}
+          <h1 className="font-oxanium text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-white tracking-normal">
+            IMPETUS 26.0
+          </h1>
+        </motion.div>
 
+        {/* ================= BUTTONS + LOGO ================= */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-20">
           {/* BUTTONS */}
           <motion.div
-            variants={itemVariants}
-            className="flex justify-center gap-4 flex-wrap"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="flex flex-col gap-6 items-start"
           >
-            <Button variant="primary">
-              Explore Events <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            <button className="arrow-btn primary">
+              REGISTER NOW <ArrowRight />
+            </button>
 
-            <Button variant="outline">
-              <Play className="mr-2 w-4 h-4" />
-              Get Lost
-            </Button>
+            <button className="arrow-btn primary">
+              <Ticket /> ALL-IN-ONE PASS
+            </button>
           </motion.div>
 
           {/* LOGO */}
@@ -80,7 +64,7 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="flex justify-center pt-10"
+            className="flex justify-center"
           >
             <img
               src="/images/logo.png"
@@ -88,7 +72,7 @@ export const Hero = () => {
               className="w-64 sm:w-72 md:w-80"
             />
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
