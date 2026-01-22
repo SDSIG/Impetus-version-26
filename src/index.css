@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================
+   BASE STYLES
+========================= */
 @layer base {
   body {
-    @apply bg-base text-white antialiased;
+    @apply bg-black text-white antialiased;
     font-family: 'Space Grotesk', sans-serif;
   }
 
@@ -13,13 +16,71 @@
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* =========================
+   FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&display=swap');
+
+.font-oxanium {
+  font-family: 'Oxanium', sans-serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&display=swap');
+
+.font-oxanium {
+  font-family: 'Oxanium', sans-serif;
 }
 
-/* Custom Scrollbar */
+/* =========================
+   ARROW BUTTON (PRIMARY + OUTLINE)
+========================= */
+.arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 40px;
+
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+
+  clip-path: polygon(0 0,
+      88% 0,
+      100% 50%,
+      88% 100%,
+      0 100%,
+      6% 50%);
+
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.arrow-btn.primary {
+  background-color: #7e22ce;
+  /* purple */
+}
+
+.arrow-btn.primary:hover {
+  background-color: #6b21a8;
+  transform: translateX(4px);
+}
+
+.arrow-btn.outline {
+  border: 2px solid #7e22ce;
+  color: #c4b5fd;
+}
+
+.arrow-btn.outline:hover {
+  background-color: rgba(126, 34, 206, 0.15);
+  transform: translateX(4px);
+}
+
+/* =========================
+   SCROLLBAR (PURPLE ONLY)
+========================= */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -29,47 +90,26 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00f2ff, #8b5cf6);
-  border-radius: 5px;
+  background: linear-gradient(180deg, #7e22ce, #9333ea);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #00f2ff, #8b5cf6);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
-/* Grid Animation */
-@keyframes grid-move {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  100% {
-    transform: translate(50px, 50px);
-  }
-}
-
-/* Glow Effects */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.5), 0 0 40px rgba(0, 242, 255, 0.3);
-}
-
-.glow-violet {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
-}
-
-.glow-green {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3);
-}
-
-/* Selection */
+/* =========================
+   SELECTION
+========================= */
 ::selection {
-  background-color: rgba(0, 242, 255, 0.3);
+  background-color: rgba(126, 34, 206, 0.4);
   color: white;
 }
 
-/* Focus Styles */
+/* =========================
+   FOCUS (ACCESSIBILITY)
+========================= */
 *:focus-visible {
-  outline: 2px solid #00f2ff;
+  outline: 2px solid #7e22ce;
   outline-offset: 2px;
 }

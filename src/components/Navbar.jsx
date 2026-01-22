@@ -90,17 +90,7 @@ export const Navbar = () => {
                 ))}
               </div>
 
-              {/* Right Section */}
-              <div className="hidden md:flex items-center gap-4">
-                <div className="px-4 py-2 rounded-lg bg-neon-violet/20 border border-neon-violet/50">
-                  <span className="text-xs font-orbitron font-bold text-neon-violet uppercase">
-                    March 14-15
-                  </span>
-                </div>
-                <Button onClick={() => window.open('#register', '_self')}>
-                  Get All-Access Pass
-                </Button>
-              </div>
+
 
               {/* Mobile Menu Button */}
               <button
@@ -131,11 +121,7 @@ export const Navbar = () => {
                       {item.name}
                     </button>
                   ))}
-                  <div className="pt-4 border-t border-white/10">
-                    <Button className="w-full" onClick={() => window.open('#register', '_self')}>
-                      Get All-Access Pass
-                    </Button>
-                  </div>
+
                 </div>
               </motion.div>
             )}

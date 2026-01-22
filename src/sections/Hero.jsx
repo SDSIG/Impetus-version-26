@@ -1,161 +1,79 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
-import { Button } from '../components/Button';
-import { Scene } from '../canvas/Scene';
+import { ArrowRight, Ticket } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
-  };
-
-  const letters = 'IMPETUS 26.0'.split('');
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base">
-      {/* Animated Grid Background */}
+    <section className="relative min-h-screen flex items-center bg-black overflow-hidden">
+      {/* VIDEO BACKGROUND */}
       <video
         autoPlay
         muted
         loop
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/videos/hero-background.mp4" type="video/mp4" />
-        <source src="/videos/hero-background.webm" type="video/webm" />
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
       </video>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32">
+        {/* ================= HEADER ================= */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          {/* Left Column - Text */}
-          <div className="space-y-8">
-            <motion.div variants={itemVariants} className="space-y-4">
-              <div className="flex flex-wrap gap-2">
-                {letters.map((letter, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, y: 50, rotateX: -90 }}
-                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.5 }}
-                    className="text-5xl md:text-7xl font-orbitron font-black text-white uppercase tracking-wider inline-block"
-                    style={{
-                      textShadow:
-                        "0 0 20px rgba(0, 242, 255, 0.5), 0 0 40px rgba(0, 242, 255, 0.3)",
-                    }}
-                  >
-                    {letter === " " ? "\u00A0" : letter}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
+          {/* IEEE UVCE — NOW CLEAR & VISIBLE */}
+          <p className="font-rajdhani text-lg md:text-xl uppercase tracking-[0.25em] text-white mb-6">
+            IEEE UVCE PRESENTS ANNUAL NATIONAL-LEVEL <br />
+            <span className="text-purple-400">
+              TECHNICAL STUDENT EXTRAVAGANZA
+            </span>
+          </p>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-xl md:text-2xl text-gray-300 font-space font-light leading-relaxed"
-            >
-          one and only fest 
-            </motion.p>
+          {/* IMPETUS TITLE — NOT WIDE */}
+          <h1 className="font-oxanium text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-white tracking-normal">
+            IMPETUS 26.0
+          </h1>
+        </motion.div>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-4"
-            >
-              <Button
-                variant="primary"
-                onClick={() =>
-                  document
-                    .getElementById("events")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Explore Events
-                <ArrowRight className="inline ml-2 w-4 h-4" />
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => window.open("#register", "_self")}
-              >
-                <Play className="inline mr-2 w-4 h-4" />
-                get lost
-              </Button>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center gap-8 pt-8"
-            >
-              <div>
-                <div className="text-3xl font-orbitron font-bold text-neon-cyan">
-                  26
-                </div>
-                <div className="text-sm text-gray-400 font-space uppercase tracking-wide">
-                  Years
-                </div>
-              </div>
-              <div>
-                <div className="text-3xl font-orbitron font-bold text-neon-violet">
-                  20+
-                </div>
-                <div className="text-sm text-gray-400 font-space uppercase tracking-wide">
-                  Events
-                </div>
-              </div>
-              <div>
-                <div className="text-3xl font-orbitron font-bold text-neon-green">
-                  ₹10L+
-                </div>
-                <div className="text-sm text-gray-400 font-space uppercase tracking-wide">
-                  Prize Pool
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Column - 3D Scene */}
+        {/* ================= BUTTONS + LOGO ================= */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+          {/* BUTTONS */}
           <motion.div
-            variants={itemVariants}
-            className="hidden lg:block h-[500px]"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="flex flex-col gap-6 items-start"
           >
-            <Scene corePosition={[0, 0, 0]} coreScale={2} />
-          </motion.div>
-        </motion.div>
-      </div>
+            <button className="arrow-btn primary">
+              REGISTER NOW <ArrowRight />
+            </button>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-neon-cyan rounded-full flex justify-center"
-        >
+            <button className="arrow-btn primary">
+              <Ticket /> ALL-IN-ONE PASS
+            </button>
+          </motion.div>
+
+          {/* LOGO */}
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-neon-cyan rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="flex justify-center"
+          >
+            <img
+              src="/images/logo.png"
+              alt="Impetus Logo"
+              className="w-64 sm:w-72 md:w-80"
+            />
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
