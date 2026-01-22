@@ -69,7 +69,7 @@ export const Hero = () => {
               variants={itemVariants}
               className="text-xl md:text-2xl text-gray-300 font-space font-light leading-relaxed"
             >
-          one and only fest 
+          one and only fest... yeahh
             </motion.p>
 
             <motion.div
