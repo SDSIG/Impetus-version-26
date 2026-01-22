@@ -57,7 +57,7 @@ export const About = () => {
             About IMPETUS
           </h2>
 
-          <p className="text-purple-300 font-rajdhani text-lg max-w-3xl mx-auto">
+          <p className="text-gray-300 font-rajdhani text-lg max-w-3xl mx-auto">
             Discover the legacy, vision, and events that make IMPETUS a
             national-level technical extravaganza.
           </p>
@@ -82,7 +82,7 @@ export const About = () => {
               style={{
                 clipPath: 'polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%)',
                 border: '2px solid rgb(168, 85, 247)',
-                boxShadow: '0 0 20px rgba(168, 85, 247, 0.3)',
+                boxShadow: '0 0 15px rgba(168, 85, 247, 0.3), 0 0 25px rgba(239, 68, 68, 0.15)',
               }}
             >
               {/* CARD TITLE */}

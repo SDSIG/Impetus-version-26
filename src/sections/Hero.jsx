@@ -30,13 +30,13 @@ export const Hero = () => {
           {/* IEEE UVCE — NOW CLEAR & VISIBLE */}
           <p className="font-rajdhani text-lg md:text-xl uppercase tracking-[0.25em] text-white mb-6">
             IEEE UVCE PRESENTS ANNUAL NATIONAL-LEVEL <br />
-            <span className="text-purple-400">
+            <span className="text-purple-300">
               TECHNICAL STUDENT EXTRAVAGANZA
             </span>
           </p>
 
           {/* IMPETUS TITLE — NOT WIDE */}
-          <h1 className="font-oxanium text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-white tracking-normal">
+          <h1 className="font-oxanium text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-white tracking-normal" style={{ textShadow: '0 0 15px rgba(168, 85, 247, 0.4), 0 0 30px rgba(239, 68, 68, 0.2)' }}>
             IMPETUS 26.0
           </h1>
         </motion.div>

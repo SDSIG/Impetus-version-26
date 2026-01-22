@@ -26,13 +26,13 @@ export const Gallery = () => {
           <h2 className="text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
             Gallery
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-violet mx-auto mb-6" />
+          <div className="w-24 h-1 bg-purple-500 mx-auto mb-6" />
           <p className="text-lg text-gray-300 font-space max-w-3xl mx-auto">
             Moments from previous editions of IMPETUS
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
           {images.map((image, index) => (
             <motion.div
               key={index}
@@ -41,7 +41,10 @@ export const Gallery = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.1, zIndex: 10 }}
-              className="relative overflow-hidden rounded-lg backdrop-blur-xl bg-white/5 border border-white/10 group cursor-pointer"
+              className="relative overflow-hidden rounded-lg backdrop-blur-xl bg-white/5 border border-purple-500/40 group cursor-pointer aspect-square hover:shadow-lg transition-all"
+              style={{
+                boxShadow: '0 0 12px rgba(168, 85, 247, 0.25), 0 0 20px rgba(239, 68, 68, 0.1)',
+              }}
             >
               <img
                 src={image}

@@ -31,7 +31,7 @@ export const Sponsors = () => {
           <h2 className="text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
             Sponsors
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-violet mx-auto mb-6" />
+          <div className="w-24 h-1 bg-purple-500 mx-auto mb-6" />
           <p className="text-lg text-gray-300 font-space max-w-3xl mx-auto">
             Proudly supported by industry leaders
           </p>
@@ -45,7 +45,7 @@ export const Sponsors = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h3 className="text-2xl font-orbitron font-bold text-neon-cyan uppercase tracking-wide text-center mb-8">
+            <h3 className="text-2xl font-orbitron font-bold text-white uppercase tracking-wide text-center mb-8">
               Platinum Sponsors
             </h3>
             <div className="flex flex-wrap justify-center items-center gap-8">
@@ -57,7 +57,10 @@ export const Sponsors = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.1 }}
-                  className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-cyan-400/50 transition-all duration-300"
+                  className="backdrop-blur-xl bg-white/5 border border-purple-500/40 rounded-xl p-6 hover:bg-white/10 hover:border-purple-400/60 transition-all duration-300"
+                  style={{
+                    boxShadow: '0 0 12px rgba(168, 85, 247, 0.25), 0 0 20px rgba(239, 68, 68, 0.1)',
+                  }}
                 >
                   <img src={sponsor.logo} alt={sponsor.name} className="h-20 object-contain" />
                 </motion.div>
@@ -71,10 +74,10 @@ export const Sponsors = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true }}yellow-100
             className="mb-12"
           >
-            <h3 className="text-2xl font-orbitron font-bold text-neon-violet uppercase tracking-wide text-center mb-8">
+            <h3 className="text-2xl font-orbitron font-bold text-white uppercase tracking-wide text-center mb-8">
               Gold Sponsors
             </h3>
             <div className="flex flex-wrap justify-center items-center gap-6">
@@ -102,7 +105,7 @@ export const Sponsors = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-orbitron font-bold text-neon-green uppercase tracking-wide text-center mb-8">
+            <h3 className="text-2xl font-orbitron font-bold text-white uppercase tracking-wide text-center mb-8">
               Silver Sponsors
             </h3>
             <div className="flex flex-wrap justify-center items-center gap-4">

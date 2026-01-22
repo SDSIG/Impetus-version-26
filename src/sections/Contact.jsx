@@ -553,7 +553,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-base">
+    <section id="contact" className="relative py-16 sm:py-24 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -562,19 +562,19 @@ export const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
             Contact Us
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-violet mx-auto mb-6" />
-          <p className="text-lg text-gray-300 font-space max-w-3xl mx-auto">
+          <div className="w-20 sm:w-24 h-1 bg-purple-500 mx-auto mb-4 sm:mb-6" />
+          <p className="text-sm sm:text-lg text-gray-300 font-space max-w-3xl mx-auto">
             Have questions? We're here to help
           </p>
         </motion.div>
 
         {/* Team Contacts */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-20">
           {teamContacts.map((person, index) => (
             <motion.div
               key={person.name}
@@ -582,31 +582,31 @@ export const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:border-neon-cyan/50 transition-all"
+              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4 sm:p-6 text-center hover:border-neon-cyan/50 transition-all"
             >
-              <h3 className="text-lg font-orbitron font-bold text-white mb-1">
+              <h3 className="text-base sm:text-lg font-orbitron font-bold text-white mb-1 line-clamp-2">
                 {person.name}
               </h3>
 
-              <p className="text-sm text-neon-cyan font-space mb-4">
+              <p className="text-xs sm:text-sm text-neon-cyan font-space mb-3 sm:mb-4">
                 {person.role}
               </p>
 
-              <div className="flex flex-col gap-3 text-gray-300 text-sm font-space">
+              <div className="flex flex-col gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm font-space">
                 <a
                   href={`tel:${person.phone.replace(/\s+/g, '')}`}
-                  className="flex items-center justify-center gap-2 hover:text-white transition"
+                  className="flex items-center justify-center gap-2 hover:text-white transition truncate"
                 >
-                  <Phone className="w-4 h-4" />
-                  {person.phone}
+                  <Phone className="w-3 sm:w-4 h-3 sm:h-4 flex-shrink-0" />
+                  <span className="truncate">{person.phone}</span>
                 </a>
 
                 <a
                   href={`mailto:${person.email}`}
-                  className="flex items-center justify-center gap-2 hover:text-white transition"
+                  className="flex items-center justify-center gap-2 hover:text-white transition truncate"
                 >
-                  <Mail className="w-4 h-4" />
-                  {person.email}
+                  <Mail className="w-3 sm:w-4 h-3 sm:h-4 flex-shrink-0" />
+                  <span className="truncate text-xs">{person.email}</span>
                 </a>
               </div>
             </motion.div>
@@ -619,11 +619,11 @@ export const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 space-y-6"
+          className="max-w-2xl mx-auto backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 space-y-4 sm:space-y-6"
           onSubmit={handleSubmit}
         >
           <div>
-            <label className="block text-sm text-gray-400 font-space uppercase mb-2">
+            <label className="block text-xs sm:text-sm text-gray-400 font-space uppercase mb-2">
               Name
             </label>
             <input
@@ -631,13 +631,13 @@ export const Contact = () => {
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/10 text-white text-sm focus:outline-none focus:border-neon-cyan/50 transition-all"
               placeholder="Your Name"
             />
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 font-space uppercase mb-2">
+            <label className="block text-xs sm:text-sm text-gray-400 font-space uppercase mb-2">
               Email
             </label>
             <input
@@ -645,27 +645,27 @@ export const Contact = () => {
               required
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/10 text-white text-sm focus:outline-none focus:border-neon-cyan/50 transition-all"
               placeholder="your.email@example.com"
             />
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 font-space uppercase mb-2">
+            <label className="block text-xs sm:text-sm text-gray-400 font-space uppercase mb-2">
               Message
             </label>
             <textarea
               required
-              rows={5}
+              rows={4}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white resize-none"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/10 text-white text-sm resize-none focus:outline-none focus:border-neon-cyan/50 transition-all"
               placeholder="Your Message"
             />
           </div>
 
-          <Button variant="primary" className="w-full" disabled={loading}>
-            <Send className="inline mr-2 w-4 h-4" />
+          <Button variant="primary" className="w-full text-sm sm:text-base" disabled={loading}>
+            <Send className="inline mr-2 w-3 sm:w-4 h-3 sm:h-4" />
             {loading ? 'Sending...' : 'Send Message'}
           </Button>
         </motion.form>

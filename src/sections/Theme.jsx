@@ -1,89 +1,74 @@
-import { motion } from 'framer-motion';
-import { Brain, Cpu, Leaf, Rocket } from 'lucide-react';
+import { motion } from "framer-motion";
 
 export const Theme = () => {
-  const themes = [
-    {
-      icon: Brain,
-      title: 'AI',
-      subtitle: 'Artificial Intelligence',
-      description: 'Exploring the frontiers of machine learning, neural networks, and intelligent systems.',
-      gradientClass: 'from-neon-cyan to-blue-500'
-    },
-    {
-      icon: Cpu,
-      title: 'Robotics',
-      subtitle: 'Automation & Control',
-      description: 'Building autonomous systems, drones, and intelligent machines that transform industries.',
-      gradientClass: 'from-neon-violet to-purple-500'
-    },
-    {
-      icon: Leaf,
-      title: 'Sustainability',
-      subtitle: 'Green Technology',
-      description: 'Developing eco-friendly solutions and renewable energy systems for a sustainable future.',
-      gradientClass: 'from-neon-green to-emerald-500'
-    },
-    {
-      icon: Rocket,
-      title: 'Space',
-      subtitle: 'Aerospace & Beyond',
-      description: 'Venturing into space technology, satellite systems, and interplanetary exploration.',
-      gradientClass: 'from-cyan-400 to-neon-violet'
-    }
-  ];
-
   return (
-    <section id="theme" className="relative py-24 bg-base">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="theme" className="relative py-28 bg-black overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* SECTION HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
-            Themes 2024
+          <h2 className="text-4xl md:text-5xl font-oxanium font-extrabold text-white uppercase tracking-widest mb-4">
+            Theme
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-neon-cyan to-neon-violet mx-auto mb-6" />
-          <p className="text-lg text-gray-300 font-space max-w-3xl mx-auto">
-            Four pillars of innovation driving this year's events
+
+          <p className="text-purple-300 font-rajdhani text-lg">
+            FutureTech : Engineering Tomorrow
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {themes.map((theme, index) => {
-            const Icon = theme.icon;
-            return (
-              <motion.div
-                key={theme.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -15, scale: 1.05 }}
-                className="group relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:border-cyan-400/50 transition-all duration-300 overflow-hidden"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradientClass} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${theme.gradientClass} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-orbitron font-black text-white uppercase tracking-wider mb-2">
-                    {theme.title}
-                  </h3>
-                  <p className="text-sm text-neon-cyan font-space font-semibold uppercase tracking-wide mb-3">
-                    {theme.subtitle}
-                  </p>
-                  <p className="text-sm text-gray-300 font-space leading-relaxed">
-                    {theme.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        {/* FUTURETECH CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="
+            relative
+            mx-auto
+            max-w-5xl
+            backdrop-blur-xl
+            bg-white/5
+            border border-white/10
+            p-10 md:p-14
+            text-gray-200
+          "
+          style={{
+            clipPath:
+              "polygon(4% 0, 96% 0, 100% 8%, 100% 92%, 96% 100%, 4% 100%, 0 92%, 0 8%)",
+          }}
+        >
+          {/* TECH BORDER ACCENTS */}
+          <span className="absolute top-0 left-0 w-24 h-24 border-t border-l border-purple-500/50" />
+          <span className="absolute bottom-0 right-0 w-24 h-24 border-b border-r border-purple-500/50" />
+
+          {/* TITLE */}
+          <h3 className="font-oxanium text-3xl md:text-4xl font-bold text-white uppercase tracking-wide mb-8">
+            FutureTech – Engineering Tomorrow
+          </h3>
+
+          {/* CONTENT – SINGLE PARAGRAPH */}
+          <p className="font-space text-base md:text-lg leading-relaxed text-gray-100">
+            FutureTech: Engineering Tomorrow represents the vision of technology
+            that goes beyond the present and shapes the world ahead. This theme
+            focuses on forward-thinking innovations that redefine how humans
+            interact with machines, data, and the environment, emphasizing the
+            convergence of intelligence, automation, and connectivity across
+            industries. It encourages participants to explore ideas that push
+            boundaries, challenge conventions, and deliver real-world impact.
+            FutureTech highlights adaptability, resilience, and ethical
+            technology development while promoting interdisciplinary
+            collaboration and creative problem-solving. Engineering Tomorrow is
+            about building intelligent, sustainable, and scalable solutions that
+            reflect the evolving role of engineers in a rapidly advancing
+            digital world — where technology is not just an idea, but a
+            responsibility.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

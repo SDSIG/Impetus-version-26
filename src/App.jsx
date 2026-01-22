@@ -5,6 +5,7 @@ import { Loader } from './components/Loader';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Chatbot } from './components/Chatbot';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { EventDetails } from './pages/EventDetails';
 
@@ -29,6 +30,7 @@ function App() {
               </Routes>
               <Footer />
               <Chatbot />
+              <ScrollToTop />
             </>
           )}
         </AnimatePresence>
