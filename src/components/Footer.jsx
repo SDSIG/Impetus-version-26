@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+/*import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Twitter, Youtube, Facebook } from 'lucide-react';
 
 export const Footer = () => {
@@ -15,7 +15,7 @@ export const Footer = () => {
     <footer className="relative border-t border-white/10 backdrop-blur-xl bg-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          {/* Brand */}
+        
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center">
@@ -33,7 +33,7 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+        
           <div>
             <h3 className="text-white font-orbitron font-bold text-sm uppercase tracking-wider mb-4">
               Quick Links
@@ -52,7 +52,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+        
           <div>
             <h3 className="text-white font-orbitron font-bold text-sm uppercase tracking-wider mb-4">
               Contact
@@ -77,7 +77,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Social Media */}
           <div>
             <h3 className="text-white font-orbitron font-bold text-sm uppercase tracking-wider mb-4">
               Follow Us
@@ -111,3 +110,105 @@ export const Footer = () => {
     </footer>
   );
 };
+*/
+
+import { motion } from "framer-motion";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Twitter,
+  Youtube,
+} from "lucide-react";
+
+export const Footer = () => {
+  const socialLinks = [
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/ieeeuvce",
+      label: "Facebook",
+    },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/ieeeuvce",
+      label: "Instagram",
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/ieee-uvce-66563332/",
+      label: "LinkedIn",
+    },
+    { icon: Mail, href: "mailto:ieeeuvce26@gmail.com", label: "Gmail" },
+    { icon: Twitter, href: "https://x.com/ieeeuvce?s=21", label: "Twitter" },
+    {
+      icon: Youtube,
+      href: "https://www.youtube.com/channel/UCt9I0q7BzuuRBcJKvMcdpow",
+      label: "YouTube",
+    },
+  ];
+
+  return (
+    <footer className="relative border-t border-white/10 backdrop-blur-xl bg-white/5">
+      <div className="max-w-7xl mx-auto px-4 py-10">
+        {/* Follow Us (CENTERED) */}
+        <div className="flex flex-col items-center gap-4">
+          <h3 className="text-white font-orbitron font-bold text-sm uppercase tracking-wider">
+            Follow Us
+          </h3>
+
+          <div className="flex gap-4">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-10 h-10 rounded-lg backdrop-blur-xl bg-white/5 border border-white/10
+                             flex items-center justify-center text-gray-400
+                             hover:text-neon-cyan hover:border-neon-cyan/50 transition-all"
+                  aria-label={social.label}
+                >
+                  <Icon className="w-5 h-5" />
+                </motion.a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="mt-8 border-t border-white/10" />
+
+        {/* Footer Text */}
+        <div className="mt-8 text-center space-y-3">
+          <p className="text-gray-400 font-space text-sm">
+            © IMPETUS 26.0 — All rights reserved
+          </p>
+
+          <p className="text-gray-400 font-space text-sm">
+            Developed by{" "}
+            <span className="text-neon-cyan font-semibold">
+              Software Development SIG
+            </span>
+          </p>
+
+          {/* Names */}
+          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 text-white font-orbitron font-bold text-sm">
+            <span>Dhruv Rathi</span>
+            <span>Lahari Priya N</span>
+            <span>Rahita H Puthran</span>
+          </div>
+
+          <p className="text-gray-400 font-space text-xs uppercase tracking-widest">
+            Secretories, SDSIG
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
