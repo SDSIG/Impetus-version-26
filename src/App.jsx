@@ -7,7 +7,7 @@ import { Footer } from './components/Footer';
 import { Chatbot } from './components/Chatbot';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
-import { EventDetails } from './pages/EventDetails';
+// import { EventDetails } from './pages/EventDetails';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +26,7 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/event/:id" element={<EventDetails />} />
+                
               </Routes>
               <Footer />
               <Chatbot />

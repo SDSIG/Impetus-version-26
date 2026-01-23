@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+/*import { motion } from 'framer-motion';
 import { Calendar, Users, Trophy, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -62,6 +62,106 @@ export const EventCard = ({ event, index }) => {
       </div>
       
       <div className="absolute inset-0 border-2 border-neon-cyan/0 group-hover:border-purple-400/40 rounded-xl transition-all duration-300 pointer-events-none" />
+    </motion.div>
+  );
+};
+*/
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+export const EventCard = ({ event, index }) => {
+  const [showDetails, setShowDetails] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.08 }}
+      className="h-[450px] sm:h-[500px] md:h-[520px] w-full"
+      style={{
+        perspective: "1000px",
+      }}
+    >
+      <motion.div
+        animate={{ rotateY: showDetails ? 180 : 0 }}
+        transition={{ duration: 0.6 }}
+        className="relative w-full h-full"
+        style={{
+          transformStyle: "preserve-3d",
+        }}
+      >
+        {/* FRONT SIDE */}
+        <div
+          className="absolute inset-0 rounded-xl backdrop-blur-xl bg-white/5 border border-purple-500/40 overflow-hidden flex flex-col"
+          style={{
+            backfaceVisibility: "hidden",
+          }}
+        >
+          {/* Square Poster */}
+          <div className="aspect-square w-full overflow-hidden">
+            <img
+              src={event.image}
+              alt={event.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="flex-1 p-4 sm:p-6 flex flex-col justify-between">
+            <h3 className="text-lg sm:text-xl font-orbitron font-bold text-white uppercase">
+              {event.title}
+            </h3>
+
+            {/* Buttons */}
+            <div className="flex gap-3 flex-col">
+              <button
+                onClick={() => setShowDetails(true)}
+                className="w-full py-2 sm:py-3 rounded-lg bg-neon-cyan font-orbitron font-bold text-sm sm:text-base hover:scale-105 transition"
+                style={{ color: "white" }}
+              >
+                Know More
+              </button>
+
+              <a
+                href={event.registerLink || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2 sm:py-3 rounded-lg border border-neon-violet font-orbitron font-bold text-sm sm:text-base text-center hover:bg-neon-violet transition"
+                style={{ color: "white" }}
+              >
+                Register Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* BACK SIDE */}
+        <div
+          className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-900/90 to-black border border-purple-400 p-4 sm:p-6 flex flex-col justify-between"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
+        >
+          <div>
+            <h3 className="text-lg sm:text-xl font-orbitron font-bold text-white mb-4 uppercase">
+              About Event
+            </h3>
+            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+              {event.description}
+            </p>
+          </div>
+
+          <button
+            onClick={() => setShowDetails(false)}
+            className="w-full mt-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/20 text-white font-orbitron font-bold text-sm sm:text-base hover:bg-white/20 transition"
+          >
+            Back
+          </button>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };

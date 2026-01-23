@@ -43,28 +43,28 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-28 bg-black overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="relative py-12 sm:py-16 md:py-24 lg:py-28 bg-black overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* SECTION HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-oxanium font-extrabold text-white uppercase tracking-widest mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-oxanium font-extrabold text-white uppercase tracking-widest mb-3 sm:mb-4">
             About IMPETUS
           </h2>
 
-          <p className="text-gray-300 font-rajdhani text-lg max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 font-rajdhani max-w-3xl mx-auto px-2">
             Discover the legacy, vision, and events that make IMPETUS a
             national-level technical extravaganza.
           </p>
         </motion.div>
 
         {/* CARDS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 px-2">
           {cards.map((card, index) => (
             <motion.div
               key={card.title}

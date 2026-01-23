@@ -14,7 +14,7 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* 🪟 CONTENT */}
-      <div className="relative z-10 w-full flex justify-center px-4 mt-20">
+      <div className="relative z-10 w-full flex justify-center px-3 sm:px-4 mt-16 sm:mt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -25,15 +25,15 @@ export const Hero = () => {
             backdrop-blur-md
             border border-white/10
             rounded-xl
-            px-6 py-4
-            sm:px-10 sm:py-6
-            md:px-14 md:py-8
+            px-4 sm:px-6 py-4 sm:py-6
+            md:px-10 md:py-8
+            lg:px-14 lg:py-10
             shadow-[0_0_30px_rgba(255,255,255,0.08)]
           "
         >
           {/* ================= HEADER ================= */}
-          <div className="text-center mb-8">
-            <p className="font-rajdhani text-base sm:text-lg md:text-xl mb-3 text-black/80">
+          <div className="text-center mb-6 sm:mb-8">
+            <p className="font-rajdhani text-xs sm:text-base md:text-lg lg:text-xl mb-2 sm:mb-3 text-black/80">
               IEEE UVCE presents annual national-level <br />
               Technical Student Extravaganza
             </p>
@@ -42,7 +42,7 @@ export const Hero = () => {
               className="
                 font-extrabold
                 tracking-tight
-                text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+                text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
                 text-white
               "
               style={{

@@ -19,20 +19,20 @@ export const Sponsors = () => {
   };
 
   return (
-    <section id="sponsors" className="relative py-24 bg-base">
+    <section id="sponsors" className="relative py-12 sm:py-16 md:py-24 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-3 sm:mb-4">
             Sponsors
           </h2>
-          <div className="w-24 h-1 bg-purple-500 mx-auto mb-6" />
-          <p className="text-lg text-gray-300 font-space max-w-3xl mx-auto">
+          <div className="w-16 sm:w-24 h-1 bg-purple-500 mx-auto mb-4 sm:mb-6" />
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 font-space max-w-3xl mx-auto px-2">
             Proudly supported by industry leaders
           </p>
         </motion.div>
@@ -43,12 +43,12 @@ export const Sponsors = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           >
-            <h3 className="text-2xl font-orbitron font-bold text-white uppercase tracking-wide text-center mb-8">
+            <h3 className="text-xl sm:text-2xl font-orbitron font-bold text-white uppercase tracking-wide text-center mb-6 sm:mb-8">
               Platinum Sponsors
             </h3>
-            <div className="flex flex-wrap justify-center items-center gap-8">
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8">
               {tiers.platinum.map((sponsor, index) => (
                 <motion.div
                   key={sponsor.name}

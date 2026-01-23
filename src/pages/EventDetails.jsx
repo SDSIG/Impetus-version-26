@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+/**import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, MapPin, Users, DollarSign, Phone, ChevronDown, ChevronUp } from 'lucide-react';
 import { getEventById } from '../data/events';
@@ -24,7 +24,7 @@ export const EventDetails = () => {
 
   return (
     <div className="min-h-screen bg-base">
-      {/* Hero Banner */}
+     
       <div className="relative h-[400px] overflow-hidden">
         <img
           src={event.image}
@@ -71,12 +71,12 @@ export const EventDetails = () => {
         </div>
       </div>
 
-      {/* Content */}
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
+          {/* Main Content 
           <div className="lg:col-span-2 space-y-8">
-            {/* Description */}
+            
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ export const EventDetails = () => {
               </p>
             </motion.div>
 
-            {/* Rules */}
+           
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,9 +129,9 @@ export const EventDetails = () => {
             </motion.div>
           </div>
 
-          {/* Sidebar */}
+          
           <div className="space-y-6">
-            {/* Event Info */}
+            
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -191,7 +191,7 @@ export const EventDetails = () => {
               </div>
             </motion.div>
 
-            {/* Coordinators */}
+          
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -224,3 +224,4 @@ export const EventDetails = () => {
     </div>
   );
 };
+*/

@@ -14,25 +14,25 @@ export const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="relative py-24 bg-base">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="relative py-12 sm:py-16 md:py-24 bg-base">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-3 sm:mb-4">
             Gallery
           </h2>
-          <div className="w-24 h-1 bg-purple-500 mx-auto mb-6" />
-          <p className="text-lg text-gray-300 font-space max-w-3xl mx-auto">
+          <div className="w-16 sm:w-24 h-1 bg-purple-500 mx-auto mb-4 sm:mb-6" />
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 font-space max-w-3xl mx-auto px-2">
             Moments from previous editions of IMPETUS
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4 px-1">
           {images.map((image, index) => (
             <motion.div
               key={index}

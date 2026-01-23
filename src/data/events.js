@@ -211,6 +211,293 @@ export const events = [
       { name: 'Nikhil Rao', phone: '+91 98765 43221' },
       { name: 'Divya Nair', phone: '+91 98765 43222' }
     ]
+  },
+  {
+    id: 'iot-innovation',
+    title: 'IoT Innovation Summit',
+    category: 'flagship',
+    date: 'March 16, 2024',
+    time: '9:00 AM - 6:00 PM',
+    venue: 'IoT Lab',
+    teamSize: '2-4 members',
+    fee: '₹450 per team',
+    prizePool: '₹55,000',
+    image: 'https://images.unsplash.com/photo-1518770660705-30a45e4dc8d7?w=800',
+    description: 'Build innovative IoT solutions for real-world problems. Connect devices, process data, and create intelligent systems that impact society.',
+    rules: [
+      'Any IoT platform allowed',
+      'Prototyping materials provided',
+      'Problem statement disclosed at start',
+      'Hardware integration required',
+      'Live demonstration mandatory',
+      'Code and documentation required',
+      'Judging based on innovation and implementation',
+      'Time limit: 8 hours'
+    ],
+    coordinators: [
+      { name: 'Samantha Kumar', phone: '+91 98765 43223' }
+    ]
+  },
+  {
+    id: 'cybersecurity-challenge',
+    title: 'Cybersecurity Challenge',
+    category: 'flagship',
+    date: 'March 16, 2024',
+    time: '10:00 AM - 5:00 PM',
+    venue: 'Security Lab',
+    teamSize: '1-3 members',
+    fee: '₹350 per team',
+    prizePool: '₹45,000',
+    image: 'https://images.unsplash.com/photo-1550439062-1d610440967b?w=800',
+    description: 'Test your cybersecurity skills by finding vulnerabilities and securing systems. Compete in CTF challenges and ethical hacking competitions.',
+    rules: [
+      'CTF (Capture The Flag) format',
+      'No external tools except authorized ones',
+      'Flag submission via online platform',
+      'Multiple challenge categories',
+      'Ethical hacking practices mandatory',
+      'Real-time scoring board',
+      'Writeups optional but beneficial',
+      'Scoring based on flags and time'
+    ],
+    coordinators: [
+      { name: 'Prakash Singh', phone: '+91 98765 43224' }
+    ]
+  },
+  {
+    id: 'robotics-challenge',
+    title: 'Advanced Robotics Challenge',
+    category: 'flagship',
+    date: 'March 17, 2024',
+    time: '8:00 AM - 6:00 PM',
+    venue: 'Robotics Lab',
+    teamSize: '3-5 members',
+    fee: '₹700 per team',
+    prizePool: '₹70,000',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800',
+    description: 'Design and build robots that can navigate complex environments and perform autonomous tasks. Showcase advanced robotics and AI integration.',
+    rules: [
+      'Robot weight limit: 25 kg',
+      'Custom builds only',
+      'Autonomous operation required',
+      'Task requirements revealed on-site',
+      'Technical specifications mandatory',
+      'Safety inspection required',
+      'Multiple rounds competition',
+      'Scoring based on performance metrics'
+    ],
+    coordinators: [
+      { name: 'Rajesh Kumar', phone: '+91 98765 43225' },
+      { name: 'Sophia Patel', phone: '+91 98765 43226' }
+    ]
+  },
+  {
+    id: 'app-development',
+    title: 'Mobile App Development',
+    category: 'flagship',
+    date: 'March 17, 2024',
+    time: '9:00 AM - 7:00 PM',
+    venue: 'Dev Lab',
+    teamSize: '2-3 members',
+    fee: '₹300 per team',
+    prizePool: '₹50,000',
+    image: 'https://images.unsplash.com/photo-1512941691920-25bda36dc643?w=800',
+    description: 'Create fully functional mobile applications with innovative features. Choose between iOS, Android, or cross-platform development.',
+    rules: [
+      'React Native, Flutter, or native development',
+      'App store deployment preferred',
+      'Full source code required',
+      'Feature demonstration mandatory',
+      'UI/UX quality assessed',
+      'Time limit: 8 hours',
+      'No pre-built apps allowed',
+      'Judging based on functionality, design, and innovation'
+    ],
+    coordinators: [
+      { name: 'Amith Verma', phone: '+91 98765 43227' }
+    ]
+  },
+  {
+    id: 'data-science',
+    title: 'Data Science Olympiad',
+    category: 'flagship',
+    date: 'March 17, 2024',
+    time: '10:00 AM - 6:00 PM',
+    venue: 'Data Lab',
+    teamSize: '2-3 members',
+    fee: '₹400 per team',
+    prizePool: '₹55,000',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
+    description: 'Analyze datasets and build predictive models. Compete in data analysis and machine learning challenges with real-world datasets.',
+    rules: [
+      'Dataset provided on competition day',
+      'Python/R allowed',
+      'Jupyter notebooks preferred',
+      'Data visualization required',
+      'Model accuracy critical',
+      'Approach documentation required',
+      'Time limit: 5 hours',
+      'Scoring based on accuracy and methodology'
+    ],
+    coordinators: [
+      { name: 'Deepak Sharma', phone: '+91 98765 43228' }
+    ]
+  },
+  {
+    id: 'blockchain-summit',
+    title: 'Blockchain Innovation Summit',
+    category: 'flagship',
+    date: 'March 18, 2024',
+    time: '9:00 AM - 5:00 PM',
+    venue: 'Tech Hall',
+    teamSize: '2-4 members',
+    fee: '₹500 per team',
+    prizePool: '₹65,000',
+    image: 'https://images.unsplash.com/photo-1639762681033-6461d4221fdb?w=800',
+    description: 'Build decentralized applications using blockchain technology. Create smart contracts and explore cryptocurrency implementations.',
+    rules: [
+      'Ethereum or Polygon network',
+      'Solidity or Rust allowed',
+      'Smart contract deployment required',
+      'Security audit needed',
+      'Documentation mandatory',
+      'Live demo required',
+      'Code availability on GitHub',
+      'Judging based on innovation and execution'
+    ],
+    coordinators: [
+      { name: 'Arun Kumar', phone: '+91 98765 43229' }
+    ]
+  },
+  {
+    id: 'network-protocols',
+    title: 'Network Protocols Challenge',
+    category: 'general',
+    date: 'March 15, 2024',
+    time: '12:00 PM - 5:00 PM',
+    venue: 'Networking Lab',
+    teamSize: '1-2 members',
+    fee: '₹200 per team',
+    prizePool: '₹18,000',
+    image: 'https://images.unsplash.com/photo-1560253023-3ec5d8b50766?w=800',
+    description: 'Test your networking knowledge with hands-on challenges. Configure networks, troubleshoot issues, and optimize performance.',
+    rules: [
+      'Cisco Packet Tracer allowed',
+      'Multiple scenarios provided',
+      'Network configuration required',
+      'Troubleshooting tasks included',
+      'Documentation required',
+      'Time limit: 3 hours',
+      'Judging based on accuracy and efficiency',
+      'Best practices assessment'
+    ],
+    coordinators: [
+      { name: 'Rajiv Yadav', phone: '+91 98765 43230' }
+    ]
+  },
+  {
+    id: 'graphic-design',
+    title: 'Graphic Design Showcase',
+    category: 'general',
+    date: 'March 16, 2024',
+    time: '2:00 PM - 7:00 PM',
+    venue: 'Design Studio',
+    teamSize: '1-2 members',
+    fee: '₹150 per team',
+    prizePool: '₹15,000',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800',
+    description: 'Create stunning visual designs from scratch. Design posters, logos, and digital artworks based on given themes.',
+    rules: [
+      'Adobe Creative Suite or alternatives',
+      'Original work only',
+      'Theme revealed at start',
+      'Multiple deliverables required',
+      'Portfolio presentation',
+      'Time limit: 4 hours',
+      'Judging based on creativity and execution',
+      'Technical skill assessment'
+    ],
+    coordinators: [
+      { name: 'Priya Malhotra', phone: '+91 98765 43231' }
+    ]
+  },
+  {
+    id: 'cloud-computing',
+    title: 'Cloud Architecture Design',
+    category: 'general',
+    date: 'March 17, 2024',
+    time: '11:00 AM - 6:00 PM',
+    venue: 'Cloud Lab',
+    teamSize: '2-3 members',
+    fee: '₹350 per team',
+    prizePool: '₹28,000',
+    image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800',
+    description: 'Design scalable cloud infrastructure. Deploy applications on AWS, Azure, or GCP with focus on security and optimization.',
+    rules: [
+      'Any major cloud provider',
+      'Architecture diagram required',
+      'Cost estimation mandatory',
+      'Security best practices',
+      'Documentation needed',
+      'Live infrastructure demo',
+      'Time limit: 6 hours',
+      'Judging on design and implementation'
+    ],
+    coordinators: [
+      { name: 'Vikram Patel', phone: '+91 98765 43232' }
+    ]
+  },
+  {
+    id: 'competitive-programming',
+    title: 'Competitive Programming Arena',
+    category: 'general',
+    date: 'March 14, 2024',
+    time: '3:00 PM - 7:00 PM',
+    venue: 'Programming Lab',
+    teamSize: '1-3 members',
+    fee: '₹250 per team',
+    prizePool: '₹22,000',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800',
+    description: 'Solve complex algorithmic problems in a time-bound contest. Prove your problem-solving and coding expertise.',
+    rules: [
+      'C++, Java, or Python only',
+      'Online judge platform',
+      'No internet access',
+      '10-15 problems',
+      'Scoring by problems solved',
+      'Time penalty applied',
+      'Duration: 4 hours',
+      'Leaderboard-based ranking'
+    ],
+    coordinators: [
+      { name: 'Harsh Kumar', phone: '+91 98765 43233' }
+    ]
+  },
+  {
+    id: 'minecraft-build',
+    title: 'Minecraft Building Challenge',
+    category: 'gaming',
+    date: 'March 15, 2024',
+    time: '12:00 PM - 6:00 PM',
+    venue: 'Gaming Arena',
+    teamSize: '1-2 members',
+    fee: '₹300 per team',
+    prizePool: '₹18,000',
+    image: 'https://images.unsplash.com/photo-1538612594181-d95b4c869e00?w=800',
+    description: 'Showcase your creativity and building skills. Construct amazing structures within the theme and time limit in Minecraft.',
+    rules: [
+      'Vanilla Minecraft only',
+      'Theme announced at start',
+      'Time limit: 5 hours',
+      'Creative mode',
+      'No pre-built structures',
+      'Judging on creativity and detail',
+      'Final build screenshot required',
+      'Points based on theme relevance'
+    ],
+    coordinators: [
+      { name: 'Aryan Singh', phone: '+91 98765 43234' }
+    ]
   }
 ];
 
