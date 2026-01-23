@@ -35,7 +35,6 @@ export const Theme = () => {
             bg-white/5
             border border-white/10
             p-6 sm:p-8 md:p-10 lg:p-14
-            text-gray-200
           "
           style={{
             clipPath:
@@ -47,12 +46,12 @@ export const Theme = () => {
           <span className="absolute bottom-0 right-0 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 border-b border-r border-purple-500/50" />
 
           {/* TITLE */}
-          <h3 className="font-oxanium text-2xl sm:text-3xl md:text-4xl font-bold text-white uppercase tracking-wide mb-6 sm:mb-8">
+          <h3 className="font-oxanium text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-wide mb-6 sm:mb-8" style={{ color: "white" }}>
             FutureTech – Engineering Tomorrow
           </h3>
 
           {/* CONTENT – SINGLE PARAGRAPH */}
-          <p className="font-space text-sm sm:text-base md:text-lg leading-relaxed text-gray-100">
+          <p className="font-space text-sm sm:text-base md:text-lg leading-relaxed" style={{ color: "white" }}>
             FutureTech: Engineering Tomorrow represents the vision of technology
             that goes beyond the present and shapes the world ahead. This theme
             focuses on forward-thinking innovations that redefine how humans
