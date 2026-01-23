@@ -4,75 +4,111 @@ import { motion } from "framer-motion";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center bg-black overflow-hidden">
-      {/* VIDEO BACKGROUND */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/videos/hero-bg.mp4" type="video/mp4" />
-      </video>
+      {/* 🏫 BACKGROUND IMAGE */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/clg.png')" }}
+      />
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* 🌑 OVERLAY */}
+      <div className="absolute inset-0 bg-black/50" />
 
-      {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-40">
-        {/* ================= HEADER ================= */}
+      {/* 🪟 CONTENT */}
+      <div className="relative z-10 w-full flex justify-center px-4 mt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.7 }}
+          className="
+            w-full max-w-6xl
+            bg-white/5
+            backdrop-blur-md
+            border border-white/10
+            rounded-xl
+            px-6 py-4
+            sm:px-10 sm:py-6
+            md:px-14 md:py-8
+            shadow-[0_0_30px_rgba(255,255,255,0.08)]
+          "
         >
-          {/* IEEE UVCE — NOW CLEAR & VISIBLE */}
-          <p className="font-rajdhani text-lg md:text-xl uppercase tracking-[0.25em] text-white mb-6">
-            IEEE UVCE PRESENTS ANNUAL NATIONAL-LEVEL <br />
-            <span className="text-purple-300">
-              TECHNICAL STUDENT EXTRAVAGANZA
-            </span>
-          </p>
+          {/* ================= HEADER ================= */}
+          <div className="text-center mb-8">
+            <p className="font-rajdhani text-base sm:text-lg md:text-xl mb-3 text-black/80">
+              IEEE UVCE presents annual national-level <br />
+              Technical Student Extravaganza
+            </p>
 
-          {/* IMPETUS TITLE — NOT WIDE */}
-          <h1 className="font-oxanium text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-white tracking-normal" style={{ textShadow: '0 0 15px rgba(168, 85, 247, 0.4), 0 0 30px rgba(239, 68, 68, 0.2)' }}>
-            IMPETUS 26.0
-          </h1>
+            <h1
+              className="
+                font-extrabold
+                tracking-tight
+                text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+                text-white
+              "
+              style={{
+                fontFamily: "'Bebas Neue', sans-serif",
+                textShadow: "0 0 18px rgba(255,255,255,0.25)",
+              }}
+            >
+              IMPETUS 26.0
+            </h1>
+          </div>
+
+          {/* ================= BUTTONS + LOGO ================= */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+            {/* BUTTONS */}
+            <div className="flex flex-col gap-5 items-start">
+              {/* REGISTER BUTTON */}
+              <button
+                className="
+                  px-8 py-3
+                  text-sm sm:text-base
+                  font-semibold
+                  tracking-wider
+                  bg-black
+                  rounded-full
+                  hover:bg-neutral-800
+                  transition-all
+                  flex items-center
+                  shadow-lg
+                "
+                style={{ fontFamily: "'Rajdhani', sans-serif", color: "white" }}
+              >
+                REGISTER NOW
+                <ArrowRight className="ml-3" style={{ color: "white" }} />
+              </button>
+
+              {/* PASS BUTTON */}
+              <button
+                className="
+                  px-8 py-3
+                  text-sm sm:text-base
+                  font-semibold
+                  tracking-wider
+                  bg-black
+                  rounded-full
+                  hover:bg-neutral-800
+                  transition-all
+                  flex items-center
+                  shadow-lg
+                "
+                style={{ fontFamily: "'Rajdhani', sans-serif", color: "white" }}
+              >
+                <Ticket className="mr-3" style={{ color: "white" }} />
+                ALL-IN-ONE PASS
+              </button>
+            </div>
+
+            {/* LOGO */}
+            <div className="flex justify-center">
+              <img
+                src="/images/logo.png"
+                alt="Impetus Logo"
+                className="w-44 sm:w-52 md:w-60 lg:w-72 drop-shadow-xl"
+              />
+            </div>
+          </div>
         </motion.div>
-
-        {/* ================= BUTTONS + LOGO ================= */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-20">
-          {/* BUTTONS */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="flex flex-col gap-6 items-start"
-          >
-            <button className="arrow-btn primary">
-              REGISTER NOW <ArrowRight />
-            </button>
-
-            <button className="arrow-btn primary">
-              <Ticket /> ALL-IN-ONE PASS
-            </button>
-          </motion.div>
-
-          {/* LOGO */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="flex justify-center"
-          >
-            <img
-              src="/images/logo.png"
-              alt="Impetus Logo"
-              className="w-64 sm:w-72 md:w-80"
-            />
-          </motion.div>
-        </div>
       </div>
     </section>
   );

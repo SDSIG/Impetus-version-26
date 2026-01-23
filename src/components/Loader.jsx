@@ -1,299 +1,91 @@
-// import { useState, useEffect } from 'react';
-// import { motion, AnimatePresence } from 'framer-motion';
-// import { Scene } from '../canvas/Scene';
-
-// export const Loader = ({ onComplete }) => {
-//   const [progress, setProgress] = useState(0);
-//   const [isComplete, setIsComplete] = useState(false);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setProgress((prev) => {
-//         if (prev >= 100) {
-//           clearInterval(interval);
-//           setTimeout(() => {
-//             setIsComplete(true);
-//             setTimeout(() => onComplete(), 500);
-//           }, 500);
-//           return 100;
-//         }
-//         return prev + 2;
-//       });
-//     }, 50);
-
-//     return () => clearInterval(interval);
-//   }, [onComplete]);
-
-//   return (
-//     <AnimatePresence>
-//       {!isComplete && (
-//         <motion.div
-//           initial={{ opacity: 1 }}
-//           exit={{ opacity: 0 }}
-//           className="fixed inset-0 z-50 bg-base flex items-center justify-center"
-//         >
-//           <motion.div
-//             initial={{ scale: 0.8, opacity: 0 }}
-//             animate={{ scale: 1, opacity: 1 }}
-//             className="flex flex-col items-center justify-center space-y-8"
-//           >
-//             <div className="w-64 h-64">
-//               <Scene coreScale={1.5} />
-//             </div>
-//             <div className="text-center space-y-4">
-//               <motion.h2
-//                 initial={{ opacity: 0, y: 20 }}
-//                 animate={{ opacity: 1, y: 0 }}
-//                 className="text-2xl font-orbitron font-bold text-neon-cyan uppercase tracking-widest"
-//               >
-//                 INITIALIZING IMPETUS 26.0...
-//               </motion.h2>
-//               {/* <div className="w-[32rem] h-1.5 bg-white/10 rounded-full overflow-hidden"> */}
-//               <div className="w-[85vw] max-w-[32rem] h-1.5 bg-white/10 rounded-full overflow-hidden">
-//                 <motion.div
-//                   className="h-full bg-gradient-to-r from-neon-cyan to-neon-violet"
-//                   initial={{ width: 0 }}
-//                   animate={{ width: `${progress}%` }}
-//                   transition={{ duration: 0.3 }}
-//                 />
-//               </div>
-//               <motion.p
-//                 initial={{ opacity: 0 }}
-//                 animate={{ opacity: 1 }}
-//                 className="text-3xl font-orbitron font-bold text-neon-cyan"
-//               >
-//                 {progress}%
-//               </motion.p>
-//             </div>
-//           </motion.div>
-//         </motion.div>
-//       )}
-//     </AnimatePresence>
-//   );
-// };
-
-
-// import { useState, useEffect } from 'react';
-// import { motion, AnimatePresence } from 'framer-motion';
-// import { Scene } from '../canvas/Scene';
-
-// /* Sparkle component */
-// const Sparkles = () => {
-//   const sparkles = Array.from({ length: 300 });
-
-//   return (
-//     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-//       {sparkles.map((_, i) => (
-//         <motion.span
-//           key={i}
-//           className="absolute w-0.5 h-0.5 rounded-full bg-white"
-//           initial={{
-//             opacity: 0,
-//             scale: 0,
-//             x: Math.random() * window.innerWidth,
-//             y: Math.random() * window.innerHeight,
-//           }}
-//           animate={{
-//             opacity: [0, 1, 0],
-//             scale: [0, 1.2, 0],
-//           }}
-//           transition={{
-//             duration: 2 + Math.random() * 3,
-//             repeat: Infinity,
-//             delay: 0,
-//             ease: 'easeInOut',
-//           }}
-//         />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export const Loader = ({ onComplete }) => {
-//   const [progress, setProgress] = useState(0);
-//   const [isComplete, setIsComplete] = useState(false);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setProgress((prev) => {
-//         if (prev >= 100) {
-//           clearInterval(interval);
-//           setTimeout(() => {
-//             setIsComplete(true);
-//             setTimeout(() => onComplete(), 500);
-//           }, 500);
-//           return 100;
-//         }
-//         return prev + 2;
-//       });
-//     }, 50);
-
-//     return () => clearInterval(interval);
-//   }, [onComplete]);
-
-//   return (
-//     <AnimatePresence>
-//       {!isComplete && (
-//         <motion.div
-//           initial={{ opacity: 1 }}
-//           exit={{ opacity: 0 }}
-//           className="fixed inset-0 z-50 bg-base flex items-center justify-center"
-//         >
-//           {/* ✨ FULLSCREEN SPARKLES */}
-//           <Sparkles />
-
-//           <motion.div
-//             initial={{ scale: 0.8, opacity: 0 }}
-//             animate={{ scale: 1.2, opacity: 1 }}
-//             className="relative z-10 flex flex-col items-center justify-center space-y-8"
-//           >
-//             <div className="w-64 h-64">
-//               <Scene coreScale={1.5} />
-//             </div>
-
-//             <div className="text-center space-y-4">
-//               <motion.h2
-//                 initial={{ opacity: 0, y: 20 }}
-//                 animate={{ opacity: 1, y: 0 }}
-//                 className="text-2xl font-orbitron font-bold text-neon-cyan uppercase tracking-widest"
-//               >
-//                 INITIALIZING IMPETUS 26.0...
-//               </motion.h2>
-
-//               <div className="w-[85vw] max-w-[32rem] h-1.5 bg-white/10 rounded-full overflow-hidden">
-//                 <motion.div
-//                   className="h-full bg-gradient-to-r from-neon-cyan to-neon-violet"
-//                   initial={{ width: 0 }}
-//                   animate={{ width: `${progress}%` }}
-//                   transition={{ duration: 1 }}
-//                 />
-//               </div>
-
-//               <motion.p
-//                 initial={{ opacity: 0 }}
-//                 animate={{ opacity: 1 }}
-//                 className="text-3xl font-orbitron font-bold text-neon-cyan"
-//               >
-//                 {progress}%
-//               </motion.p>
-//             </div>
-//           </motion.div>
-//         </motion.div>
-//       )}
-//     </AnimatePresence>
-//   );
-// };
-
-
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Scene } from '../canvas/Scene';
-
-/* Sparkle component */
-const Sparkles = () => {
-  const sparkles = Array.from({ length: 300 });
-
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {sparkles.map((_, i) => (
-        <motion.span
-          key={i}
-          className="absolute w-0.5 h-0.5 sm:w-[2px] sm:h-[2px] rounded-full bg-white"
-          initial={{
-            opacity: 0,
-            scale: 0,
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-          }}
-          animate={{
-            opacity: [0, 1, 0],
-            scale: [0, 1.2, 0],
-          }}
-          transition={{
-            duration: 2 + Math.random() * 3,
-            repeat: Infinity,
-            delay: 0,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Loader = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
+  const [exit, setExit] = useState(false);
+  const videoRef = useRef(null);
 
+  // Slow down the video playback
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setIsComplete(true);
-            setTimeout(() => onComplete(), 500);
-          }, 500);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 50);
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.6;
+    }
+  }, []);
 
-    return () => clearInterval(interval);
-  }, [onComplete]);
+  const handleDiveClick = () => {
+    setExit(true);
+    setTimeout(() => {
+      onComplete();
+      const hero = document.getElementById("hero");
+      hero?.scrollIntoView({ behavior: "smooth" });
+    }, 900);
+  };
 
   return (
     <AnimatePresence>
-      {!isComplete && (
+      {!exit && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-base flex flex-col sm:flex-row items-center justify-center p-4 sm:p-8 gap-8"
+          className="fixed inset-0 z-50 flex items-center justify-center"
         >
-          {/* ✨ FULLSCREEN SPARKLES */}
-          <Sparkles />
-
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1.2, opacity: 1 }}
-            className="relative z-10 flex flex-col items-center justify-center space-y-6 sm:space-y-8 w-full max-w-[95vw] sm:max-w-[40rem]"
+          {/* 🎥 BACKGROUND VIDEO */}
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
           >
-            {/* Scene */}
-            <div className="w-[70vw] max-w-[28rem] sm:w-[20rem] sm:h-[20rem] md:w-[24rem] md:h-[24rem]">
-              <Scene coreScale={1.5} />
-            </div>
+            <source src="/videos/background1.mp4" type="video/mp4" />
+          </video>
 
-            {/* Text + Progress */}
-            <div className="text-center space-y-4 w-full px-2">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-lg sm:text-2xl md:text-3xl font-orbitron font-bold text-neon-cyan uppercase tracking-widest"
-              >
-                INITIALIZING IMPETUS 26.0...
-              </motion.h2>
+          {/* 🌑 OVERLAYS */}
+          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
 
-              {/* Progress Bar */}
-              <div className="w-full max-w-[90%] sm:max-w-[32rem] h-1.5 sm:h-2 bg-white/10 rounded-full overflow-hidden mx-auto">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-neon-cyan to-neon-violet"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 1 }}
-                />
-              </div>
+          {/* 🚀 CONTENT */}
+          <div className="relative z-10 flex flex-col items-center justify-end w-full h-full px-4 pb-12 sm:pb-24">
+            {/* 🚀 CTA BUTTON */}
+            <motion.button
+              onClick={handleDiveClick}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 0px 30px rgba(0,180,255,0.6)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              exit={{
+                y: -900,
+                opacity: 0,
+                scale: 0.7,
+                transition: { duration: 0.9, ease: "easeIn" },
+              }}
+              className="
+                relative
+                px-5 py-2.5
+                sm:px-8 sm:py-3.5
+                md:px-12 md:py-5
+                rounded-xl
+                border border-sky-400/50
+                bg-gradient-to-r from-sky-500/90 to-indigo-600/90
+                text-white
+                text-sm sm:text-lg md:text-2xl
+                font-orbitron tracking-wide
+                backdrop-blur-sm
+                overflow-hidden
+              "
+            >
+              {/* subtle glow */}
+              <span className="absolute inset-0 bg-white/10 blur-xl" />
 
-              {/* Percentage */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-xl sm:text-3xl md:text-4xl font-orbitron font-bold text-neon-cyan"
-              >
-                {progress}%
-              </motion.p>
-            </div>
-          </motion.div>
+              <span className="relative z-10">
+                Ready to dive into future tech??
+              </span>
+            </motion.button>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
