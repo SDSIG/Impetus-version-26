@@ -197,14 +197,43 @@ export const Footer = () => {
           </p>
 
           {/* Names */}
-          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 text-white font-orbitron font-bold text-sm">
+          {/* <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 text-white font-orbitron font-bold text-sm">
             <span>Dhruv Rathi</span>
             <span>Lahari Priya N</span>
             <span>Rahita H Puthran</span>
-          </div>
+          </div> */}
+          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 text-white font-orbitron font-bold text-sm">
+              <a
+                href="https://www.linkedin.com/in/dhruv-rathi-399378282/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-yellow-400 transition-colors duration-200 cursor-pointer"
+              >
+                Dhruv Rathi
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/lahari-priya-n/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-yellow-400 transition-colors duration-200 cursor-pointer"
+              >
+                Lahari Priya N
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/rahita-puthran-1262202a5/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-yellow-400 transition-colors duration-200 cursor-pointer"
+              >
+                Rahita H Puthran
+              </a>
+            </div>
+
 
           <p className="text-gray-400 font-space text-xs uppercase tracking-widest">
-            Secretories, SDSIG
+            Secretaries, SDSIG
           </p>
         </div>
       </div>
