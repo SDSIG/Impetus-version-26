@@ -48,7 +48,7 @@ export const Stats = () => {
   return (
     <section
       id="stats"
-      className="relative py-16 sm:py-24 md:py-28 bg-black border-y border-white/10 px-4 sm:px-6"
+      className="relative py-16 sm:py-24 md:py-28 text-white bg-black border-y border-white/10 px-4 sm:px-6"
     >
       <div className="max-w-7xl mx-auto">
         {/* GRID */}
@@ -72,7 +72,7 @@ export const Stats = () => {
                 transition-all duration-300
               "
               style={{
-                boxShadow: '0 0 12px rgba(168, 85, 247, 0.25), 0 0 20px rgba(239, 68, 68, 0.1)',
+                boxShadow: '0 0 12px rgba(253, 224, 71, 0.9), 0 0 20px rgba(239, 68, 68, 0.1)',
               }}
             >
               {/* NUMBER */}
