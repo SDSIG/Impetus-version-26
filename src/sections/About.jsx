@@ -81,7 +81,7 @@ export const About = () => {
               "
               style={{
                 clipPath: 'polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%)',
-                border: '2px solid rgb(168, 85, 247)',
+                border: '2px solid rgba(253, 224, 71, 0.9)',
                 boxShadow: '0 0 15px rgba(168, 85, 247, 0.3), 0 0 25px rgba(239, 68, 68, 0.15)',
               }}
             >
