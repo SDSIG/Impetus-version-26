@@ -1,7 +1,7 @@
 export const events = [
   {
     id: 'robo-wars',
-    title: 'Robo Wars',
+    title: 'AVIONX',
     category: 'flagship',
     date: 'March 14, 2024',
     time: '10:00 AM - 6:00 PM',
@@ -9,8 +9,8 @@ export const events = [
     teamSize: '2-4 members',
     fee: '₹500 per team',
     prizePool: '₹50,000',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800',
-    description: 'The ultimate battle of engineering excellence where autonomous and manual robots clash in an arena of destruction. Teams design, build, and operate combat robots to eliminate opponents through strategic maneuvers and powerful weaponry.',
+    image: '',
+    description: 'Immerse yourself in the world of aerospace with AvionX, an exhilarating competition under IMPETUS 25.0! Challenge yourself with aviation-themed tasks, solve mysteries, and design critical aerospace components in a battle of intellect, creativity, and team-work. Round 1: Is a fun role-play activity where participants act as detectives, solving an aviation-themed mystery. Round 2: “Fusion of Ideas” – The challenge gets bigger! Work within your domain to refine and develop key components of an aerospace system. Round 3: “The Grand Assembly” – Collaboration takes center stage! Engineers from different domains come together to create a complete aerospace system.',
     rules: [
       'Maximum robot weight: 15 kg',
       'Power supply: Battery only (24V max)',
@@ -28,7 +28,7 @@ export const events = [
   },
   {
     id: 'hackathon-2024',
-    title: 'CodeStorm Hackathon',
+    title: 'Brand It',
     category: 'flagship',
     date: 'March 14-15, 2024',
     time: '9:00 AM - 9:00 PM',
@@ -36,8 +36,8 @@ export const events = [
     teamSize: '2-4 members',
     fee: '₹300 per team',
     prizePool: '₹75,000',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800',
-    description: 'A 36-hour intensive coding marathon where teams solve real-world problems using cutting-edge technologies. Build innovative solutions, showcase your coding prowess, and compete for the grand prize.',
+    image: '',
+    description: 'Brand IT is a competition designed to unleash participants’ creativity through the art of designing. It is a contest where using the best design skills to forge a unique brand kit turns into reality. Round 1: “Design Your Brand Kit” – Participants pick their brand category from provided options and craft a complete brand kit within 35 hours, including logo, color palette, typography, packaging, and more. Round 2: “Present Your Brand” – Shortlisted teams present their brand kits to judges. The most creative and visually compelling kit wins.',
     rules: [
       '36-hour continuous coding challenge',
       'Problem statements revealed at start',
@@ -55,7 +55,7 @@ export const events = [
   },
   {
     id: 'ai-challenge',
-    title: 'AI Innovation Challenge',
+    title: 'CIVICTURE',
     category: 'flagship',
     date: 'March 15, 2024',
     time: '11:00 AM - 5:00 PM',
@@ -63,8 +63,8 @@ export const events = [
     teamSize: '1-3 members',
     fee: '₹400 per team',
     prizePool: '₹60,000',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
-    description: 'Design and deploy AI models to solve complex challenges. From computer vision to natural language processing, showcase your machine learning expertise in this premier AI competition.',
+    image: '',
+    description: 'A platform where engineering brilliance meets architectural creativity. Round 1: Choose the correct answer from visual options (images/emojis). Top teams proceed. Round 2: Construct a model based on instructions and present it to judges.',
     rules: [
       'Dataset provided on-site',
       'GPU resources available',
@@ -82,7 +82,7 @@ export const events = [
   },
   {
     id: 'circuit-design',
-    title: 'Circuit Design Mastery',
+    title: 'BRAIN BIDS 2.0',
     category: 'general',
     date: 'March 14, 2024',
     time: '2:00 PM - 6:00 PM',
@@ -90,8 +90,8 @@ export const events = [
     teamSize: '1-2 members',
     fee: '₹200 per team',
     prizePool: '₹25,000',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800',
-    description: 'Design and implement electronic circuits to solve given problems. Test your knowledge of analog and digital electronics in this hands-on competition.',
+    image: '',
+    description: 'Bid wisely on questions in a battle of intellect and strategy. Round 1: “Bid Your Knowledge. Round 2: KBC-style rapid questioning.',
     rules: [
       'Components provided on-site',
       'Multisim/Proteus allowed for simulation',
@@ -108,7 +108,7 @@ export const events = [
   },
   {
     id: 'web-design',
-    title: 'Web Design Sprint',
+    title: 'DATA QUEST',
     category: 'general',
     date: 'March 14, 2024',
     time: '10:00 AM - 4:00 PM',
@@ -116,8 +116,8 @@ export const events = [
     teamSize: '1-2 members',
     fee: '₹250 per team',
     prizePool: '₹20,000',
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800',
-    description: 'Create stunning, responsive web interfaces in a time-bound challenge. Showcase your UI/UX skills and frontend development expertise.',
+    image: '',
+    description: 'Two-round data analytics competition. Round 1: Data cleaning + dashboard creation (Online, 5 hrs). Round 2: Offline presentation (10 mins).',
     rules: [
       'Design brief provided at start',
       'Any framework/library allowed',
@@ -134,7 +134,7 @@ export const events = [
   },
   {
     id: 'valorant-tournament',
-    title: 'Valorant Championship',
+    title: 'BGMI TOURNAMENT',
     category: 'gaming',
     date: 'March 15, 2024',
     time: '9:00 AM - 8:00 PM',
@@ -142,8 +142,8 @@ export const events = [
     teamSize: '5 members',
     fee: '₹500 per team',
     prizePool: '₹30,000',
-    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800',
-    description: 'Compete in the ultimate Valorant tournament. Battle through brackets in this tactical FPS championship with professional-grade setups.',
+    image: '',
+    description: 'Rounds based on registrations with ranking system.',
     rules: [
       'Single elimination bracket',
       'Best of 1 until semi-finals',
@@ -161,7 +161,7 @@ export const events = [
   },
   {
     id: 'fifa-championship',
-    title: 'FIFA eSports Cup',
+    title: 'CHESS MANIA',
     category: 'gaming',
     date: 'March 14, 2024',
     time: '11:00 AM - 7:00 PM',
@@ -169,8 +169,8 @@ export const events = [
     teamSize: '1 member',
     fee: '₹200 per participant',
     prizePool: '₹15,000',
-    image: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=800',
-    description: 'Showcase your football skills in the virtual world. Compete in FIFA 24 for the championship title and prize money.',
+    image: '',
+    description: 'Three-round online chess tournament. Round 1: Arena, 3+2, 1 hour Round 2: Arena system, 1 hour Round 3: Finals, standard',
     rules: [
       'Single player tournament',
       'Knockout format',
@@ -187,7 +187,7 @@ export const events = [
   },
   {
     id: 'drone-racing',
-    title: 'Drone Racing League',
+    title: 'ESCAPE ROOM: UVCE EDITION',
     category: 'general',
     date: 'March 15, 2024',
     time: '10:00 AM - 5:00 PM',
@@ -195,8 +195,8 @@ export const events = [
     teamSize: '1-2 members',
     fee: '₹600 per team',
     prizePool: '₹35,000',
-    image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800',
-    description: 'Navigate custom-built drones through challenging obstacle courses. Test your piloting skills and engineering precision in high-speed aerial racing.',
+    image: '',
+    description: 'Solve puzzles, hunt clues, and race against time.',
     rules: [
       'Drones must be custom-built',
       'Maximum weight: 250g',
@@ -214,7 +214,7 @@ export const events = [
   },
   {
     id: 'iot-innovation',
-    title: 'IoT Innovation Summit',
+    title: 'CODESTORM',
     category: 'flagship',
     date: 'March 16, 2024',
     time: '9:00 AM - 6:00 PM',
@@ -222,8 +222,8 @@ export const events = [
     teamSize: '2-4 members',
     fee: '₹450 per team',
     prizePool: '₹55,000',
-    image: 'https://images.unsplash.com/photo-1518770660705-30a45e4dc8d7?w=800',
-    description: 'Build innovative IoT solutions for real-world problems. Connect devices, process data, and create intelligent systems that impact society.',
+    image: '',
+    description: 'Gear up for an electrifying coding challenge at CODESTORM! Test your problem-solving skills across two intense rounds. Round 1: Four challenging coding problems to push analytical and problem-solving abilities. Top contenders advance. Round 2: Compete to achieve the highest score and prove coding excellence.',
     rules: [
       'Any IoT platform allowed',
       'Prototyping materials provided',
@@ -240,7 +240,7 @@ export const events = [
   },
   {
     id: 'cybersecurity-challenge',
-    title: 'Cybersecurity Challenge',
+    title: 'HACK-A-MAZE',
     category: 'flagship',
     date: 'March 16, 2024',
     time: '10:00 AM - 5:00 PM',
@@ -248,8 +248,8 @@ export const events = [
     teamSize: '1-3 members',
     fee: '₹350 per team',
     prizePool: '₹45,000',
-    image: 'https://images.unsplash.com/photo-1550439062-1d610440967b?w=800',
-    description: 'Test your cybersecurity skills by finding vulnerabilities and securing systems. Compete in CTF challenges and ethical hacking competitions.',
+    image: '',
+    description: 'Build a robot and race it through a line track — your own F1 with bots! Round 1: Navigate an easier track quickly and accurately. Round 2: Follow the full track, passing checkpoints for maximum points. Time matters.',
     rules: [
       'CTF (Capture The Flag) format',
       'No external tools except authorized ones',
@@ -266,7 +266,7 @@ export const events = [
   },
   {
     id: 'robotics-challenge',
-    title: 'Advanced Robotics Challenge',
+    title: 'MECHRONINS',
     category: 'flagship',
     date: 'March 17, 2024',
     time: '8:00 AM - 6:00 PM',
@@ -274,8 +274,8 @@ export const events = [
     teamSize: '3-5 members',
     fee: '₹700 per team',
     prizePool: '₹70,000',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800',
-    description: 'Design and build robots that can navigate complex environments and perform autonomous tasks. Showcase advanced robotics and AI integration.',
+    image: '',
+    description: 'Mechanical brilliance takes center stage. Round 1: “Mech Mystery” – Mechanical puzzles. Round 2: “Machine Run 2.0” – Team adventure solving puzzles and clues. Round 3: “Design Innovators Challenge” – Solve design problems and present futuristic concepts.',
     rules: [
       'Robot weight limit: 25 kg',
       'Custom builds only',
@@ -293,7 +293,7 @@ export const events = [
   },
   {
     id: 'app-development',
-    title: 'Mobile App Development',
+    title: 'MOCK PLACEMENTS',
     category: 'flagship',
     date: 'March 17, 2024',
     time: '9:00 AM - 7:00 PM',
@@ -301,8 +301,8 @@ export const events = [
     teamSize: '2-3 members',
     fee: '₹300 per team',
     prizePool: '₹50,000',
-    image: 'https://images.unsplash.com/photo-1512941691920-25bda36dc643?w=800',
-    description: 'Create fully functional mobile applications with innovative features. Choose between iOS, Android, or cross-platform development.',
+    image: '',
+    description: 'Experience recruitment through a simulated hiring process. Round 1: Assessment of logical reasoning, aptitude, subject knowledge (IT may include coding). Round 2: Technical & HR interviews with constructive feedback.',
     rules: [
       'React Native, Flutter, or native development',
       'App store deployment preferred',
@@ -319,7 +319,7 @@ export const events = [
   },
   {
     id: 'data-science',
-    title: 'Data Science Olympiad',
+    title: 'SILIC-O-HACK',
     category: 'flagship',
     date: 'March 17, 2024',
     time: '10:00 AM - 6:00 PM',
@@ -327,8 +327,8 @@ export const events = [
     teamSize: '2-3 members',
     fee: '₹400 per team',
     prizePool: '₹55,000',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-    description: 'Analyze datasets and build predictive models. Compete in data analysis and machine learning challenges with real-world datasets.',
+    image: '',
+    description: 'Transform innovative ideas into practical solutions. Round 1: “Analysis & Troubleshooting” – Repair faulty circuits (resistors, capacitors, transistors, MOSFETs, op-amps). Round 2: Ideation, design, presentation, and evaluation based on a problem statement..',
     rules: [
       'Dataset provided on competition day',
       'Python/R allowed',
@@ -345,7 +345,7 @@ export const events = [
   },
   {
     id: 'blockchain-summit',
-    title: 'Blockchain Innovation Summit',
+    title: 'SUMMIT (Student Parliament)',
     category: 'flagship',
     date: 'March 18, 2024',
     time: '9:00 AM - 5:00 PM',
@@ -353,8 +353,34 @@ export const events = [
     teamSize: '2-4 members',
     fee: '₹500 per team',
     prizePool: '₹65,000',
-    image: 'https://images.unsplash.com/photo-1639762681033-6461d4221fdb?w=800',
-    description: 'Build decentralized applications using blockchain technology. Create smart contracts and explore cryptocurrency implementations.',
+    image: '',
+    description: 'A gateway for knowledge sharing, problem solving, presentations, and professional development. Panel Discussion (Pre-IMPETUS): Topic discussion + problem statement reveal. Preliminary Round: Virtual presentations. Round 1: PowerPoint presentation of structured solutions. Round 2: New problem statement; PPT optional.',
+    rules: [
+      'Ethereum or Polygon network',
+      'Solidity or Rust allowed',
+      'Smart contract deployment required',
+      'Security audit needed',
+      'Documentation mandatory',
+      'Live demo required',
+      'Code availability on GitHub',
+      'Judging based on innovation and execution'
+    ],
+    coordinators: [
+      { name: 'Arun Kumar', phone: '+91 98765 43229' }
+    ]
+  },
+   {
+    id: 'blockchain-summit',
+    title: 'LASER TAG',
+    category: 'flagship',
+    date: 'March 18, 2024',
+    time: '9:00 AM - 5:00 PM',
+    venue: 'Tech Hall',
+    teamSize: '2-4 members',
+    fee: '₹500 per team',
+    prizePool: '₹65,000',
+    image: '',
+    description: 'Action-packed infrared combat in a darkened arena. Strategy meets adrenaline.',
     rules: [
       'Ethereum or Polygon network',
       'Solidity or Rust allowed',
@@ -371,7 +397,7 @@ export const events = [
   },
   {
     id: 'network-protocols',
-    title: 'Network Protocols Challenge',
+    title: 'IPL AUCTION',
     category: 'general',
     date: 'March 15, 2024',
     time: '12:00 PM - 5:00 PM',
@@ -379,8 +405,8 @@ export const events = [
     teamSize: '1-2 members',
     fee: '₹200 per team',
     prizePool: '₹18,000',
-    image: 'https://images.unsplash.com/photo-1560253023-3ec5d8b50766?w=800',
-    description: 'Test your networking knowledge with hands-on challenges. Configure networks, troubleshoot issues, and optimize performance.',
+    image: '',
+    description: 'From quiz to panel auction to mega auction streamed live on YouTube.',
     rules: [
       'Cisco Packet Tracer allowed',
       'Multiple scenarios provided',
@@ -397,7 +423,7 @@ export const events = [
   },
   {
     id: 'graphic-design',
-    title: 'Graphic Design Showcase',
+    title: 'Kannada Decode & Debate Event',
     category: 'general',
     date: 'March 16, 2024',
     time: '2:00 PM - 7:00 PM',
@@ -405,8 +431,8 @@ export const events = [
     teamSize: '1-2 members',
     fee: '₹150 per team',
     prizePool: '₹15,000',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800',
-    description: 'Create stunning visual designs from scratch. Design posters, logos, and digital artworks based on given themes.',
+    image: '',
+    description: 'Two-round Kannada event blending culture and technology. Round 1: Decode cryptic Kannada phrases. Round 2: Debate on Bengaluru’s technological evolution.',
     rules: [
       'Adobe Creative Suite or alternatives',
       'Original work only',
@@ -423,7 +449,7 @@ export const events = [
   },
   {
     id: 'cloud-computing',
-    title: 'Cloud Architecture Design',
+    title: 'SYNTHETIC INTELLIGENCE',
     category: 'general',
     date: 'March 17, 2024',
     time: '11:00 AM - 6:00 PM',
@@ -431,8 +457,8 @@ export const events = [
     teamSize: '2-3 members',
     fee: '₹350 per team',
     prizePool: '₹28,000',
-    image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800',
-    description: 'Design scalable cloud infrastructure. Deploy applications on AWS, Azure, or GCP with focus on security and optimization.',
+    image: '',
+    description: 'Prompt-engineering competition testing logic, creativity, and AI mastery in a single round.',
     rules: [
       'Any major cloud provider',
       'Architecture diagram required',
@@ -449,7 +475,7 @@ export const events = [
   },
   {
     id: 'competitive-programming',
-    title: 'Competitive Programming Arena',
+    title: 'THE TIME TRAVELER’S CODE',
     category: 'general',
     date: 'March 14, 2024',
     time: '3:00 PM - 7:00 PM',
@@ -457,8 +483,34 @@ export const events = [
     teamSize: '1-3 members',
     fee: '₹250 per team',
     prizePool: '₹22,000',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800',
-    description: 'Solve complex algorithmic problems in a time-bound contest. Prove your problem-solving and coding expertise.',
+    image: '',
+    description: 'Decode encrypted messages, solve mysteries, use AI to rebuild a lost timeline. Work with corrupted datasets and present AI-based solutions.',
+    rules: [
+      'C++, Java, or Python only',
+      'Online judge platform',
+      'No internet access',
+      '10-15 problems',
+      'Scoring by problems solved',
+      'Time penalty applied',
+      'Duration: 4 hours',
+      'Leaderboard-based ranking'
+    ],
+    coordinators: [
+      { name: 'Harsh Kumar', phone: '+91 98765 43233' }
+    ]
+  },
+   {
+    id: 'competitive-programming',
+    title: 'THINK TANK',
+    category: 'general',
+    date: 'March 14, 2024',
+    time: '3:00 PM - 7:00 PM',
+    venue: 'Programming Lab',
+    teamSize: '1-3 members',
+    fee: '₹250 per team',
+    prizePool: '₹22,000',
+    image: '',
+    description: 'IoT-based strategic problem-solving event. Round 1: “Trade with Tinkercad” – Design using simulations with limited resources. Round 2: “Bid to Win” – Guess hidden companies and bid using clues.',
     rules: [
       'C++, Java, or Python only',
       'Online judge platform',
@@ -475,7 +527,7 @@ export const events = [
   },
   {
     id: 'minecraft-build',
-    title: 'Minecraft Building Challenge',
+    title: 'VALORANT',
     category: 'gaming',
     date: 'March 15, 2024',
     time: '12:00 PM - 6:00 PM',
@@ -483,8 +535,8 @@ export const events = [
     teamSize: '1-2 members',
     fee: '₹300 per team',
     prizePool: '₹18,000',
-    image: 'https://images.unsplash.com/photo-1538612594181-d95b4c869e00?w=800',
-    description: 'Showcase your creativity and building skills. Construct amazing structures within the theme and time limit in Minecraft.',
+    image: '',
+    description: 'High-stakes tactical shooter tournament. Event Highlights: Best of 3 till top 2, Finals best of 5',
     rules: [
       'Vanilla Minecraft only',
       'Theme announced at start',

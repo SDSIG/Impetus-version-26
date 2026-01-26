@@ -123,7 +123,7 @@ export const Stats = () => {
     <div className="w-8 sm:w-10 h-[2px] mx-auto mb-2 sm:mb-3 bg-[rgba(253,224,71,0.9)]" />
 
     {/* LABEL */}
-    <p className="font-rajdhani  text-white text-xs sm:text-sm md:text-base uppercase tracking-widest">
+    <p className="font-rajdhani text-white text-xs sm:text-sm md:text-base uppercase tracking-widest">
       {stat.label}
     </p>
   </motion.div>
