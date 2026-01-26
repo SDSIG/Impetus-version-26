@@ -51,12 +51,12 @@ const GalleryCircle = ({ images, delay = 0 }) => {
 
 export const Gallery = () => {
   const images = [
-    "images/pic1.jpg",
-    "images/pic2.jpg",
-    "images/pic3.jpg",
-    "images/pic4.jpg",
-    "images/pic5.jpg",
-    "images/pic6.png",
+    "/images/pic1.jpg",
+    "/images/pic2.jpg",
+    "/images/pic3.jpg",
+    "/images/pic4.jpg",
+    "/images/pic5.jpg",
+    "/images/pic6.png",
   ];
 
   return (
