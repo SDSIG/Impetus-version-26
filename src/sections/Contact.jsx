@@ -427,7 +427,9 @@ export const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:border-neon-cyan/50 transition"
+              // className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:border-neon-cyan/50 transition"
+              className="backdrop-blur-xl bg-white/5 border border-[rgba(253,224,71,0.5)] rounded-xl p-6 text-center shadow-[0_0_10px_rgba(253,224,71,0.35)] transition-all duration-300 hover:border-[rgba(253,224,71,0.9)] hover:shadow-[0_0_28px_rgba(253,224,71,0.9)]"
+
             >
               <h3 className="text-lg font-orbitron font-bold text-white mb-1">
                 {person.name}
@@ -464,7 +466,9 @@ export const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             onSubmit={handleSubmit}
-            className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 space-y-6"
+            // className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 space-y-6"
+            className="backdrop-blur-xl bg-white/5 border border-[rgba(253,224,71,0.5)] rounded-xl p-8 space-y-6 shadow-[0_0_10px_rgba(253,224,71,0.35)] transition-all duration-300 hover:border-[rgba(253,224,71,0.9)] hover:shadow-[0_0_28px_rgba(253,224,71,0.9)]"
+
           >
             <div>
               <label className="block text-sm text-gray-400 uppercase mb-2">
