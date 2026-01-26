@@ -51,12 +51,12 @@ const GalleryCircle = ({ images, delay = 0 }) => {
 
 export const Gallery = () => {
   const images = [
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800",
-    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800",
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
-    "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800",
+    "images/pic1.jpg",
+    "images/pic2.jpg",
+    "images/pic3.jpg",
+    "images/pic4.jpg",
+    "images/pic5.jpg",
+    "images/pic6.png",
   ];
 
   return (
