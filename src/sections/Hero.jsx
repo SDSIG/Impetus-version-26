@@ -1,39 +1,75 @@
+import { useState, useEffect } from "react";
 import { ArrowRight, Ticket } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const bgImages = [
+  "/images/bg1.jpg",
+  "/images/bg2.jpg",
+  "/images/bg3.jpg",
+  "/images/bg4.jpg",
+];
 
 export const Hero = () => {
+  const [currentBg, setCurrentBg] = useState(0);
+
+  // 🔁 Change image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % bgImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center bg-black overflow-hidden">
-      {/* 🏫 BACKGROUND IMAGE */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
+      {/* 🖼️ BACKGROUND SLIDESHOW */}
+      <AnimatePresence>
+        <motion.div
+          key={currentBg}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2.5, ease: "easeInOut" }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${bgImages[currentBg]})`,
+            filter: "grayscale(100%) brightness(0.85)",
+          }}
+        />
+      </AnimatePresence>
+
+      {/* 🌑 RADIAL VIGNETTE */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/clg.png')" }}
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.9) 100%)",
+        }}
       />
 
-      {/* 🌑 OVERLAY */}
-      <div className="absolute inset-0 bg-black/50" />
-
       {/* 🪟 CONTENT */}
-      <div className="relative z-10 w-full flex justify-center px-3 sm:px-4 mt-16 sm:mt-20">
+      <div className="relative z-10 w-full flex justify-center px-4 pt-24 sm:pt-28">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="
-            w-full max-w-6xl
-            bg-white/5
-            backdrop-blur-md
-            border border-white/10
-            rounded-xl
-            px-4 sm:px-6 py-4 sm:py-6
-            md:px-10 md:py-8
-            lg:px-14 lg:py-10
-            shadow-[0_0_30px_rgba(255,255,255,0.08)]
-          "
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-6xl"
         >
           {/* ================= HEADER ================= */}
-          <div className="text-center mb-6 sm:mb-8">
-            <p className="font-rajdhani text-xs sm:text-base md:text-lg lg:text-xl mb-2 sm:mb-3 text-black/80">
+          <div className="text-center mb-10 px-2">
+            <p
+              className="
+                font-rajdhani
+                text-xs sm:text-base md:text-lg lg:text-xl
+                mb-3
+                text-white
+              "
+              style={{
+                color: "#ffffff", // 🔒 FORCE WHITE
+                textShadow: "0 3px 12px rgba(0,0,0,0.9)",
+              }}
+            >
               IEEE UVCE presents annual national-level <br />
               Technical Student Extravaganza
             </p>
@@ -47,7 +83,7 @@ export const Hero = () => {
               "
               style={{
                 fontFamily: "'Bebas Neue', sans-serif",
-                textShadow: "0 0 18px rgba(255,255,255,0.25)",
+                textShadow: "0 8px 40px rgba(0,0,0,0.95)",
               }}
             >
               IMPETUS 26.0
@@ -55,56 +91,56 @@ export const Hero = () => {
           </div>
 
           {/* ================= BUTTONS + LOGO ================= */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20">
             {/* BUTTONS */}
-            <div className="flex flex-col gap-5 items-start">
-              {/* REGISTER BUTTON */}
+            <div className="flex flex-col gap-5 items-center md:items-start">
               <button
                 className="
                   px-8 py-3
                   text-sm sm:text-base
                   font-semibold
                   tracking-wider
-                  bg-black
+                  bg-white
+                  text-black
                   rounded-full
-                  hover:bg-neutral-800
+                  hover:bg-neutral-200
                   transition-all
                   flex items-center
-                  shadow-lg
+                  shadow-xl
                 "
-                style={{ fontFamily: "'Rajdhani', sans-serif", color: "white" }}
+                style={{ fontFamily: "'Rajdhani', sans-serif" }}
               >
                 REGISTER NOW
-                <ArrowRight className="ml-3" style={{ color: "white" }} />
+                <ArrowRight className="ml-3" />
               </button>
 
-              {/* PASS BUTTON */}
               <button
                 className="
                   px-8 py-3
                   text-sm sm:text-base
                   font-semibold
                   tracking-wider
-                  bg-black
+                  bg-white
+                  text-black
                   rounded-full
-                  hover:bg-neutral-800
+                  hover:bg-neutral-200
                   transition-all
                   flex items-center
-                  shadow-lg
+                  shadow-xl
                 "
-                style={{ fontFamily: "'Rajdhani', sans-serif", color: "white" }}
+                style={{ fontFamily: "'Rajdhani', sans-serif" }}
               >
-                <Ticket className="mr-3" style={{ color: "white" }} />
+                <Ticket className="mr-3" />
                 ALL-IN-ONE PASS
               </button>
             </div>
 
             {/* LOGO */}
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-6 md:mt-0">
               <img
                 src="/images/logo.png"
                 alt="Impetus Logo"
-                className="w-44 sm:w-52 md:w-60 lg:w-72 drop-shadow-xl"
+                className="w-40 sm:w-48 md:w-56 lg:w-72 drop-shadow-[0_12px_35px_rgba(0,0,0,0.9)]"
               />
             </div>
           </div>
