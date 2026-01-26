@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { events, getEventsByCategory } from "../data/events";
+import { events } from "../data/events";
 import { EventCard } from "../components/EventCard";
 
 export const Events = () => {
@@ -31,7 +31,6 @@ export const Events = () => {
   ];
 
   const categoryEvents = events.filter((event) => event.category === activeTab);
-
   const isExpanded = expanded[activeTab];
 
   const visibleEvents = isExpanded
@@ -46,8 +45,52 @@ export const Events = () => {
   };
 
   return (
-    <section id="events" className="relative py-12 sm:py-16 md:py-24 bg-base">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="events"
+      className="relative py-12 sm:py-16 md:py-24 bg-base overflow-hidden"
+    >
+      {/* 🌌 STAR LAYER 1 – CLEAR FLOAT */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
+            radial-gradient(1px 1px at 220px 180px, #fff, transparent),
+            radial-gradient(2px 2px at 300px 90px, #fff, transparent),
+            radial-gradient(1px 1px at 380px 220px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 460px 40px, #fff, transparent),
+            radial-gradient(2px 2px at 520px 160px, #fff, transparent)
+          `,
+          backgroundSize: "260px 260px",
+          opacity: 0.95,
+        }}
+      />
+
+      {/* 🌌 STAR LAYER 2 – DEEP SPACE DRIFT */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ x: [0, -30, 0], y: [0, 60, 0] }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 120px 200px, #fff, transparent),
+            radial-gradient(2px 2px at 200px 100px, #fff, transparent),
+            radial-gradient(1px 1px at 280px 240px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 360px 150px, #fff, transparent),
+            radial-gradient(2px 2px at 440px 60px, #fff, transparent),
+            radial-gradient(1px 1px at 520px 210px, #fff, transparent)
+          `,
+          backgroundSize: "320px 320px",
+          opacity: 0.7,
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -64,7 +107,7 @@ export const Events = () => {
           </p>
         </motion.div>
 
-        {/* Tabs (UNCHANGED) */}
+        {/* Tabs */}
         <div className="flex justify-center gap-2 sm:gap-4 mb-10 flex-wrap">
           {categories.map((cat) => (
             <button
@@ -106,7 +149,7 @@ export const Events = () => {
           )}
         </div>
 
-        {/* Show More / Less (SECTION-WISE) */}
+        {/* Show More / Less */}
         {categoryEvents.length > visibleCount && (
           <div className="flex justify-center mt-10">
             <button
