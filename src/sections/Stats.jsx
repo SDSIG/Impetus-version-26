@@ -48,9 +48,64 @@ export const Stats = () => {
   return (
     <section
       id="stats"
-      className="relative py-16 sm:py-24 md:py-28 text-white bg-black border-y border-white/10 px-4 sm:px-6"
+      className="relative py-16 sm:py-24 md:py-28 text-white bg-black border-y border-white/10 px-4 sm:px-6 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
+      {/* 🌌 STAR LAYER 1 – CLEAR FLOAT */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{
+          x: [0, 40, 0],
+          y: [0, -80, 0],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
+            radial-gradient(1px 1px at 220px 180px, #fff, transparent),
+            radial-gradient(2px 2px at 300px 90px, #fff, transparent),
+            radial-gradient(1px 1px at 380px 220px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 460px 40px, #fff, transparent),
+            radial-gradient(2px 2px at 520px 160px, #fff, transparent)
+          `,
+          backgroundSize: "260px 260px",
+          opacity: 0.95,
+        }}
+      />
+
+      {/* 🌌 STAR LAYER 2 – DEEP SPACE DRIFT */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{
+          x: [0, -30, 0],
+          y: [0, 60, 0],
+        }}
+        transition={{
+          duration: 45,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 120px 200px, #fff, transparent),
+            radial-gradient(2px 2px at 200px 100px, #fff, transparent),
+            radial-gradient(1px 1px at 280px 240px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 360px 150px, #fff, transparent),
+            radial-gradient(2px 2px at 440px 60px, #fff, transparent),
+            radial-gradient(1px 1px at 520px 210px, #fff, transparent)
+          `,
+          backgroundSize: "320px 320px",
+          opacity: 0.7,
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto">
         {/* GRID */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {/* {stats.map((stat, index) => (
