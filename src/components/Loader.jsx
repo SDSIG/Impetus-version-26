@@ -100,7 +100,7 @@ export const Loader = ({ onComplete }) => {
             >
               <span className="absolute inset-0 bg-white/10 blur-xl" />
               <span className="relative z-10">
-                Ready to dive into future tech??
+                Ready to dive in?
               </span>
             </motion.button>
           </div>
