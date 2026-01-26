@@ -47,7 +47,7 @@ export const Chatbot = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-8 left-8 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-neon-cyan to-neon-violet shadow-[0_0_30px_rgba(0,242,255,0.5)] flex items-center justify-center text-white hover:shadow-[0_0_40px_rgba(0,242,255,0.8)] transition-all duration-300"
+        className="fixed bottom-8 left-8 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-neon-cyan to-neon-violet shadow-[0_0_30px_rgba(253,224,71,0.5)] flex items-center justify-center text-white hover:shadow-[0_0_40px_rgba(253,224,71,0.8)] transition-all duration-300"
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
