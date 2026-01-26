@@ -81,7 +81,7 @@ export const Hero = () => {
                 textShadow: "0 3px 12px rgba(0,0,0,0.9)",
               }}
             >
-              IEEE UVCE presents annual national-level <br />
+              IEEE UVCE presents Annual National-Level <br />
               Technical Student Extravaganza
             </p>
 

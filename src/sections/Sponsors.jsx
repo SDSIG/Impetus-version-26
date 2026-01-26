@@ -84,7 +84,7 @@ export const Sponsors = () => {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-3 sm:mb-4">
-            Sponsors
+           Our Sponsors
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-300 font-space max-w-3xl mx-auto px-2">
             Proudly supported by industry leaders
