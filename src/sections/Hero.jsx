@@ -111,28 +111,28 @@ export const Hero = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20">
             <div className="flex flex-col gap-5 items-center md:items-start">
               <button
-                className="px-8 py-3 text-sm sm:text-base font-semibold tracking-wider bg-white text-black rounded-full hover:bg-neutral-200 transition-all flex items-center shadow-xl"
-                style={{
-                  fontFamily: "'Rajdhani', sans-serif",
-                  boxShadow:
-                    "0 0 30px rgba(253,224,71,0.6), 0 8px 20px rgba(0,0,0,0.3)",
-                }}
-              >
-                REGISTER NOW
-                <ArrowRight className="ml-3" />
-              </button>
+  className="px-8 py-3 text-sm sm:text-base font-semibold tracking-wider bg-white text-black rounded-full hover:bg-neutral-200 transition-all flex items-center shadow-xl"
+  style={{
+    fontFamily: "'Rajdhani', sans-serif",
+    boxShadow:
+      "0 0 14px rgba(253,224,71,0.35), 0 6px 14px rgba(0,0,0,0.25)",
+  }}
+>
+  REGISTER NOW
+  <ArrowRight className="ml-3" />
+</button>
 
-              <button
-                className="px-8 py-3 text-sm sm:text-base font-semibold tracking-wider bg-white text-black rounded-full hover:bg-neutral-200 transition-all flex items-center shadow-xl"
-                style={{
-                  fontFamily: "'Rajdhani', sans-serif",
-                  boxShadow:
-                    "0 0 30px rgba(253,224,71,0.6), 0 8px 20px rgba(0,0,0,0.3)",
-                }}
-              >
-                <Ticket className="mr-3" />
-                ALL-IN-ONE PASS
-              </button>
+<button
+  className="px-8 py-3 text-sm sm:text-base font-semibold tracking-wider bg-white text-black rounded-full hover:bg-neutral-200 transition-all flex items-center shadow-xl"
+  style={{
+    fontFamily: "'Rajdhani', sans-serif",
+    boxShadow:
+      "0 0 14px rgba(253,224,71,0.35), 0 6px 14px rgba(0,0,0,0.25)",
+  }}
+>
+  <Ticket className="mr-3" />
+  ALL-IN-ONE PASS
+</button>
             </div>
 
             <div className="flex justify-center mt-6 md:mt-0">

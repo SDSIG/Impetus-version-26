@@ -1,5 +1,5 @@
 /* =========================
-   GOOGLE FONTS (MUST BE FIRST)
+   GOOGLE FONTS
 ========================= */
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap');
@@ -10,6 +10,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* =========================
+   BASE STYLES (CRITICAL FIX)
+========================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black antialiased;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* 🔥 FORCE WHITE TEXT — MOBILE + DESKTOP */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  li,
+  a,
+  small,
+  strong {
+    color: white !important;
+  }
+}
 
 /* =========================
    FONT UTILITIES
@@ -42,46 +72,26 @@
 }
 
 /* =========================
-   BASE STYLES
-========================= */
-@layer base {
-  body {
-    @apply bg-black text-white antialiased;
-    font-family: 'Space Grotesk', sans-serif;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* =========================
-   ARROW BUTTON (PRIMARY + OUTLINE)
+   BUTTONS
 ========================= */
 .arrow-btn {
   display: inline-flex;
   align-items: center;
   gap: 14px;
   padding: 16px 40px;
-
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-
   background: transparent;
   border: none;
   cursor: pointer;
   color: white;
-
-  clip-path: polygon(
-    0 0,
-    88% 0,
-    100% 50%,
-    88% 100%,
-    0 100%,
-    6% 50%
-  );
-
+  clip-path: polygon(0 0,
+      88% 0,
+      100% 50%,
+      88% 100%,
+      0 100%,
+      6% 50%);
   transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
@@ -99,9 +109,12 @@
   color: #c4b5fd;
 }
 
-.arrow-btn.outline:hover {
-  background-color: rgba(126, 34, 206, 0.15);
-  transform: translateX(4px);
+/* =========================
+   SELECTION
+========================= */
+::selection {
+  background-color: rgba(126, 34, 206, 0.4);
+  color: white;
 }
 
 /* =========================
@@ -120,70 +133,9 @@
   border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  opacity: 0.85;
-}
-
 /* =========================
-   SELECTION
+   GALLERY
 ========================= */
-::selection {
-  background-color: rgba(126, 34, 206, 0.4);
-  color: white;
-}
-
-/* =========================
-   FOCUS (ACCESSIBILITY)
-========================= */
-*:focus-visible {
-  outline: 2px solid #7e22ce;
-  outline-offset: 2px;
-}
-
-/* =========================
-   CIRCULAR / SQUIRCLE GALLERY
-========================= */
-/* .gallery-circle-wrapper {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .gallery-circle-wrapper {
-    width: 420px;
-    height: 420px;
-  }
-}
-
-.circle-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 22%;
-  border: 2px dashed rgba(168, 85, 247, 0.4);
-}
-
-.circle-ring.inner {
-  inset: 12%;
-  border-radius: 22%;
-  border-style: dotted;
-  opacity: 0.6;
-}
-
-.center-image {
-  position: absolute;
-  inset: 22%;
-  border-radius: 22%;
-  overflow: hidden;
-  z-index: 5;
-  box-shadow:
-    0 0 40px rgba(168, 85, 247, 0.45),
-    0 0 80px rgba(168, 85, 247, 0.25);
-  border: 3px solid rgba(168, 85, 247, 0.6);
-  background: #000;
-} */
-
 .gallery-circle-wrapper {
   position: relative;
   width: 320px;
@@ -202,7 +154,7 @@
   position: absolute;
   inset: 0;
   border-radius: 22%;
-  border: 2px dashed rgba(253, 224, 71, 0.9); /* changed to yellow */
+  border: 2px dashed rgba(253, 224, 71, 0.9);
 }
 
 .circle-ring.inner {
@@ -210,7 +162,7 @@
   border-radius: 22%;
   border-style: dotted;
   opacity: 0.6;
-  border-color: rgba(253, 224, 71, 0.9); /* changed to yellow */
+  border-color: rgba(253, 224, 71, 0.9);
 }
 
 .center-image {
@@ -220,8 +172,8 @@
   overflow: hidden;
   z-index: 5;
   box-shadow:
-    0 0 40px rgba(253, 224, 71, 0.45), /* yellow glow */
-    0 0 80px rgba(253, 224, 71, 0.25); /* yellow glow */
-  border: 3px solid rgba(253, 224, 71, 0.6); /* yellow border */
+    0 0 40px rgba(253, 224, 71, 0.45),
+    0 0 80px rgba(253, 224, 71, 0.25);
+  border: 3px solid rgba(253, 224, 71, 0.6);
   background: #000;
 }
