@@ -50,18 +50,11 @@ export const Stats = () => {
       id="stats"
       className="relative py-16 sm:py-24 md:py-28 bg-black border-y border-white/10 px-4 sm:px-6 overflow-hidden"
     >
-      {/* 🌌 STAR LAYER 1 – CLEAR FLOAT */}
+      {/* 🌌 STAR LAYER 1 */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
-        animate={{
-          x: [0, 40, 0],
-          y: [0, -80, 0],
-        }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+        animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         style={{
           backgroundImage: `
             radial-gradient(1px 1px at 20px 30px, #fff, transparent),
@@ -78,18 +71,11 @@ export const Stats = () => {
         }}
       />
 
-      {/* 🌌 STAR LAYER 2 – DEEP SPACE DRIFT */}
+      {/* 🌌 STAR LAYER 2 */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
-        animate={{
-          x: [0, -30, 0],
-          y: [0, 60, 0],
-        }}
-        transition={{
-          duration: 45,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+        animate={{ x: [0, -30, 0], y: [0, 60, 0] }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
         style={{
           backgroundImage: `
             radial-gradient(1px 1px at 40px 70px, #fff, transparent),
@@ -106,6 +92,17 @@ export const Stats = () => {
       />
 
       <div className="relative max-w-7xl mx-auto">
+        {/* SECTION HEADING */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
+           Previous Stats
+          </h2>
+          <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
+            A glimpse into the scale, reach, and impact of IMPETUS.
+          </p>
+        </div>
+
+        {/* STATS GRID */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
@@ -114,33 +111,23 @@ export const Stats = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="
-                relative
-                bg-black
-                px-3 sm:px-6 py-6 sm:py-10
-                text-center
-                transition-all duration-300
-                !text-white
-              "
+              className="relative bg-black px-3 sm:px-6 py-6 sm:py-10 text-center !text-white"
               style={{
                 clipPath:
                   "polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px)",
                 border: "1.5px solid rgba(253, 224, 71, 0.9)",
               }}
             >
-              {/* NUMBER */}
-              <div className="font-oxanium text-2xl sm:text-4xl md:text-5xl font-extrabold !text-white mb-2 sm:mb-3">
+              <div className="font-oxanium text-2xl sm:text-4xl md:text-5xl font-extrabold mb-2 sm:mb-3">
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix || ""}
                 />
               </div>
 
-              {/* DIVIDER */}
               <div className="w-8 sm:w-10 h-[2px] mx-auto mb-2 sm:mb-3 bg-[rgba(253,224,71,0.9)]" />
 
-              {/* LABEL */}
-              <p className="font-rajdhani !text-white text-xs sm:text-sm md:text-base uppercase tracking-widest">
+              <p className="font-rajdhani text-xs sm:text-sm md:text-base uppercase tracking-widest">
                 {stat.label}
               </p>
             </motion.div>
