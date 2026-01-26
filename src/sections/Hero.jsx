@@ -2,15 +2,38 @@ import { useState, useEffect } from "react";
 import { ArrowRight, Ticket } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const bgImages = [
+const desktopBgImages = [
   "/images/bg1.jpg",
   "/images/bg2.jpg",
   "/images/bg3.jpg",
   "/images/bg4.jpg",
 ];
 
+const mobileBgImages = [
+  "/images/bg2.jpg",
+  "/images/bg4.jpg",
+  "/images/bg5.jpg",
+];
+
 export const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
+  const [bgImages, setBgImages] = useState(desktopBgImages);
+
+  // 🔁 Handle responsive background set
+  useEffect(() => {
+    const updateBgImages = () => {
+      if (window.innerWidth < 640) {
+        setBgImages(mobileBgImages);
+      } else {
+        setBgImages(desktopBgImages);
+      }
+      setCurrentBg(0); // reset index when switching sets
+    };
+
+    updateBgImages();
+    window.addEventListener("resize", updateBgImages);
+    return () => window.removeEventListener("resize", updateBgImages);
+  }, []);
 
   // 🔁 Change image every 5 seconds
   useEffect(() => {
@@ -19,7 +42,7 @@ export const Hero = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [bgImages]);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
@@ -59,14 +82,9 @@ export const Hero = () => {
           {/* ================= HEADER ================= */}
           <div className="text-center mb-10 px-2">
             <p
-              className="
-                font-rajdhani
-                text-xs sm:text-base md:text-lg lg:text-xl
-                mb-3
-                text-white
-              "
+              className="font-rajdhani text-xs sm:text-base md:text-lg lg:text-xl mb-3 text-white"
               style={{
-                color: "#ffffff", // 🔒 FORCE WHITE
+                color: "#ffffff",
                 textShadow: "0 3px 12px rgba(0,0,0,0.9)",
               }}
             >
@@ -75,12 +93,7 @@ export const Hero = () => {
             </p>
 
             <h1
-              className="
-                font-extrabold
-                tracking-tight
-                text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl
-                text-white
-              "
+              className="font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white"
               style={{
                 fontFamily: "'Bebas Neue', sans-serif",
                 textShadow: "0 8px 40px rgba(0,0,0,0.95)",
@@ -95,19 +108,7 @@ export const Hero = () => {
             {/* BUTTONS */}
             <div className="flex flex-col gap-5 items-center md:items-start">
               <button
-                className="
-                  px-8 py-3
-                  text-sm sm:text-base
-                  font-semibold
-                  tracking-wider
-                  bg-white
-                  text-black
-                  rounded-full
-                  hover:bg-neutral-200
-                  transition-all
-                  flex items-center
-                  shadow-xl
-                "
+                className="px-8 py-3 text-sm sm:text-base font-semibold tracking-wider bg-white text-black rounded-full hover:bg-neutral-200 transition-all flex items-center shadow-xl"
                 style={{ fontFamily: "'Rajdhani', sans-serif" }}
               >
                 REGISTER NOW
@@ -115,19 +116,7 @@ export const Hero = () => {
               </button>
 
               <button
-                className="
-                  px-8 py-3
-                  text-sm sm:text-base
-                  font-semibold
-                  tracking-wider
-                  bg-white
-                  text-black
-                  rounded-full
-                  hover:bg-neutral-200
-                  transition-all
-                  flex items-center
-                  shadow-xl
-                "
+                className="px-8 py-3 text-sm sm:text-base font-semibold tracking-wider bg-white text-black rounded-full hover:bg-neutral-200 transition-all flex items-center shadow-xl"
                 style={{ fontFamily: "'Rajdhani', sans-serif" }}
               >
                 <Ticket className="mr-3" />
