@@ -53,7 +53,7 @@ export const Stats = () => {
       <div className="max-w-7xl mx-auto">
         {/* GRID */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {stats.map((stat, index) => (
+          {/* {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 40 }}
@@ -63,7 +63,7 @@ export const Stats = () => {
               className="
                 relative
                 backdrop-blur-lg
-                bg-white/5
+                bg-black/60
                 border border-white/10
                 rounded-xl
                 px-3 sm:px-6 py-6 sm:py-10
@@ -76,22 +76,59 @@ export const Stats = () => {
               }}
             >
               {/* NUMBER */}
-              <div className="font-oxanium text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mb-2 sm:mb-3">
+              {/* <div className="font-oxanium text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mb-2 sm:mb-3">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-              </div>
+              </div> */}
 
               {/* DIVIDER */}
-              <div className="w-8 sm:w-10 h-[2px] bg-purple-500 mx-auto mb-2 sm:mb-3" />
+              {/* <div className="w-8 sm:w-10 h-[2px] bg-purple-500 mx-auto mb-2 sm:mb-3" /> */}
 
               {/* LABEL */}
-              <p className="font-rajdhani text-xs sm:text-sm md:text-base uppercase tracking-widest text-gray-300">
+              {/* <p className="font-rajdhani text-xs sm:text-sm md:text-base uppercase tracking-widest text-gray-300"> */}
+              {/* <p className="font-rajdhani text-xs sm:text-sm md:text-base uppercase tracking-widest text-white"> */}
+              {/* <p className="relative z-10 font-rajdhani text-xs sm:text-sm md:text-base uppercase tracking-widest text-white">
                 {stat.label}
-              </p>
+              </p> */}
 
               {/* CORNER ACCENT */}
-              <span className="absolute top-0 right-0 w-8 h-8 border-t border-r border-purple-500/40 rounded-tr-xl" />
-            </motion.div>
-          ))}
+              {/* <span className="absolute top-0 right-0 w-8 h-8 border-t border-r border-purple-500/40 rounded-tr-xl" />
+            </motion.div> */}
+          {/* ))}  */}
+          {stats.map((stat, index) => (
+  <motion.div
+    key={stat.label}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="
+      relative
+      bg-black
+      px-3 sm:px-6 py-6 sm:py-10
+      text-center
+      transition-all duration-300
+    "
+    style={{
+      clipPath:
+        "polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px)",
+      border: "1.5px solid rgba(253, 224, 71, 0.9)",
+    }}
+  >
+    {/* NUMBER */}
+    <div className="font-oxanium text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mb-2 sm:mb-3">
+      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+    </div>
+
+    {/* DIVIDER */}
+    <div className="w-8 sm:w-10 h-[2px] mx-auto mb-2 sm:mb-3 bg-[rgba(253,224,71,0.9)]" />
+
+    {/* LABEL */}
+    <p className="font-rajdhani  text-white text-xs sm:text-sm md:text-base uppercase tracking-widest">
+      {stat.label}
+    </p>
+  </motion.div>
+))}
+
         </div>
       </div>
     </section>

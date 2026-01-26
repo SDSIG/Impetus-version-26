@@ -65,7 +65,7 @@ export const About = () => {
 
         {/* CARDS GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 px-2">
-          {cards.map((card, index) => (
+          {/* {cards.map((card, index) => (
             <motion.div
               key={card.title}
               initial={{ opacity: 0, y: 50 }}
@@ -86,19 +86,54 @@ export const About = () => {
               }}
             >
               {/* CARD TITLE */}
-              <h3 className="text-2xl font-oxanium font-bold text-white uppercase tracking-wide mb-4">
+              {/* <h3 className="text-2xl font-oxanium font-bold text-white uppercase tracking-wide mb-4">
                 {card.title}
-              </h3>
+              </h3> */}
 
               {/* DIVIDER */}
-              <div className="w-16 h-[2px] bg-purple-500 mb-6" />
+              {/* <div className="w-16 h-[2px] bg-purple-500 mb-6" /> */}
 
               {/* CARD CONTENT */}
-              <p className="text-gray-300 font-space leading-relaxed whitespace-pre-line">
+              {/* <p className="text-gray-300 font-space leading-relaxed whitespace-pre-line">
                 {card.content}
               </p>
-            </motion.div>
-          ))}
+            </motion.div> */} 
+          {/* ))} */}
+
+          {cards.map((card, index) => (
+  <motion.div
+    key={card.title}
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="
+      relative
+      bg-gradient-to-b from-[#0b0b0b] to-black
+      p-8
+      transition-all duration-300
+    "
+    style={{
+      clipPath:
+        "polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px)",
+      border: "1.5px solid rgba(253, 224, 71, 0.9)",
+    }}
+  >
+    {/* CARD TITLE */}
+    <h3 className="text-2xl font-oxanium font-bold text-white uppercase tracking-wide mb-4">
+      {card.title}
+    </h3>
+
+    {/* DIVIDER */}
+    <div className="w-16 h-[2px] mb-6 bg-[rgba(253,224,71,0.9)]" />
+
+    {/* CARD CONTENT */}
+    <p className="text-gray-300 font-space leading-relaxed whitespace-pre-line">
+      {card.content}
+    </p>
+  </motion.div>
+))}
+
         </div>
       </div>
     </section>
