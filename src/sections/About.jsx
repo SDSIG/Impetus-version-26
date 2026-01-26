@@ -4,14 +4,7 @@ export const About = () => {
   const cards = [
     {
       title: "ABOUT IEEE UVCE",
-      content: `IEEE UVCE is an IEEE student branch at the University of Visvesvaraya College of Engineering,
-      under the aegis of the IEEE Bangalore Section. Started in 2001, IEEE UVCE is dedicated to spreading
-      knowledge through workshops, symposiums, guest lectures, conferences, and technical interest groups.
-      It promotes collaboration with the global IEEE community and has become one of the most recognized
-      student branches in IEEE Region 10.
-
-      This year marks a special milestone as IEEE UVCE celebrates its Silver Jubilee — 25 years of fostering
-      innovation, professional growth, and academic excellence.`,
+      content: `IEEE UVCE is an IEEE student branch at the University of Visvesvaraya College of Engineering, under the aegis of the IEEE Bangalore Section. Started in 2001, IEEE UVCE is dedicated to spreading knowledge through a variety of activities. The branch provides students with opportunities to attend global and national IEEE workshops, symposiums, guest lectures, and conferences. It also supports various technical interest groups, offering guidance and a nurturing platform for students. IEEE UVCE enriches students’ experiences with social, cultural, and technical events, encourages the use of IEEE membership benefits, and promotes collaboration with the global IEEE community.`,
     },
     {
       title: "ABOUT IMPETUS",
