@@ -19,7 +19,6 @@ export const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const [bgImages, setBgImages] = useState(desktopBgImages);
 
-  // 🔁 Handle responsive background set
   useEffect(() => {
     const updateBgImages = () => {
       if (window.innerWidth < 640) {
@@ -27,7 +26,7 @@ export const Hero = () => {
       } else {
         setBgImages(desktopBgImages);
       }
-      setCurrentBg(0); // reset index when switching sets
+      setCurrentBg(0);
     };
 
     updateBgImages();
@@ -35,7 +34,6 @@ export const Hero = () => {
     return () => window.removeEventListener("resize", updateBgImages);
   }, []);
 
-  // 🔁 Change image every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % bgImages.length);
@@ -46,7 +44,6 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
-      {/* 🖼️ BACKGROUND SLIDESHOW */}
       <AnimatePresence>
         <motion.div
           key={currentBg}
@@ -62,7 +59,6 @@ export const Hero = () => {
         />
       </AnimatePresence>
 
-      {/* 🌑 RADIAL VIGNETTE */}
       <div
         className="absolute inset-0"
         style={{
@@ -71,7 +67,6 @@ export const Hero = () => {
         }}
       />
 
-      {/* 🪟 CONTENT */}
       <div className="relative z-10 w-full flex justify-center px-4 pt-24 sm:pt-28">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -79,12 +74,10 @@ export const Hero = () => {
           transition={{ duration: 0.8 }}
           className="w-full max-w-6xl"
         >
-          {/* ================= HEADER ================= */}
           <div className="text-center mb-10 px-2">
             <p
               className="font-rajdhani text-xs sm:text-base md:text-lg lg:text-xl mb-3 text-white"
               style={{
-                color: "#ffffff",
                 textShadow: "0 3px 12px rgba(0,0,0,0.9)",
               }}
             >
@@ -92,26 +85,37 @@ export const Hero = () => {
               Technical Student Extravaganza
             </p>
 
+            {/* 🔥 CYBER / SECURITY STYLE TITLE */}
             <h1
-              className="font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white"
+              className="
+                font-extrabold
+                whitespace-nowrap
+                text-5xl
+                sm:text-6xl
+                md:text-7xl
+                lg:text-8xl
+                xl:text-[9rem]
+                text-white
+              "
               style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                textShadow: "0 8px 40px rgba(0,0,0,0.95)",
+                fontFamily: "'Orbitron', 'Oxanium', sans-serif",
+                letterSpacing: "0.04em",
+                textShadow:
+                  "0 2px 0 rgba(255,255,255,0.05), 0 10px 35px rgba(0,0,0,0.9)",
               }}
             >
               IMPETUS 26.0
             </h1>
           </div>
 
-          {/* ================= BUTTONS + LOGO ================= */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20">
-            {/* BUTTONS */}
             <div className="flex flex-col gap-5 items-center md:items-start">
               <button
                 className="px-8 py-3 text-sm sm:text-base font-semibold tracking-wider bg-white text-black rounded-full hover:bg-neutral-200 transition-all flex items-center shadow-xl"
                 style={{
                   fontFamily: "'Rajdhani', sans-serif",
-                  boxShadow: "0 0 30px rgba(253,224,71,0.6), 0 8px 20px rgba(0,0,0,0.3)"
+                  boxShadow:
+                    "0 0 30px rgba(253,224,71,0.6), 0 8px 20px rgba(0,0,0,0.3)",
                 }}
               >
                 REGISTER NOW
@@ -122,7 +126,8 @@ export const Hero = () => {
                 className="px-8 py-3 text-sm sm:text-base font-semibold tracking-wider bg-white text-black rounded-full hover:bg-neutral-200 transition-all flex items-center shadow-xl"
                 style={{
                   fontFamily: "'Rajdhani', sans-serif",
-                  boxShadow: "0 0 30px rgba(253,224,71,0.6), 0 8px 20px rgba(0,0,0,0.3)"
+                  boxShadow:
+                    "0 0 30px rgba(253,224,71,0.6), 0 8px 20px rgba(0,0,0,0.3)",
                 }}
               >
                 <Ticket className="mr-3" />
@@ -130,7 +135,6 @@ export const Hero = () => {
               </button>
             </div>
 
-            {/* LOGO */}
             <div className="flex justify-center mt-6 md:mt-0">
               <img
                 src="/images/logo.png"
