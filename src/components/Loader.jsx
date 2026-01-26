@@ -3,14 +3,38 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export const Loader = ({ onComplete }) => {
   const [exit, setExit] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("/videos/background1.mp4");
   const videoRef = useRef(null);
 
-  // Slow down the video playback
+  // 🎥 Handle responsive video switching
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleVideoChange = (e) => {
+      setVideoSrc(
+        e.matches
+          ? "/videos/background2.mp4" // tablet & laptop
+          : "/videos/background1.mp4", // mobile
+      );
+    };
+
+    // Initial check
+    handleVideoChange(mediaQuery);
+
+    // Listen for screen resize
+    mediaQuery.addEventListener("change", handleVideoChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleVideoChange);
+    };
+  }, []);
+
+  // Slow down video playback
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.6;
     }
-  }, []);
+  }, [videoSrc]);
 
   const handleDiveClick = () => {
     setExit(true);
@@ -29,8 +53,9 @@ export const Loader = ({ onComplete }) => {
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center"
         >
-          {/* 🎥 BACKGROUND VIDEO */}
+          {/* 🎥 RESPONSIVE BACKGROUND VIDEO */}
           <video
+            key={videoSrc} // forces reload when src changes
             ref={videoRef}
             autoPlay
             muted
@@ -38,16 +63,11 @@ export const Loader = ({ onComplete }) => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/videos/background1.mp4" type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" />
           </video>
-
-          {/* 🌑 OVERLAYS */}
-          <div className="absolute inset-0 bg-black/45" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
 
           {/* 🚀 CONTENT */}
           <div className="relative z-10 flex flex-col items-center justify-end w-full h-full px-4 pb-12 sm:pb-24">
-            {/* 🚀 CTA BUTTON */}
             <motion.button
               onClick={handleDiveClick}
               initial={{ opacity: 0, y: 20 }}
@@ -78,9 +98,7 @@ export const Loader = ({ onComplete }) => {
                 overflow-hidden
               "
             >
-              {/* subtle glow */}
               <span className="absolute inset-0 bg-white/10 blur-xl" />
-
               <span className="relative z-10">
                 Ready to dive into future tech??
               </span>
