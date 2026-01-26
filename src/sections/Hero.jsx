@@ -3,16 +3,16 @@ import { ArrowRight, Ticket } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const desktopBgImages = [
-  "/images/bg1.jpg",
-  "/images/bg2.jpg",
   "/images/bg3.jpg",
   "/images/bg4.jpg",
+  "/images/bg1.jpg",
+  "/images/bg2.jpg",
 ];
 
 const mobileBgImages = [
-  "/images/bg2.jpg",
-  "/images/bg4.jpg",
   "/images/bg5.jpg",
+  "/images/bg4.jpg",
+  "/images/bg2.jpg",
 ];
 
 export const Hero = () => {
