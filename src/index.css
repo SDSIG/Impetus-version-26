@@ -177,3 +177,23 @@
   border: 3px solid rgba(253, 224, 71, 0.6);
   background: #000;
 }
+
+@layer utilities {
+  .text-gold {
+    background: linear-gradient(
+      135deg,
+      #facc15,
+      #fde047,
+      #f59e0b
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gold-glow {
+    text-shadow:
+      0 0 10px rgba(250, 204, 21, 0.6),
+      0 0 25px rgba(250, 204, 21, 0.4),
+      0 10px 35px rgba(0,0,0,0.9);
+  }
+}
