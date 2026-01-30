@@ -31,7 +31,7 @@ export const Events = () => {
 
   return (
     <section id="events" className="relative py-20 bg-[#020202]">
-      {/* 1. SECTION HEADING */}
+      {/*  1. SECTION HEADING  */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,31 +54,6 @@ export const Events = () => {
           <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
         </motion.div>
       </div>
-
-      {/* 2. EVENT DETAILS CARDS (Intro Cards) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {eventDetails.map((detail, index) => (
-            <motion.div
-              key={detail.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative p-8 bg-[#0a0a0a] border border-amber-500/30 rounded-tl-[30px] rounded-br-[30px]"
-            >
-              <h3 className="text-xl sm:text-2xl font-orbitron font-bold text-amber-500 uppercase tracking-wide mb-4">
-                {detail.title}
-              </h3>
-              <div className="w-12 h-[2px] mb-6 bg-amber-500" />
-              <p className="text-gray-400 font-rajdhani leading-relaxed whitespace-pre-line text-sm sm:text-base">
-                {detail.content}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
       {/* 3. STICKY CATEGORY TABS */}
       <div
         className="sticky top-[70px] sm:top-[80px] z-30 w-full py-4 mb-12 
@@ -113,9 +88,7 @@ export const Events = () => {
           </button>
         ))}
       </div>
-
       <div id="event-grid-anchor" />
-
       {/* 4. EVENT GRID CONTENT */}
       <div className="max-w-7xl mx-auto px-4 min-h-[500px]">
         <AnimatePresence mode="wait">
@@ -137,7 +110,6 @@ export const Events = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-
       {/* 5. NAVIGATION BUTTON (Only on Home) */}
       {location.pathname !== "/events" && (
         <div className="flex justify-center mt-16">
@@ -152,7 +124,6 @@ export const Events = () => {
           </button>
         </div>
       )}
-
       {/* Decorative Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 blur-[150px] rounded-full pointer-events-none" />
     </section>
