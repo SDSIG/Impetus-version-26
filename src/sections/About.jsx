@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import { Zap } from "lucide-react";
 
 export const About = () => {
   const cards = [
     {
       title: "ABOUT IEEE UVCE",
-      content: `IEEE UVCE is an IEEE student branch at the University of Visvesvaraya College of Engineering, under the aegis of the IEEE Bangalore Section. Started in 2001, IEEE UVCE is dedicated to spreading knowledge through a variety of activities. The branch provides students with opportunities to attend global and national IEEE workshops, symposiums, guest lectures, and conferences. It also supports various technical interest groups, offering guidance and a nurturing platform for students. IEEE UVCE enriches students’ experiences with social, cultural, and technical events, encourages the use of IEEE membership benefits, and promotes collaboration with the global IEEE community.`,
+      content: `IEEE UVCE is an IEEE student branch at the University of Visvesvaraya College of Engineering, under the aegis of the IEEE Bangalore Section. Started in 2001, IEEE UVCE is dedicated to spreading knowledge through a variety of activities. The branch provides students with opportunities to attend global and national IEEE workshops, symposiums, guest lectures, and conferences. It also supports various technical interest groups, offering guidance and a nurturing platform for students. IEEE UVCE enriches students' experiences with social, cultural, and technical events, encourages the use of IEEE membership benefits, and promotes collaboration with the global IEEE community.`,
     },
     {
       title: "ABOUT IMPETUS",
@@ -15,23 +16,6 @@ technological domains.
 The fest serves as a platform for participants to showcase ideas and talent through flagship events,
 general events, and gaming arenas. Over the years, IMPETUS has grown significantly, witnessing a peak
 participation of 2472 students in 2023.`,
-    },
-    {
-      title: "FLAGSHIP & GENERAL EVENTS",
-      content: `IEEE UVCE hosts a variety of flagship events during IMPETUS, bringing together professionals,
-industries, and students from diverse domains to network, learn, and share knowledge.
-
-In addition, IMPETUS welcomes external teams and individuals to organize general events aligned with
-the fest’s mission and values — creating opportunities for creativity, innovation, and community
-engagement.`,
-    },
-    {
-      title: "GAMING EVENTS & ARENAS",
-      content: `Extending beyond technical events, IMPETUS also hosts Gaming Events and Arenas where gaming
-enthusiasts compete with participants from various colleges and universities.
-
-Popular games include BGMI, Valorant, Online Chess, and more — making IMPETUS a complete blend of
-technology, competition, and entertainment.`,
     },
   ];
 

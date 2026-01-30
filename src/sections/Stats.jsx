@@ -15,7 +15,7 @@ const AnimatedCounter = ({ value, suffix = "", duration = 2 }) => {
     const animate = (currentTime) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min(
-        (currentTime - startTime) / (duration * 1000),
+        (currentTime - startTime) / (duration * 5000),
         1,
       );
 
@@ -95,7 +95,7 @@ export const Stats = () => {
         {/* SECTION HEADING */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
-           Previous Stats
+            Previous Stats
           </h2>
           <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
             A glimpse into the scale, reach, and impact of IMPETUS.

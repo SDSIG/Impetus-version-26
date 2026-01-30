@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, Zap, Ticket } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const desktopBgImages = [
   "/images/bg3.jpg",
@@ -18,6 +19,7 @@ const mobileBgImages = [
 export const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const [bgImages, setBgImages] = useState(desktopBgImages);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updateBgImages = () => {
@@ -71,7 +73,7 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.45 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 2.5, ease: "easeInOut" }}
+          transition={{ duration: 1.3, ease: "easeInOut" }}
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${bgImages[currentBg]})`,
@@ -130,9 +132,26 @@ export const Hero = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 px-4 mb-16">
             {/* ACTION BUTTONS */}
             <div className="flex flex-col items-center lg:items-start gap-4 order-2 lg:order-1">
-              <button className="group relative w-64 py-4 bg-amber-500 text-black font-bold tracking-[0.2em] uppercase text-xs rounded-full transition-all hover:bg-white hover:shadow-[0_0_40px_rgba(251,191,36,0.4)]">
+              <button
+                onClick={() => navigate("/events")}
+                className="
+    group relative w-64 py-4 
+    bg-transparent border border-amber-500
+    text-amber-500 font-bold tracking-[0.2em] uppercase text-xs rounded-full 
+    transition-all duration-500 ease-out
+    hover:text-black hover:shadow-[0_0_30px_rgba(251,191,36,0.6)]
+    overflow-hidden
+  "
+              >
+                {/* The filling background effect */}
+                <span className="absolute inset-0 w-0 bg-amber-500 transition-all duration-500 ease-out group-hover:w-full" />
+
                 <span className="relative z-10 flex items-center justify-center gap-3">
-                  Explore Events <ArrowRight size={16} />
+                  Explore Events{" "}
+                  <ArrowRight
+                    size={16}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
                 </span>
               </button>
 
