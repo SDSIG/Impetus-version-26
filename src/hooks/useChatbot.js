@@ -12,6 +12,10 @@ export const useChatbot = () => {
 
   const [isTyping, setIsTyping] = useState(false);
 
+  // ✅ Backend URL (auto switches between local & deployed)
+  const BACKEND_URL =
+    import.meta.env.VITE_BACKEND_URL || "http://localhost:5000/chat";
+
   const sendMessage = useCallback(async (text) => {
     if (!text.trim()) return;
 
@@ -26,14 +30,13 @@ export const useChatbot = () => {
     setIsTyping(true);
 
     try {
-      const res = await fetch(
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:5000/chat",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question: text })
-        }
-      );
+      const res = await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ question: text })
+      });
 
       const data = await res.json();
 
@@ -41,12 +44,13 @@ export const useChatbot = () => {
         ...prev,
         {
           id: Date.now() + 1,
-          text: data.answer || "I couldn’t understand that.",
+          text: data?.answer || "I couldn’t understand that.",
           sender: "bot",
           timestamp: new Date()
         }
       ]);
     } catch (err) {
+      console.error("Chatbot error:", err);
       setMessages(prev => [
         ...prev,
         {
@@ -59,7 +63,7 @@ export const useChatbot = () => {
     } finally {
       setIsTyping(false);
     }
-  }, []);
+  }, [BACKEND_URL]);
 
   const clearChat = () => {
     setMessages([
@@ -72,5 +76,10 @@ export const useChatbot = () => {
     ]);
   };
 
-  return { messages, isTyping, sendMessage, clearChat };
+  return {
+    messages,
+    isTyping,
+    sendMessage,
+    clearChat
+  };
 };
