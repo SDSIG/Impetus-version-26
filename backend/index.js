@@ -7,6 +7,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ✅ Health check
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 app.post("/chat", async (req, res) => {
   const { question } = req.body;
 
@@ -28,4 +33,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Backend running on port ${PORT}`);
 });
-
