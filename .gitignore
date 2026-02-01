@@ -6,9 +6,15 @@ node_modules
 # Testing
 /coverage
 
+
+
 # Production
 /build
 /dist
+
+# backend secrets
+backend/.env
+.env
 
 # Misc
 .DS_Store
