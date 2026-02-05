@@ -4,7 +4,7 @@ export const useChatbot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hello! 👋 I’m MASCOT, your IMPETUS event assistant.",
+      text: "Hello! 👋 I’m MASRO, your IMPETUS event assistant.",
       sender: "bot",
       timestamp: new Date()
     }
@@ -69,7 +69,7 @@ export const useChatbot = () => {
     setMessages([
       {
         id: 1,
-        text: "Hello! 👋 I’m MASCOT, your IMPETUS event assistant.",
+        text: "Hello! 👋 I’m MASRO, your IMPETUS event assistant.",
         sender: "bot",
         timestamp: new Date()
       }

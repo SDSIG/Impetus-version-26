@@ -1,109 +1,124 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Loader = ({ onComplete }) => {
-  const [exit, setExit] = useState(false);
-  const [videoSrc, setVideoSrc] = useState("/videos/background1.mp4");
+  const [isVisible, setIsVisible] = useState(true);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("");
   const videoRef = useRef(null);
 
-  // 🎥 Handle responsive video switching
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
-
-    const handleVideoChange = (e) => {
-      setVideoSrc(
-        e.matches
-          ? "/videos/background2.mp4" // tablet & laptop
-          : "/videos/background1.mp4", // mobile
-      );
-    };
-
-    // Initial check
-    handleVideoChange(mediaQuery);
-
-    // Listen for screen resize
-    mediaQuery.addEventListener("change", handleVideoChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleVideoChange);
-    };
+  // 🎯 Responsive video selection
+  const handleResize = useCallback(() => {
+    const isDesktop = window.innerWidth >= 768;
+    const nextSrc = isDesktop
+      ? "/videos/ani_horizontal.mp4"
+      : "/videos/ani_vertical.mp4";
+    setVideoSrc(nextSrc);
   }, []);
 
-  // Slow down video playback
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6;
-    }
-  }, [videoSrc]);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
-  const handleDiveClick = () => {
-    setExit(true);
+  // ▶️ Start video WITH sound (user interaction)
+  const startExperience = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    setHasStarted(true);
+    video.muted = false;
+    video.playbackRate = 0.6;
+    video.play();
+  };
+
+  // 🚀 Exit loader
+  const finishLoading = useCallback(() => {
+    setIsVisible(false);
     setTimeout(() => {
       onComplete();
-      const hero = document.getElementById("hero");
-      hero?.scrollIntoView({ behavior: "smooth" });
-    }, 900);
-  };
+      document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" });
+    }, 800);
+  }, [onComplete]);
 
   return (
     <AnimatePresence>
-      {!exit && (
+      {isVisible && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center"
+          transition={{ duration: 0.8 }}
+          className="fixed inset-0 z-50 bg-black overflow-hidden"
         >
-          {/* 🎥 RESPONSIVE BACKGROUND VIDEO */}
-          <video
-            key={videoSrc} // forces reload when src changes
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-
-          {/* 🚀 CONTENT */}
-          <div className="relative z-10 flex flex-col items-center justify-end w-full h-full px-4 pb-12 sm:pb-24">
-            <motion.button
-              onClick={handleDiveClick}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0px 0px 30px rgba(0,180,255,0.6)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              exit={{
-                y: -900,
-                opacity: 0,
-                scale: 0.7,
-                transition: { duration: 0.9, ease: "easeIn" },
-              }}
-              className="
-                relative
-                px-5 py-2.5
-                sm:px-8 sm:py-3.5
-                md:px-12 md:py-5
-                rounded-xl
-                border border-sky-400/50
-                bg-gradient-to-r from-sky-500/90 to-indigo-600/90
-                text-white
-                text-sm sm:text-lg md:text-2xl
-                font-orbitron tracking-wide
-                backdrop-blur-sm
-                overflow-hidden
-              "
+          {/* 🎬 VIDEO */}
+          {videoSrc && (
+            <video
+              ref={videoRef}
+              playsInline
+              onEnded={finishLoading}
+              className="absolute inset-0 w-full h-full object-cover"
             >
-              <span className="absolute inset-0 bg-white/10 blur-xl" />
-              <span className="relative z-10">
-                Ready to dive in?
-              </span>
-            </motion.button>
-          </div>
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          )}
+
+          {/* 🟢 ENTER EXPERIENCE (before start) */}
+          {!hasStarted && (
+            <div className="relative z-10 flex items-center justify-center w-full h-full">
+              <motion.button
+                onClick={startExperience}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="
+                  px-14 py-4
+                  rounded-full
+                  border border-white/30
+                  bg-black/40
+                  text-white
+                  font-orbitron
+                  tracking-[0.35em]
+                  text-xs
+                  uppercase
+                  hover:border-white
+                  transition-all
+                  duration-500
+                "
+              >
+                Enter Experience
+              </motion.button>
+            </div>
+          )}
+
+          {/* ⏭️ SKIP INTRO (after start) */}
+          {hasStarted && (
+            <div className="relative z-10 flex flex-col items-center justify-end w-full h-full pb-12 sm:pb-20">
+              <motion.button
+                onClick={finishLoading}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 0.8 }}
+                className="
+                  px-10 py-3
+                  rounded-full
+                  border border-white/20
+                  bg-black/20
+                  text-white/70
+                  hover:text-white
+                  font-orbitron
+                  tracking-[0.3em]
+                  text-[10px]
+                  uppercase
+                  transition-all
+                "
+              >
+                Skip Intro
+              </motion.button>
+            </div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>

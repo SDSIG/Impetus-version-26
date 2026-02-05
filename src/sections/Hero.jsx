@@ -203,7 +203,7 @@ export const Hero = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               <img
-                src="/images/logo.png"
+                src="/images/logo_impetus.png"
                 alt="Impetus Logo"
                 className="w-24 sm:w-28 md:w-32 opacity-80 hover:opacity-100 transition-opacity drop-shadow-[0_0_15px_rgba(251,191,36,0.2)]"
               />
