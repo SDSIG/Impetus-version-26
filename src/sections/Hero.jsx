@@ -109,9 +109,9 @@ export const Hero = () => {
 
           {/* MAIN TITLE */}
           <h1
-            className="font-extrabold tracking-tighter leading-none text-center text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] bg-gradient-to-b from-[#FFFDF5] via-[#FACC15] to-[#78350f] bg-clip-text text-transparent mb-2"
+            className="font-daggersquare tracking-tighter leading-none text-center text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] bg-gradient-to-b from-[#FFFDF5] via-[#FACC15] to-[#78350f] bg-clip-text text-transparent mb-2"
             style={{
-              fontFamily: "'Orbitron', sans-serif",
+              fontFamily: "'Daggersquare', sans-serif",
               filter: "drop-shadow(0 0 30px rgba(251, 191, 36, 0.2))",
             }}
           >
@@ -163,7 +163,9 @@ export const Hero = () => {
 
               <div className="flex items-center gap-2 mt-2 text-white/30 font-rajdhani text-[10px] tracking-[0.2em]">
                 <Zap size={10} className="text-amber-500 animate-pulse" />
-                <span>ANNUAL NATIONAL-LEVEL TECHNICAL STUDENT EXTRAVAGANZA</span>
+                <span>
+                  ANNUAL NATIONAL-LEVEL TECHNICAL STUDENT EXTRAVAGANZA
+                </span>
               </div>
             </div>
 

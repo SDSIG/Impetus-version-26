@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import { useLocation } from "react-router-dom"; // Add this import
 
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation(); // Hook to get current path
+
+  // Check if we are on the events page
+  const isEventsPage = location.pathname === "/events";
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+    // Only show if we are NOT on the events page AND scrolled down
+    if (window.pageYOffset > 300 && !isEventsPage) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -23,10 +29,13 @@ export const ScrollToTop = () => {
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+  }, [location.pathname]); // Re-run effect when path changes
 
   return (
     <AnimatePresence>
+      {/* Button only renders if isVisible is true. 
+          isVisible can only be true if isEventsPage is false. 
+      */}
       {isVisible && (
         <motion.button
           initial={{ scale: 0, opacity: 0 }}

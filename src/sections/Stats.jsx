@@ -15,7 +15,7 @@ const AnimatedCounter = ({ value, suffix = "", duration = 2 }) => {
     const animate = (currentTime) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min(
-        (currentTime - startTime) / (duration * 5000),
+        (currentTime - startTime) / (duration * 1750),
         1,
       );
 
