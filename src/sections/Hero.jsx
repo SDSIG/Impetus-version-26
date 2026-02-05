@@ -163,7 +163,7 @@ export const Hero = () => {
 
               <div className="flex items-center gap-2 mt-2 text-white/30 font-rajdhani text-[10px] tracking-[0.2em]">
                 <Zap size={10} className="text-amber-500 animate-pulse" />
-                <span>ANNUAL NATIONAL-LEVEL STUDENT EXTRAVAGANZA</span>
+                <span>ANNUAL NATIONAL-LEVEL TECHNICAL STUDENT EXTRAVAGANZA</span>
               </div>
             </div>
 

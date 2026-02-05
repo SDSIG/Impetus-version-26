@@ -66,7 +66,7 @@ export const Contact = () => {
       id="contact"
       className="relative py-20 sm:py-32 bg-[#020202] overflow-hidden"
     >
-      {/* 🌌 SOLAR STAR LAYERS */}
+      {/* 🌌 STAR BACKGROUND */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
@@ -97,16 +97,18 @@ export const Contact = () => {
               Get In Touch
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-orbitron font-black text-white uppercase tracking-tighter mb-6">
+
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-orbitron font-black text-white uppercase mb-6">
             Contact{" "}
             <span className="bg-gradient-to-b from-amber-200 to-amber-600 bg-clip-text text-transparent">
               Us
             </span>
           </h2>
+
           <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
         </motion.div>
 
-        {/* Team Contacts */}
+        {/* Team */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-20">
           {teamContacts.map((person, index) => (
             <motion.div
@@ -115,19 +117,19 @@ export const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 text-center transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_20px_rgba(251,191,36,0.1)] group"
+              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 text-center hover:border-amber-500/50 transition"
             >
-              <h3 className="text-lg font-orbitron font-bold text-white mb-1 tracking-tight">
+              <h3 className="text-lg font-orbitron font-bold text-white">
                 {person.name}
               </h3>
-              <p className="text-sm text-amber-500 font-rajdhani font-bold tracking-widest mb-6 uppercase">
+              <p className="text-sm text-amber-500 font-bold uppercase mb-6">
                 {person.role}
               </p>
 
-              <div className="flex flex-col gap-4 text-gray-400 text-sm font-rajdhani">
+              <div className="space-y-4 text-gray-400 text-sm">
                 <a
                   href={`tel:${person.phone.replace(/\s+/g, "")}`}
-                  className="flex items-center justify-center gap-3 hover:text-amber-400 transition-colors"
+                  className="flex justify-center gap-2 hover:text-amber-400"
                 >
                   <Phone className="w-4 h-4 text-amber-500" />
                   {person.phone}
@@ -135,10 +137,10 @@ export const Contact = () => {
 
                 <a
                   href={`mailto:${person.email}`}
-                  className="flex items-center justify-center gap-3 hover:text-amber-400 transition-colors truncate px-2"
+                  className="flex justify-center gap-2 hover:text-amber-400 truncate"
                 >
                   <Mail className="w-4 h-4 text-amber-500" />
-                  <span className="truncate">{person.email}</span>
+                  {person.email}
                 </a>
               </div>
             </motion.div>
@@ -146,89 +148,70 @@ export const Contact = () => {
         </div>
 
         {/* FORM + MAP */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Form */}
           <motion.form
+            onSubmit={handleSubmit}
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            onSubmit={handleSubmit}
-            className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 space-y-6 transition-all duration-300 hover:border-amber-500/30"
+            className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 space-y-6"
           >
-            <div className="space-y-2">
-              <label className="block text-xs font-rajdhani font-bold text-amber-500 uppercase tracking-[0.2em]">
-                Name
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white focus:border-amber-500/50 outline-none transition-colors font-rajdhani"
-                placeholder="Full Name"
-              />
-            </div>
+            <input
+              required
+              placeholder="Name"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+              className="w-full p-3 bg-black/40 border border-white/10 text-white rounded"
+            />
 
-            <div className="space-y-2">
-              <label className="block text-xs font-rajdhani font-bold text-amber-500 uppercase tracking-[0.2em]">
-                Email
-              </label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white focus:border-amber-500/50 outline-none transition-colors font-rajdhani"
-                placeholder="your.email@ieee.org"
-              />
-            </div>
+            <input
+              required
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              className="w-full p-3 bg-black/40 border border-white/10 text-white rounded"
+            />
 
-            <div className="space-y-2">
-              <label className="block text-xs font-rajdhani font-bold text-amber-500 uppercase tracking-[0.2em]">
-                Message
-              </label>
-              <textarea
-                rows={4}
-                required
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white resize-none focus:border-amber-500/50 outline-none transition-colors font-rajdhani"
-                placeholder="How can we help you?"
-              />
-            </div>
+            <textarea
+              required
+              rows={4}
+              placeholder="Message"
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
+              className="w-full p-3 bg-black/40 border border-white/10 text-white rounded"
+            />
 
             <Button
-              variant="primary"
-              className="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-4 rounded-lg shadow-[0_0_20px_rgba(251,191,36,0.2)] transition-all flex items-center justify-center gap-3 uppercase tracking-widest text-xs"
               disabled={loading}
+              className="w-full bg-amber-500 text-black"
             >
-              <Send className="w-4 h-4" />
-              {loading ? "Transmitting..." : "Send Message"}
+              <Send className="w-4 h-4 mr-2" />
+              {loading ? "Sending..." : "Send Message"}
             </Button>
           </motion.form>
 
-          {/* Map */}
+          {/* ✅ FIXED MAP */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative rounded-xl overflow-hidden border border-white/10 hover:border-amber-500/30 transition shadow-2xl group"
+            className="rounded-xl overflow-hidden border border-white/10"
           >
             <iframe
-              title="UVCE Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1671239965b9%3A0xb3531b7829707f50!2sUniversity%20Visvesvaraya%20College%20of%20Engineering%20(UVCE)!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              className="w-full h-full min-h-[450px] filter grayscale invert-[0.9] opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+              title="UVCE Location"
+              src="https://www.google.com/maps?q=University+Visvesvaraya+College+of+Engineering,+Bengaluru&output=embed"
+              className="w-full h-[450px]"
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
-            <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10" />
           </motion.div>
         </div>
       </div>

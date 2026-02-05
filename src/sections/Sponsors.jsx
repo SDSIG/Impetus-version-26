@@ -86,7 +86,7 @@ export const Sponsors = () => {
         {tiers.platinum.length > 0 && (
           <div className="mb-20">
             <h3 className="text-amber-500 font-rajdhani font-bold text-center tracking-[0.5em] text-sm uppercase mb-10">
-              // Platinum Partners
+              Platinum Partners
             </h3>
             <div className="flex flex-wrap justify-center gap-8 md:gap-12">
               {tiers.platinum.map((sponsor, index) => (
@@ -113,7 +113,7 @@ export const Sponsors = () => {
         {tiers.gold.length > 0 && (
           <div className="mb-20">
             <h3 className="text-gray-400 font-rajdhani font-bold text-center tracking-[0.4em] text-xs uppercase mb-8">
-              // Gold Partners
+               Gold Partners
             </h3>
             <div className="flex flex-wrap justify-center gap-6">
               {tiers.gold.map((sponsor) => (
@@ -137,7 +137,7 @@ export const Sponsors = () => {
         {tiers.silver.length > 0 && (
           <div>
             <h3 className="text-gray-500 font-rajdhani font-bold text-center tracking-[0.4em] text-[10px] uppercase mb-8">
-              // Silver Partners
+               Silver Partners
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               {tiers.silver.map((sponsor) => (

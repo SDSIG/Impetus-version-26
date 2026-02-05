@@ -72,7 +72,7 @@ export const Footer = () => {
         {/* Footer Text */}
         <div className="mt-8 text-center space-y-4">
           <p className="text-gray-500 font-rajdhani text-sm tracking-widest uppercase">
-            © IMPETUS 26.0 — Engineering Tomorrow
+            © IMPETUS 26.0
           </p>
 
           <p className="text-gray-400 font-rajdhani text-sm">
