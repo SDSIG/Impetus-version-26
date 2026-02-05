@@ -2,159 +2,114 @@ import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 
 export const Sponsors = () => {
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+    burntGold: "#78350F",
+  };
+
   const sponsors = [
     {
       name: "TechCorp",
-      tier: "platinum",
       logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=TechCorp",
     },
     {
       name: "InnovateLabs",
-      tier: "platinum",
       logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=InnovateLabs",
     },
     {
       name: "FutureTech",
-      tier: "gold",
       logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=FutureTech",
     },
     {
       name: "CodeForge",
-      tier: "gold",
       logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=CodeForge",
     },
     {
       name: "RoboSystems",
-      tier: "silver",
       logo: "https://via.placeholder.com/150x75/fbbf24/000000?text=RoboSystems",
     },
     {
       name: "AISolutions",
-      tier: "silver",
       logo: "https://via.placeholder.com/150x75/fbbf24/000000?text=AISolutions",
     },
   ];
 
-  const tiers = {
-    platinum: sponsors.filter((s) => s.tier === "platinum"),
-    gold: sponsors.filter((s) => s.tier === "gold"),
-    silver: sponsors.filter((s) => s.tier === "silver"),
-  };
-
   return (
     <section
       id="sponsors"
-      className="relative py-24 bg-[#020202] overflow-hidden"
+      className="relative py-24 overflow-hidden"
+      style={{ backgroundColor: colors.royalBlack }}
     >
-      {/* 🌌 SOLAR BACKGROUND ELEMENTS */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 blur-[140px] rounded-full pointer-events-none" />
-
-      <motion.div
-        className="absolute inset-0 pointer-events-none opacity-30"
-        animate={{ y: [0, -40, 0] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+      {/* 🌌 ATMOSPHERIC BACKGROUND */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] blur-[160px] rounded-full pointer-events-none opacity-15"
         style={{
-          backgroundImage: `radial-gradient(1px 1px at 10% 20%, #fbbf24, transparent), radial-gradient(1.5px 1.5px at 90% 80%, #fff, transparent)`,
-          backgroundSize: "250px 250px",
+          background: `radial-gradient(circle, ${colors.burntGold}, ${colors.royalBlack})`,
         }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* HEADING */}
+        {/* UNIFIED HEADING */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20 flex flex-col items-center"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          <div className="flex items-center gap-2 mb-4">
-            <Zap size={16} className="text-amber-500 fill-amber-500" />
-            <span className="text-amber-500 font-rajdhani font-bold tracking-[0.4em] text-xs uppercase text-glow-amber">
-              Partnerships
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-orbitron font-black text-white uppercase tracking-tighter mb-4">
-            Our{" "}
-            <span className="bg-gradient-to-b from-amber-200 to-amber-600 bg-clip-text text-transparent">
-              Sponsors
-            </span>
+          <h2
+            className="text-4xl md:text-5xl uppercase tracking-[0.2em] mb-4"
+            style={{
+              fontFamily: "'DaggerSquare', sans-serif",
+              color: "white",
+              textShadow: `0 0 15px ${colors.richGold}40`,
+            }}
+          >
+            Sponsors
           </h2>
-          <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
         </motion.div>
 
-        {/* PLATINUM TIER */}
-        {tiers.platinum.length > 0 && (
-          <div className="mb-20">
-            <h3 className="text-amber-500 font-rajdhani font-bold text-center tracking-[0.5em] text-sm uppercase mb-10">
-              Platinum Partners
-            </h3>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-              {tiers.platinum.map((sponsor, index) => (
-                <motion.div
-                  key={sponsor.name}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="relative group p-1"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-b from-amber-400 to-amber-700 rounded-2xl blur-md opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <div className="relative bg-[#0a0a0a] border border-amber-500/30 backdrop-blur-xl rounded-2xl p-8 sm:p-10 flex items-center justify-center h-32 w-64 sm:h-40 sm:w-80 shadow-2xl">
-                    <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      className="h-16 sm:h-20 object-contain grayscale hover:grayscale-0 transition-all duration-500"
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* UNIFIED SPONSOR WALL */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+          {sponsors.map((sponsor, index) => (
+            <motion.div
+              key={sponsor.name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              whileHover={{ y: -8, scale: 1.05 }}
+              className="relative group p-[1px]"
+            >
+              {/* Outer Glow on Hover */}
+              <div
+                className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+                style={{ background: colors.richGold }}
+              />
 
-        {/* GOLD TIER */}
-        {tiers.gold.length > 0 && (
-          <div className="mb-20">
-            <h3 className="text-gray-400 font-rajdhani font-bold text-center tracking-[0.4em] text-xs uppercase mb-8">
-               Gold Partners
-            </h3>
-            <div className="flex flex-wrap justify-center gap-6">
-              {tiers.gold.map((sponsor) => (
-                <motion.div
-                  key={sponsor.name}
-                  whileHover={{ y: -5 }}
-                  className="bg-[#0f0f0f] border border-white/5 hover:border-amber-500/40 rounded-xl p-6 h-24 w-48 sm:h-28 sm:w-56 flex items-center justify-center transition-all shadow-xl"
-                >
-                  <img
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    className="h-12 sm:h-14 object-contain opacity-70 hover:opacity-100 transition-opacity"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* SILVER TIER */}
-        {tiers.silver.length > 0 && (
-          <div>
-            <h3 className="text-gray-500 font-rajdhani font-bold text-center tracking-[0.4em] text-[10px] uppercase mb-8">
-               Silver Partners
-            </h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {tiers.silver.map((sponsor) => (
+              <div
+                className="relative bg-[#0a0a0a]/80 backdrop-blur-md rounded-xl p-6 sm:p-8 flex items-center justify-center h-28 w-56 sm:h-36 sm:w-72 transition-all duration-500 overflow-hidden"
+                style={{ border: `1px solid ${colors.richGold}33` }}
+              >
+                {/* Subtle Internal Gradient */}
                 <div
-                  key={sponsor.name}
-                  className="bg-[#050505] border border-white/5 rounded-lg p-4 h-16 w-32 sm:h-20 sm:w-40 flex items-center justify-center opacity-60 hover:opacity-100 hover:border-amber-500/20 transition-all"
-                >
-                  <img
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    className="h-8 sm:h-10 object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+                  className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none"
+                  style={{
+                    background: `linear-gradient(45deg, transparent, ${colors.brightGold}, transparent)`,
+                  }}
+                />
+
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  className="h-12 sm:h-16 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

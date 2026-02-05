@@ -11,6 +11,13 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // THEME COLORS
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+  };
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -29,7 +36,6 @@ export const Navbar = () => {
   const handleNavClick = (path) => {
     if (path.startsWith("/#")) {
       const section = path.slice(2);
-
       if (location.pathname !== "/") {
         navigate("/");
         setTimeout(() => {
@@ -45,7 +51,6 @@ export const Navbar = () => {
     } else {
       navigate(path);
     }
-
     setIsOpen(false);
   };
 
@@ -57,17 +62,21 @@ export const Navbar = () => {
           animate={{ y: 0 }}
           exit={{ y: -100 }}
           transition={{ duration: 0.3 }}
-          className={`fixed top-0 left-0 right-0 z-[50] backdrop-blur-xl ${
-            scrolled
-              ? "bg-black/80 border-b border-amber-500/20"
-              : "bg-transparent"
-          }`}
+          className="fixed top-0 left-0 right-0 z-[50] backdrop-blur-xl transition-all duration-300"
+          style={{
+            backgroundColor: scrolled
+              ? `${colors.royalBlack}CC`
+              : "transparent",
+            borderBottom: scrolled
+              ? `1px solid ${colors.richGold}33`
+              : "1px solid transparent",
+          }}
         >
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between h-20">
-              {/* LOGO */}
+              {/* LOGO WITH SUBTLE STATIC GLOW */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 className="cursor-pointer"
                 onClick={() => {
                   navigate("/");
@@ -78,16 +87,26 @@ export const Navbar = () => {
                   src="/images/logo.png"
                   alt="IMPETUS Logo"
                   className="h-12 w-auto"
+                  style={{
+                    filter: `drop-shadow(0 0 12px ${colors.richGold}40)`, // Subtle 25% opacity gold shadow
+                  }}
                 />
               </motion.div>
 
-              {/* Desktop */}
+              {/* Desktop Nav */}
               <div className="hidden md:flex gap-8">
                 {navItems.map((item) => (
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.path)}
-                    className="text-gray-300 hover:text-amber-400 uppercase tracking-widest"
+                    className=" tracking-widest font-rajdhani font-bold text-xs sm:text-[13px] transition-colors duration-300"
+                    style={{ color: "#D1D5DB" }} // Gray-300
+                    onMouseOver={(e) =>
+                      (e.currentTarget.style.color = colors.richGold)
+                    }
+                    onMouseOut={(e) =>
+                      (e.currentTarget.style.color = "#D1D5DB")
+                    }
                   >
                     {item.name}
                   </button>
@@ -97,7 +116,7 @@ export const Navbar = () => {
               {/* Mobile Toggle */}
               <div className="md:hidden">
                 <button
-                  className="text-amber-500"
+                  style={{ color: colors.richGold }}
                   onClick={() => setIsOpen((p) => !p)}
                 >
                   {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -113,15 +132,28 @@ export const Navbar = () => {
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
-                className="md:hidden bg-black/95 border-t border-amber-500/20"
+                className="md:hidden border-t"
+                style={{
+                  backgroundColor: colors.royalBlack,
+                  borderColor: `${colors.richGold}33`,
+                }}
               >
                 <div className="px-6 py-8 space-y-4">
                   {navItems.map((item) => (
                     <button
                       key={item.name}
-                      onTouchStart={() => handleNavClick(item.path)}
                       onClick={() => handleNavClick(item.path)}
-                      className="block w-full text-left text-gray-200 hover:text-amber-500 font-bold uppercase tracking-widest py-2 border-b border-white/10"
+                      className="block w-full text-left font-rajdhani font-bold tracking-widest py-1 border-b transition-colors"
+                      style={{
+                        color: "#E5E7EB",
+                        borderBottomColor: "rgba(255,255,255,0.05)",
+                      }}
+                      onMouseOver={(e) =>
+                        (e.currentTarget.style.color = colors.richGold)
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.style.color = "#E5E7EB")
+                      }
                     >
                       {item.name}
                     </button>

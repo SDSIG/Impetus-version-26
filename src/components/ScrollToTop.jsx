@@ -1,66 +1,55 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
-import { useLocation } from "react-router-dom"; // Add this import
+import { useLocation } from "react-router-dom";
 
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const location = useLocation(); // Hook to get current path
+  const location = useLocation();
 
-  // Check if we are on the events page
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+  };
+
   const isEventsPage = location.pathname === "/events";
 
-  const toggleVisibility = () => {
-    // Only show if we are NOT on the events page AND scrolled down
-    if (window.pageYOffset > 300 && !isEventsPage) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   useEffect(() => {
+    const toggleVisibility = () => {
+      // Simple logic: show if scrolled > 300px and not on events page
+      setIsVisible(window.pageYOffset > 300 && !isEventsPage);
+    };
+
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
-  }, [location.pathname]); // Re-run effect when path changes
+  }, [isEventsPage]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <AnimatePresence>
-      {/* Button only renders if isVisible is true. 
-          isVisible can only be true if isEventsPage is false. 
-      */}
       {isVisible && (
         <motion.button
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0, opacity: 0 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          whileHover={{
+            borderColor: colors.brightGold,
+            backgroundColor: "#0a0a0a",
+          }}
           onClick={scrollToTop}
-          className="
-            fixed bottom-6 right-6 z-50
-            w-12 h-12
-            sm:w-16 sm:h-16
-            rounded-full
-            bg-black
-            border border-[rgba(253,224,71,0.6)]
-            shadow-[0_0_12px_rgba(253,224,71,0.4)]
-            flex items-center justify-center
-            text-white
-            hover:shadow-[0_0_32px_rgba(253,224,71,0.9)]
-            hover:border-[rgba(253,224,71,0.9)]
-            transition-all duration-300
-          "
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 border backdrop-blur-sm"
+          style={{
+            backgroundColor: colors.royalBlack,
+            borderColor: `${colors.richGold}40`,
+            color: colors.richGold,
+          }}
           aria-label="Scroll to top"
         >
-          <ArrowUp size={20} className="sm:w-6 sm:h-6" />
+          <ArrowUp size={20} strokeWidth={2} />
         </motion.button>
       )}
     </AnimatePresence>

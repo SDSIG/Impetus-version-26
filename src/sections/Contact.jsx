@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, Zap } from "lucide-react";
-import { Button } from "../components/Button";
+import { Mail, Phone } from "lucide-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+  };
+
   const teamContacts = [
     {
       name: "Mohith Monnappa T A",
@@ -26,120 +31,110 @@ export const Contact = () => {
     },
   ];
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    emailjs
-      .send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: "ieeeuvce26@gmail.com",
-        },
-        "YOUR_PUBLIC_KEY",
-      )
-      .then(() => {
-        alert("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-        setLoading(false);
-      })
-      .catch(() => {
-        alert("Failed to send message. Please try again.");
-        setLoading(false);
-      });
-  };
-
   return (
     <section
       id="contact"
-      className="relative py-20 sm:py-32 bg-[#020202] overflow-hidden"
+      className="relative py-20 overflow-hidden"
+      style={{ backgroundColor: colors.royalBlack }}
     >
-      {/* 🌌 STAR BACKGROUND */}
+      {/* STAR LAYERS */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         style={{
           backgroundImage: `
-            radial-gradient(1px 1px at 20px 30px, #fbbf24, transparent),
-            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 150px 60px, #fbbf24, transparent),
-            radial-gradient(1px 1px at 220px 180px, #fff, transparent)
+            radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+            radial-gradient(2px 2px at 80px 120px, ${colors.brightGold}, transparent),
+            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
+            radial-gradient(1px 1px at 220px 180px, ${colors.richGold}, transparent)
           `,
           backgroundSize: "260px 260px",
-          opacity: 0.4,
+          opacity: 0.8,
+        }}
+      />
+
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ x: [0, -30, 0], y: [0, 60, 0] }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 120px 200px, ${colors.richGold}, transparent),
+            radial-gradient(2px 2px at 200px 100px, #fff, transparent)
+          `,
+          backgroundSize: "320px 320px",
+          opacity: 0.5,
         }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
-        {/* Heading */}
+        {/* HEADING */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20 flex flex-col items-center"
+          className="text-center mb-12"
         >
-          <div className="flex items-center gap-2 mb-4">
-            <Zap size={16} className="text-amber-500 fill-amber-500" />
-            <span className="text-amber-500 font-rajdhani font-bold tracking-[0.4em] text-xs uppercase">
-              Get In Touch
-            </span>
-          </div>
-
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-orbitron font-black text-white uppercase mb-6">
-            Contact{" "}
-            <span className="bg-gradient-to-b from-amber-200 to-amber-600 bg-clip-text text-transparent">
-              Us
-            </span>
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl uppercase"
+            style={{ fontFamily: "'DaggerSquare', sans-serif", color: "white" }}
+          >
+            Contact <span style={{ color: colors.brightGold }}>Us</span>
           </h2>
-
-          <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
         </motion.div>
 
-        {/* Team */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-20">
+        {/* TEAM CONTACTS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-14">
           {teamContacts.map((person, index) => (
             <motion.div
               key={person.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 text-center hover:border-amber-500/50 transition"
+              transition={{ delay: index * 0.08 }}
+              className="p-6 sm:p-8 text-center bg-[#0a0a0a]"
+              style={{
+                border: `1px solid ${colors.richGold}33`,
+                clipPath:
+                  "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+              }}
             >
-              <h3 className="text-lg font-orbitron font-bold text-white">
+              <h3
+                className="text-lg font-bold mb-1 text-white"
+                style={{ fontFamily: "'Rajdhani', sans-serif" }}
+              >
                 {person.name}
               </h3>
-              <p className="text-sm text-amber-500 font-bold uppercase mb-6">
+
+              <p
+                className="text-xs tracking-widest mb-5"
+                style={{
+                  fontFamily: "'Rajdhani', sans-serif",
+                  color: colors.richGold,
+                }}
+              >
                 {person.role}
               </p>
 
-              <div className="space-y-4 text-gray-400 text-sm">
+              <div
+                className="space-y-3 text-sm"
+                style={{ fontFamily: "'Rajdhani', sans-serif" }}
+              >
                 <a
                   href={`tel:${person.phone.replace(/\s+/g, "")}`}
-                  className="flex justify-center gap-2 hover:text-amber-400"
+                  className="flex justify-center items-center gap-2 text-gray-400 hover:text-white transition"
                 >
-                  <Phone className="w-4 h-4 text-amber-500" />
+                  <Phone size={14} style={{ color: colors.richGold }} />
                   {person.phone}
                 </a>
 
                 <a
                   href={`mailto:${person.email}`}
-                  className="flex justify-center gap-2 hover:text-amber-400 truncate"
+                  className="flex justify-center items-center gap-2 text-gray-400 hover:text-white transition truncate"
                 >
-                  <Mail className="w-4 h-4 text-amber-500" />
+                  <Mail size={14} style={{ color: colors.richGold }} />
                   {person.email}
                 </a>
               </div>
@@ -147,73 +142,26 @@ export const Contact = () => {
           ))}
         </div>
 
-        {/* FORM + MAP */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Form */}
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 space-y-6"
-          >
-            <input
-              required
-              placeholder="Name"
-              value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-              className="w-full p-3 bg-black/40 border border-white/10 text-white rounded"
-            />
-
-            <input
-              required
-              type="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              className="w-full p-3 bg-black/40 border border-white/10 text-white rounded"
-            />
-
-            <textarea
-              required
-              rows={4}
-              placeholder="Message"
-              value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
-              className="w-full p-3 bg-black/40 border border-white/10 text-white rounded"
-            />
-
-            <Button
-              disabled={loading}
-              className="w-full bg-amber-500 text-black"
-            >
-              <Send className="w-4 h-4 mr-2" />
-              {loading ? "Sending..." : "Send Message"}
-            </Button>
-          </motion.form>
-
-          {/* ✅ FIXED MAP */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-xl overflow-hidden border border-white/10"
-          >
-            <iframe
-              title="UVCE Location"
-              src="https://www.google.com/maps?q=University+Visvesvaraya+College+of+Engineering,+Bengaluru&output=embed"
-              className="w-full h-[450px]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </motion.div>
-        </div>
+        {/* MAP */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="w-full h-[420px] rounded-xl overflow-hidden border"
+          style={{ borderColor: `${colors.richGold}33` }}
+        >
+          <iframe
+            title="UVCE Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9702221665475!2d77.5841022!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1672fcfc3f21%3A0x8979666063d8594e!2sUniversity%20Visvesvaraya%20College%20of%20Engineering%20(UVCE)!5e0!3m2!1sen!2sin!4v1646820000000!5m2!1sen!2sin"
+            className="w-full h-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            style={{
+              filter:
+                "invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1)",
+            }}
+          />
+        </motion.div>
       </div>
     </section>
   );

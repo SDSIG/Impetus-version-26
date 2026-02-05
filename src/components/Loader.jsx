@@ -7,7 +7,13 @@ export const Loader = ({ onComplete }) => {
   const [videoSrc, setVideoSrc] = useState("");
   const videoRef = useRef(null);
 
-  // 🎯 Responsive video selection
+  // THEME COLORS
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+  };
+
   const handleResize = useCallback(() => {
     const isDesktop = window.innerWidth >= 768;
     const nextSrc = isDesktop
@@ -22,23 +28,19 @@ export const Loader = ({ onComplete }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
-  // ▶️ Start video WITH sound (user interaction)
   const startExperience = () => {
     const video = videoRef.current;
     if (!video) return;
-
     setHasStarted(true);
     video.muted = false;
     video.playbackRate = 0.6;
     video.play();
   };
 
-  // 🚀 Exit loader
   const finishLoading = useCallback(() => {
     setIsVisible(false);
     setTimeout(() => {
       onComplete();
-      document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" });
     }, 800);
   }, [onComplete]);
 
@@ -49,7 +51,8 @@ export const Loader = ({ onComplete }) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className="fixed inset-0 z-50 bg-black overflow-hidden"
+          className="fixed inset-0 z-[100] overflow-hidden"
+          style={{ backgroundColor: colors.royalBlack }}
         >
           {/* 🎬 VIDEO */}
           {videoSrc && (
@@ -57,63 +60,52 @@ export const Loader = ({ onComplete }) => {
               ref={videoRef}
               playsInline
               onEnded={finishLoading}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover opacity-60"
             >
               <source src={videoSrc} type="video/mp4" />
             </video>
           )}
 
-          {/* 🟢 ENTER EXPERIENCE (before start) */}
+          {/* 🟢 ENTER EXPERIENCE (The Royal Gateway) */}
           {!hasStarted && (
             <div className="relative z-10 flex items-center justify-center w-full h-full">
               <motion.button
                 onClick={startExperience}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="
-                  px-14 py-4
-                  rounded-full
-                  border border-white/30
-                  bg-black/40
-                  text-white
-                  font-orbitron
-                  tracking-[0.35em]
-                  text-xs
-                  uppercase
-                  hover:border-white
-                  transition-all
-                  duration-500
-                "
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                whileHover={{
+                  scale: 1.05,
+                  borderColor: colors.brightGold,
+                  boxShadow: `0 0 30px ${colors.richGold}40`,
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="px-14 py-4 rounded-full border bg-black/40 text-white uppercase tracking-[0.4em] text-xs transition-all duration-500"
+                style={{
+                  fontFamily: "'Orbitron', sans-serif",
+                  borderColor: `${colors.richGold}60`,
+                  color: colors.brightGold,
+                }}
               >
-                Enter Experience
+                Initiate Experience
               </motion.button>
             </div>
           )}
 
-          {/* ⏭️ SKIP INTRO (after start) */}
+          {/* ⏭️ SKIP INTRO (Subtle Utility) */}
           {hasStarted && (
             <div className="relative z-10 flex flex-col items-center justify-end w-full h-full pb-12 sm:pb-20">
               <motion.button
                 onClick={finishLoading}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: 0.6 }}
+                whileHover={{ opacity: 1, color: colors.brightGold }}
                 transition={{ delay: 1.5, duration: 0.8 }}
-                className="
-                  px-10 py-3
-                  rounded-full
-                  border border-white/20
-                  bg-black/20
-                  text-white/70
-                  hover:text-white
-                  font-orbitron
-                  tracking-[0.3em]
-                  text-[10px]
-                  uppercase
-                  transition-all
-                "
+                className="px-10 py-3 rounded-full border bg-black/20 font-rajdhani tracking-[0.3em] text-[10px] uppercase transition-all"
+                style={{
+                  borderColor: `${colors.richGold}30`,
+                  color: colors.richGold,
+                }}
               >
                 Skip Intro
               </motion.button>

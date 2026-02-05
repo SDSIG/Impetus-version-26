@@ -4,6 +4,13 @@ import { useState } from "react";
 export const About = () => {
   const [expanded, setExpanded] = useState(false);
 
+  // THEME COLORS
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+  };
+
   const cards = [
     {
       title: "ABOUT IMPETUS",
@@ -19,8 +26,11 @@ export const About = () => {
     cards[1].content.split(" ").slice(0, 70).join(" ") + "...";
 
   return (
-    <section className="relative py-16 bg-black overflow-hidden">
-      {/* STAR BACKGROUND — same as About */}
+    <section
+      className="relative py-16 overflow-hidden"
+      style={{ backgroundColor: colors.royalBlack }}
+    >
+      {/* STAR LAYERS */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
@@ -28,13 +38,30 @@ export const About = () => {
         style={{
           backgroundImage: `
             radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent)
+            radial-gradient(2px 2px at 80px 120px, ${colors.brightGold}, transparent),
+            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
+            radial-gradient(1px 1px at 220px 180px, ${colors.richGold}, transparent)
           `,
           backgroundSize: "260px 260px",
-          opacity: 0.9,
+          opacity: 0.8,
         }}
       />
+
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ x: [0, -30, 0], y: [0, 60, 0] }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 120px 200px, ${colors.richGold}, transparent),
+            radial-gradient(2px 2px at 200px 100px, #fff, transparent)
+          `,
+          backgroundSize: "320px 320px",
+          opacity: 0.5,
+        }}
+      />
+
       <div className="relative max-w-7xl mx-auto px-4 grid md:grid-cols-1 gap-8">
         {cards.map((card, index) => (
           <motion.div
@@ -43,37 +70,48 @@ export const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative bg-gradient-to-b from-[#0b0b0b] to-black p-8"
+            className="relative bg-gradient-to-b from-[#0b0b0b] to-[#050505] p-8"
             style={{
               clipPath:
                 "polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px)",
-              border: "1.5px solid rgba(253, 224, 71, 0.9)",
+              border: `1.5px solid ${colors.richGold}`,
             }}
           >
-            <h3 className="text-2xl font-bold text-white uppercase mb-4">
+            <h3
+              className="text-2xl uppercase mb-4 tracking-[0.1em]"
+              style={{
+                fontFamily: "'DaggerSquare', sans-serif",
+                color: colors.brightGold,
+              }}
+            >
               {card.title}
             </h3>
 
-            <div className="w-16 h-[2px] mb-6 bg-yellow-300" />
+            <div
+              className="w-16 h-[2px] mb-6"
+              style={{ backgroundColor: colors.richGold }}
+            />
 
-            {index === 1 ? (
-              <>
-                <p className="text-gray-300 leading-relaxed text-justify">
-                  {expanded ? card.content : truncatedText}
-                </p>
-
-                <button
-                  onClick={() => setExpanded(!expanded)}
-                  className="mt-4 text-yellow-300 font-semibold hover:underline"
-                >
-                  {expanded ? "Read Less" : "Read More"}
-                </button>
-              </>
-            ) : (
-              <p className="text-gray-300 leading-relaxed text-justify">
-                {card.content}
-              </p>
-            )}
+            <div
+              className="text-gray-300 leading-relaxed text-justify text-lg"
+              style={{ fontFamily: "'Rajdhani', sans-serif" }}
+            >
+              {index === 1 ? (
+                <>
+                  <p>{expanded ? card.content : truncatedText}</p>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    onClick={() => setExpanded(!expanded)}
+                    className="mt-4 font-bold uppercase tracking-widest cursor-pointer"
+                    style={{ color: colors.richGold }}
+                  >
+                    {expanded ? "[ Read Less ]" : "[ Read More ]"}
+                  </motion.button>
+                </>
+              ) : (
+                <p>{card.content}</p>
+              )}
+            </div>
           </motion.div>
         ))}
       </div>
