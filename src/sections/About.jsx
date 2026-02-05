@@ -20,6 +20,21 @@ export const About = () => {
 
   return (
     <section className="relative py-16 bg-black overflow-hidden">
+      {/* STAR BACKGROUND — same as About */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent)
+          `,
+          backgroundSize: "260px 260px",
+          opacity: 0.9,
+        }}
+      />
       <div className="relative max-w-7xl mx-auto px-4 grid md:grid-cols-1 gap-8">
         {cards.map((card, index) => (
           <motion.div

@@ -1,165 +1,161 @@
-/*import { motion } from 'framer-motion';
-import { Calendar, Users, Trophy, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-
-export const EventCard = ({ event, index }) => {
-  const navigate = useNavigate();
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -10, scale: 1.02 }}
-      className="group relative backdrop-blur-xl bg-white/5 border border-purple-500/40 rounded-xl overflow-hidden hover:bg-white/10 hover:border-purple-400/60 transition-all duration-300 cursor-pointer"
-      onClick={() => navigate(`/event/${event.id}`)}
-      style={{
-        boxShadow: '0 0 12px rgba(168, 85, 247, 0.25), 0 0 20px rgba(239, 68, 68, 0.1)',
-      }}
-    >
-      <div className="relative h-40 sm:h-48 overflow-hidden">
-        <img
-          src={event.image}
-          alt={event.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent" />
-        <div className="absolute top-2 sm:top-4 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full bg-neon-cyan/20 backdrop-blur-sm border border-neon-cyan/50">
-          <span className="text-xs font-orbitron font-bold text-neon-cyan uppercase">
-            {event.category}
-          </span>
-        </div>
-      </div>
-      
-      <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
-        <h3 className="text-lg sm:text-xl font-orbitron font-bold text-white uppercase tracking-wide line-clamp-2">
-          {event.title}
-        </h3>
-        
-        <div className="space-y-2 text-xs sm:text-sm text-gray-300">
-          <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-neon-cyan flex-shrink-0" />
-            <span className="truncate">{event.date}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-neon-violet flex-shrink-0" />
-            <span className="truncate">{event.teamSize}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Trophy className="w-4 h-4 text-neon-green flex-shrink-0" />
-            <span className="font-bold text-neon-green truncate">{event.prizePool}</span>
-          </div>
-        </div>
-        
-        <motion.div
-          className="flex items-center gap-2 text-neon-cyan group-hover:gap-4 transition-all text-xs sm:text-sm"
-          whileHover={{ x: 5 }}
-        >
-          <span className="font-orbitron font-bold uppercase">View Details</span>
-          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-        </motion.div>
-      </div>
-      
-      <div className="absolute inset-0 border-2 border-neon-cyan/0 group-hover:border-purple-400/40 rounded-xl transition-all duration-300 pointer-events-none" />
-    </motion.div>
-  );
-};
-*/
-
 import { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  Phone,
+  ArrowLeft,
+  Trophy,
+  Calendar,
+  Users,
+  ExternalLink,
+} from "lucide-react";
 
 export const EventCard = ({ event, index }) => {
   const [showDetails, setShowDetails] = useState(false);
 
+  const cyberpunkShape =
+    "polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px)";
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.08 }}
-      className="h-[450px] sm:h-[500px] md:h-[520px] w-full"
-      style={{
-        perspective: "1000px",
-      }}
+      transition={{ delay: index * 0.06 }}
+      className="h-[450px] w-full group"
+      style={{ perspective: "1500px" }}
     >
       <motion.div
         animate={{ rotateY: showDetails ? 180 : 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative w-full h-full"
-        style={{
-          transformStyle: "preserve-3d",
+        transition={{
+          duration: 0.6,
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
         }}
+        className="relative w-full h-full"
+        style={{ transformStyle: "preserve-3d" }}
       >
-        {/* FRONT SIDE */}
+        {/* ================= FRONT ================= */}
         <div
-          className="absolute inset-0 rounded-xl backdrop-blur-xl bg-white/5 border border-purple-500/40 overflow-hidden flex flex-col"
-          style={{
-            backfaceVisibility: "hidden",
-          }}
+          className="absolute inset-0 bg-[#0b0b0b] border border-yellow-400/30 flex flex-col overflow-hidden"
+          style={{ backfaceVisibility: "hidden", clipPath: cyberpunkShape }}
         >
-          {/* Square Poster */}
-          <div className="aspect-square w-full overflow-hidden">
+          <div className="flex-1 overflow-hidden relative">
             <img
-              src={event.image}
-              alt={event.title}
-              className="w-full h-full object-cover"
+              src={`/event-images/${event.image}`}
+              alt={event.name}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+
+            <div className="absolute bottom-4 left-5">
+              <h3 className="text-xl font-black text-white uppercase tracking-tighter italic">
+                {event.name}
+              </h3>
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="flex-1 p-4 sm:p-6 flex flex-col justify-between">
-            <h3 className="text-lg sm:text-xl font-orbitron font-bold text-white uppercase">
-              {event.title}
-            </h3>
+          <div className="p-4 bg-black/90 flex gap-3 border-t border-yellow-400/20">
+            <button
+              onClick={() => setShowDetails(true)}
+              className="flex-1 py-3 bg-white text-black font-black text-[10px] uppercase tracking-widest hover:bg-yellow-400 transition-colors"
+            >
+              View Details
+            </button>
 
-            {/* Buttons */}
-            <div className="flex gap-3 flex-col">
-              <button
-                onClick={() => setShowDetails(true)}
-                className="w-full py-2 sm:py-3 rounded-lg bg-neon-cyan font-orbitron font-bold text-sm sm:text-base hover:scale-105 transition"
-                style={{ color: "white" }}
-              >
-                Know More
-              </button>
-
-              <a
-                href={event.registerLink || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-2 sm:py-3 rounded-lg border border-neon-violet font-orbitron font-bold text-sm sm:text-base text-center hover:bg-neon-violet transition"
-                style={{ color: "white" }}
-              >
-                Register Now
-              </a>
-            </div>
+            {/* Dynamic Registration Link */}
+            <a
+              href={event.reg_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 py-3 border border-yellow-400 text-yellow-400 font-bold text-[10px] uppercase tracking-widest hover:bg-yellow-400 hover:text-black transition-all flex items-center justify-center gap-2"
+            >
+              Register <ExternalLink size={10} />
+            </a>
           </div>
         </div>
 
-        {/* BACK SIDE */}
+        {/* ================= BACK ================= */}
         <div
-          className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-900/90 to-black border border-purple-400 p-4 sm:p-6 flex flex-col justify-between"
+          className="absolute inset-0 bg-[#0d0d0d] border border-yellow-400/60 p-6 flex flex-col"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
+            clipPath: cyberpunkShape,
           }}
         >
-          <div>
-            <h3 className="text-lg sm:text-xl font-orbitron font-bold text-white mb-4 uppercase">
-              About Event
-            </h3>
-            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-              {event.description}
-            </p>
+          <div className="flex justify-between items-start mb-4 border-b border-yellow-400/20 pb-4">
+            <div>
+              <h3 className="text-lg font-black text-yellow-400 uppercase leading-none mb-1">
+                {event.name}
+              </h3>
+              <div className="flex items-center gap-2 text-[10px] text-gray-400 font-bold uppercase">
+                <Trophy size={10} className="text-yellow-400" />
+                {event.cashPrize}
+              </div>
+            </div>
+            <button
+              onClick={() => setShowDetails(false)}
+              className="p-2 hover:bg-yellow-400/10 rounded-full text-yellow-400 transition"
+            >
+              <ArrowLeft size={20} />
+            </button>
           </div>
 
-          <button
-            onClick={() => setShowDetails(false)}
-            className="w-full mt-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/20 text-white font-orbitron font-bold text-sm sm:text-base hover:bg-white/20 transition"
+          <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-6">
+            <section>
+              <p className="text-gray-300 text-sm leading-relaxed text-justify italic">
+                {event.description}
+              </p>
+            </section>
+
+            <section className="grid grid-cols-2 gap-4">
+              <div className="flex items-center gap-2 text-xs text-gray-400">
+                <Calendar size={14} className="text-yellow-400" />
+                <span>{event.date}</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-gray-400">
+                <Users size={14} className="text-yellow-400" />
+                <span>{event.teamSize}</span>
+              </div>
+            </section>
+
+            {event.contacts?.length > 0 && (
+              <section className="pt-4 border-t border-white/10">
+                <h4 className="text-[10px] font-bold text-yellow-400 uppercase tracking-widest mb-3">
+                  Contact Organizers
+                </h4>
+                <div className="space-y-3">
+                  {event.contacts.map((c, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between items-center group/contact"
+                    >
+                      <span className="text-xs text-gray-300 font-medium">
+                        {c.name}
+                      </span>
+                      <a
+                        href={`tel:${c.phone}`}
+                        className="flex items-center gap-2 text-[11px] text-yellow-400 bg-yellow-400/5 px-2 py-1 border border-yellow-400/10 hover:border-yellow-400 transition"
+                      >
+                        <Phone size={10} /> {c.phone}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+
+          {/* Large Sticky Registration Link */}
+          <a
+            href={event.reg_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 w-full py-4 bg-yellow-400 text-black font-black text-xs uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_15px_rgba(250,204,21,0.2)] text-center"
           >
-            Back
-          </button>
+            Register Now
+          </a>
         </div>
       </motion.div>
     </motion.div>

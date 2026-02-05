@@ -1,166 +1,201 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Filter, X } from "lucide-react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { events } from "../data/events";
+import { Filter, Scale, X, Zap } from "lucide-react";
+import eventsData from "../data/events.json";
 import { EventCard } from "../components/EventCard";
+
+// 1. Define Categories to match your JSON keys
+const categories = [
+  { id: "flagship", label: "Flagship Events" },
+  { id: "general", label: "General Events" },
+  { id: "gaming", label: "Gaming Events" },
+];
 
 export const Events = () => {
   const [activeTab, setActiveTab] = useState("flagship");
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Unified state for all screens
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const categories = [
-    { id: "flagship", label: "Flagship" },
-    { id: "general", label: "General" },
-    { id: "gaming", label: "Gaming" },
-  ];
+  // 2. Logic to handle your specific JSON structure safely
+  const dataMap = {
+    flagship: eventsData.flagshipEvents || [],
+    general: eventsData.generalEvents || [],
+    gaming: eventsData.gamingEvents || [],
+  };
 
-  const categoryEvents = events.filter((event) => event.category === activeTab);
+  const categoryEvents = dataMap[activeTab] || [];
 
   const handleTabChange = (id) => {
     setActiveTab(id);
     setIsMenuOpen(false);
-    // Scroll to top of grid for better UX
-    const el = document.getElementById("events");
-    if (el) {
-      window.scrollTo({
-        top: el.offsetTop - 50,
-        behavior: "smooth",
-      });
-    }
+    // Smooth scroll to top when changing categories
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <section
-      id="events"
-      className="relative py-10 bg-[#020202] min-h-screen overflow-x-hidden"
-    >
-      {/* 1. SECTION HEADING */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 text-center mb-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center"
+    <section className="relative py-10 bg-[#020202] min-h-screen overflow-hidden">
+      {/* STAR BACKGROUND — same as About */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        style={{
+          backgroundImage: `
+            radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
+            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent)
+          `,
+          backgroundSize: "260px 260px",
+          opacity: 0.9,
+        }}
+      />
+
+      {/* HEADING SECTION */}
+      <div className="relative z-10 text-center mb-16 pt-10">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-7xl font-orbitron font-black text-white uppercase mt-12 tracking-tighter"
         >
-          <div className="flex items-center gap-2 mb-4">
-            <Zap size={16} className="text-amber-500 fill-amber-500" />
-            <span className="text-amber-500 font-rajdhani font-bold tracking-[0.4em] text-xs uppercase">
-              The Arena
-            </span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-orbitron font-black text-white uppercase tracking-tighter mb-4">
-            Explore{" "}
-            <span className="bg-gradient-to-b from-amber-200 to-amber-600 bg-clip-text text-transparent">
-              Events
-            </span>
-          </h2>
-          <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
-        </motion.div>
+          Explore <span className="text-yellow-500 text-glow">Events</span>
+        </motion.h2>
+        <p className="font-rajdhani text-gray-500 uppercase tracking-[0.5em] mt-2 text-xs md:text-sm">
+          Select a sector to view challenges
+        </p>
       </div>
 
-      <div id="event-grid-anchor" className="scroll-mt-28" />
-
-      {/* 2. EVENT GRID CONTENT */}
-      <div className="max-w-7xl mx-auto px-4 min-h-[500px] pb-32">
+      {/* GRID SECTION */}
+      <div className="max-w-7xl mx-auto px-6 pb-32 relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.02 }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
           >
-            {categoryEvents.map((event, index) => (
-              <div key={event.id} className="relative group">
-                <div className="absolute -inset-1 bg-amber-500/0 group-hover:bg-amber-500/5 blur-2xl transition-all duration-500" />
-                <EventCard event={event} index={index} />
+            {categoryEvents.length > 0 ? (
+              categoryEvents.map((event, index) => (
+                <EventCard
+                  key={`${activeTab}-${index}`}
+                  event={event}
+                  index={index}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-40 border border-dashed border-white/10 rounded-3xl">
+                <p className="text-gray-600 font-rajdhani uppercase tracking-widest">
+                  System Error: No {activeTab} data retrieved.
+                </p>
               </div>
-            ))}
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* 3. UNIFIED FLOATING ACTION BUTTON (Desktop & Mobile) */}
-      <div className="fixed bottom-10 right-10 z-[60] pointer-events-none">
+      {/* FLOATING ACTION BUTTON */}
+      <div className="fixed bottom-6 right-6 md:right-10 z-[60] pointer-events-none">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsMenuOpen(true)}
-          className="pointer-events-auto bg-amber-500 text-black px-6 py-4 rounded-full shadow-[0_10px_40px_rgba(251,191,36,0.5)] flex items-center gap-3 font-orbitron font-bold uppercase tracking-widest text-sm hover:bg-amber-400 transition-colors"
+          className="pointer-events-auto bg-[#0b0b0b] text-yellow-400 px-4 py-3 rounded-full shadow-[0_0_30px_rgba(251,191,36,0.4)] flex items-center gap-1 font-orbitron font-bold uppercase tracking-widest text-xs "
         >
-          <Filter size={20} />
+          <Filter
+            size={18}
+            className="group-hover:rotate-180 transition-transform duration-500"
+          />
           <span>Filters</span>
-          {/* Badge showing current category */}
-          <span className="ml-2 px-2 py-0.5 bg-black text-amber-500 text-[10px] rounded-md">
+          <span className="ml-2 px-2 py-1 bg-yellow-400 text-black text-[10px] rounded ">
             {activeTab}
           </span>
         </motion.button>
       </div>
 
-      {/* 4. UNIFIED BOTTOM SHEET / SIDEBAR DRAWER */}
+      {/* NAVIGATION DRAWER */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
-            {/* Overlay */}
+            {/* BACKDROP */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100]"
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100]"
             />
 
-            {/* The "Menu" - Centered on Desktop, Bottom on Mobile */}
+            {/* DRAWER */}
             <motion.div
-              initial={{ y: "100%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: "100%", opacity: 0 }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed bottom-0 left-0 right-0 md:left-auto md:right-10 md:bottom-28 md:w-96 bg-[#0a0a0a] border border-amber-500/30 rounded-t-[2.5rem] md:rounded-[2rem] z-[110] p-8 shadow-2xl"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 250 }}
+              className="
+          fixed bottom-0 left-0 right-0 
+          md:left-auto md:right-10 md:bottom-24 md:w-[360px]
+          bg-[#0b0b0b]/95 backdrop-blur-xl
+          border border-yellow-500/30
+          rounded-t-3xl md:rounded-3xl
+          z-[110] p-6 shadow-[0_-20px_40px_rgba(0,0,0,0.6)]
+        "
             >
+              {/* HEADER */}
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-white font-orbitron font-bold uppercase tracking-widest text-lg">
-                  Event Categories
-                </h3>
+                <div>
+                  <h3 className="text-white font-orbitron font-bold uppercase tracking-widest text-lg">
+                    Filters
+                  </h3>
+                  <div className="h-[2px] w-10 bg-yellow-500 mt-1" />
+                </div>
+
                 <button
                   onClick={() => setIsMenuOpen(false)}
-                  className="p-2 hover:bg-white/10 rounded-full text-amber-500 transition-colors"
+                  className="
+              p-2 rounded-full
+              bg-white/5 hover:bg-yellow-500
+              text-yellow-500 hover:text-black
+              transition
+            "
                 >
-                  <X size={24} />
+                  <X size={18} />
                 </button>
               </div>
 
-              <div className="space-y-4">
+              {/* CATEGORY LIST */}
+              <div className="space-y-3">
                 {categories.map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => handleTabChange(cat.id)}
-                    className={`group w-full py-4 px-6 rounded-2xl font-rajdhani font-bold uppercase tracking-[0.2em] text-left transition-all flex justify-between items-center
-                      ${
-                        activeTab === cat.id
-                          ? "bg-amber-500 text-black shadow-[0_0_20px_rgba(251,191,36,0.3)]"
-                          : "bg-white/5 text-gray-400 border border-white/10 hover:border-amber-500/50 hover:text-white"
-                      }
-                    `}
+                    className={`
+                w-full px-5 py-4 rounded-2xl
+                flex justify-between items-center
+                font-rajdhani font-bold uppercase tracking-widest text-sm
+                transition-all
+                ${
+                  activeTab === cat.id
+                    ? "bg-yellow-500 text-black shadow-[0_0_20px_rgba(251,191,36,0.35)] scale-[1.02]"
+                    : "bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white"
+                }
+              `}
                   >
                     {cat.label}
                     {activeTab === cat.id && (
-                      <Zap size={14} className="fill-black" />
+                      <Zap size={16} className="text-black" />
                     )}
                   </button>
                 ))}
+              </div>
+
+              {/* FOOTER DECOR */}
+              <div className="mt-8 flex justify-center">
+                <div className="w-16 h-1 bg-yellow-500/30 rounded-full" />
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
-
-      {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 blur-[150px] rounded-full pointer-events-none" />
     </section>
   );
 };

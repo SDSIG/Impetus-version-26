@@ -56,7 +56,7 @@ export const EventsInfo = () => {
         </motion.div>
 
         {/* GRID — SAME AS ABOUT */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           {eventDetails.map((event, index) => (
             <motion.div
               key={event.title}
