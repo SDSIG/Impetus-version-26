@@ -103,6 +103,12 @@ export const Gallery = () => {
     "/images/pic12.jpg",
     "/images/pic13.jpg",
     "/images/pic14.jpg",
+    "/images/pic15.jpg",
+    "/images/pic16.jpg",
+    "/images/pic17.jpg",
+    "/images/pic18.jpg",
+    "/images/pic19.jpg",
+    "/images/pic20.jpg"
   ];
 
   return (

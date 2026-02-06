@@ -11,7 +11,6 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // THEME COLORS
   const colors = {
     royalBlack: "#050505",
     richGold: "#D4AF37",
@@ -36,6 +35,7 @@ export const Navbar = () => {
   const handleNavClick = (path) => {
     if (path.startsWith("/#")) {
       const section = path.slice(2);
+
       if (location.pathname !== "/") {
         navigate("/");
         setTimeout(() => {
@@ -51,6 +51,7 @@ export const Navbar = () => {
     } else {
       navigate(path);
     }
+
     setIsOpen(false);
   };
 
@@ -74,7 +75,7 @@ export const Navbar = () => {
         >
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between h-20">
-              {/* LOGO WITH SUBTLE STATIC GLOW */}
+              {/* LOGO */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="cursor-pointer"
@@ -88,7 +89,7 @@ export const Navbar = () => {
                   alt="IMPETUS Logo"
                   className="h-12 w-auto"
                   style={{
-                    filter: `drop-shadow(0 0 12px ${colors.richGold}40)`, // Subtle 25% opacity gold shadow
+                    filter: `drop-shadow(0 0 12px ${colors.richGold}40)`,
                   }}
                 />
               </motion.div>
@@ -99,8 +100,8 @@ export const Navbar = () => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.path)}
-                    className=" tracking-widest font-rajdhani font-bold text-xs sm:text-[13px] transition-colors duration-300"
-                    style={{ color: "#D1D5DB" }} // Gray-300
+                    className="tracking-widest font-rajdhani font-bold text-xs sm:text-[13px] transition-colors duration-300"
+                    style={{ color: "#D1D5DB" }}
                     onMouseOver={(e) =>
                       (e.currentTarget.style.color = colors.richGold)
                     }
@@ -142,6 +143,10 @@ export const Navbar = () => {
                   {navItems.map((item) => (
                     <button
                       key={item.name}
+                      onTouchStart={(e) => {
+                        e.preventDefault();
+                        handleNavClick(item.path);
+                      }}
                       onClick={() => handleNavClick(item.path)}
                       className="block w-full text-left font-rajdhani font-bold tracking-widest py-1 border-b transition-colors"
                       style={{
