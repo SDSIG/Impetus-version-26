@@ -150,7 +150,7 @@ export const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-4 sm:p-6 flex justify-center"
+          className="p-4 sm:p-6 lg:px-6 lg:py-6 flex justify-center"
           style={{
             backgroundColor: "#0a0a0a",
             border: `1px solid ${colors.richGold}33`,
@@ -158,8 +158,8 @@ export const Contact = () => {
               "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
           }}
         >
-          <div className="max-w-xl w-full">
-            <div className="flex items-center justify-between mb-6 w-full">
+          <div className="max-w-xl md:max-w-2xl lg:max-w-3xl w-full">
+            <div className="flex items-center justify-between mb-4 md:mb-5 lg:mb-6 w-full">
               <h3
                 className="text-3xl font-semibold"
                 style={{
@@ -179,7 +179,7 @@ export const Contact = () => {
                 <Navigation size={24} style={{ color: colors.richGold }} />
               </div>
             </div>
-            <div className="rounded-lg overflow-hidden border shadow-md aspect-video">
+            <div className="rounded-lg overflow-hidden border shadow-md aspect-video min-h-[200px] md:min-h-[280px] lg:min-h-[380px]">
               <iframe
                 title="UVCE Location"
                 src={UVCE_MAP_EMBED_URL}

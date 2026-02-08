@@ -28,7 +28,7 @@ export const Navbar = () => {
     { name: "About", path: "/#about" },
     { name: "Events", path: "/events" },
     { name: "Gallery", path: "/#gallery" },
-    { name: "Sponsors", path: "/#sponsors" },
+    // { name: "Sponsors", path: "/#sponsors" },
     { name: "Contact", path: "/#contact" },
   ];
 

@@ -67,7 +67,7 @@ export const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Left – Developer credit */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
-            <div className="flex items-center gap-3 text-base sm:text-lg lg:text-xl">
+            <div className="flex items-center gap-3 text-sm sm:text-base lg:text-lg">
               <Code size={20} style={{ color: colors.richGold }} />
               <span className="font-medium text-white/90">Developed by</span>
               <span
@@ -77,7 +77,7 @@ export const Footer = () => {
                   color: "white",
                 }}
               >
-                Software Development SIG
+                Software Development SIG, IEEE UVCE
               </span>
             </div>
             <div className="flex flex-wrap justify-center sm:justify-start gap-x-3 gap-y-1 text-sm sm:text-base">
