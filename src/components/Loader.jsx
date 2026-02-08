@@ -92,19 +92,25 @@ export const Loader = ({ onComplete }) => {
             </div>
           )}
 
-          {/* ⏭️ SKIP INTRO (Subtle Utility) */}
+          {/* ⏭️ SKIP INTRO (Highlighted for visibility) */}
           {hasStarted && (
             <div className="relative z-10 flex flex-col items-center justify-end w-full h-full pb-12 sm:pb-20">
               <motion.button
                 onClick={finishLoading}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.6 }}
-                whileHover={{ opacity: 1, color: colors.brightGold }}
+                animate={{ opacity: 1 }}
+                whileHover={{
+                  opacity: 1,
+                  color: colors.brightGold,
+                  borderColor: colors.brightGold,
+                  boxShadow: `0 0 20px ${colors.richGold}50`,
+                }}
                 transition={{ delay: 1, duration: 0.8 }}
-                className="px-10 py-3 rounded-full border bg-black/20 font-rajdhani tracking-[0.3em] text-[10px] uppercase transition-all"
+                className="px-10 py-3 rounded-full border-2 font-rajdhani font-semibold tracking-[0.3em] text-xs uppercase transition-all"
                 style={{
-                  borderColor: `${colors.richGold}30`,
+                  borderColor: `${colors.richGold}99`,
                   color: colors.richGold,
+                  backgroundColor: "rgba(0,0,0,0.5)",
                 }}
               >
                 Skip Intro
