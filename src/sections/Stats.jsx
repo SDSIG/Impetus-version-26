@@ -129,7 +129,7 @@ export const Stats = () => {
               }}
             >
               <div
-                className="text-2xl sm:text-4xl md:text-5xl font-semibold mb-2 sm:mb-3"
+                className="text-2xl sm:text-2xl md:text-4xl font-semibold mb-2 sm:mb-3"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
               >
                 <AnimatedCounter
