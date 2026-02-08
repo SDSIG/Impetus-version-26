@@ -10,10 +10,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Loader } from "./components/Loader";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
-import { Chatbot } from "./components/Chatbot";
+// import { Chatbot } from "./components/Chatbot";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Home } from "./pages/Home";
-import { Events } from "./sections/Events";
+import { TempEvents } from "./sections/TempEvents";
 
 const ScrollToTopOnMount = () => {
   const { pathname } = useLocation();
@@ -54,12 +54,12 @@ function App() {
               <main className="flex-grow">
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/events" element={<Events />} />
+                  <Route path="/events" element={<TempEvents />} />
                 </Routes>
               </main>
 
               <Footer />
-              <Chatbot />
+              {/* <Chatbot /> */}
               <ScrollToTop />
             </motion.div>
           )}

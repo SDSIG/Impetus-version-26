@@ -100,7 +100,7 @@ export const Loader = ({ onComplete }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6 }}
                 whileHover={{ opacity: 1, color: colors.brightGold }}
-                transition={{ delay: 1.5, duration: 0.8 }}
+                transition={{ delay: 1, duration: 0.8 }}
                 className="px-10 py-3 rounded-full border bg-black/20 font-rajdhani tracking-[0.3em] text-[10px] uppercase transition-all"
                 style={{
                   borderColor: `${colors.richGold}30`,

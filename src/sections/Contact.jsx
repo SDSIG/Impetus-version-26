@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
-import { Mail, Phone } from "lucide-react";
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
+import { Mail, Phone, MapPin, Navigation } from "lucide-react";
+
+const UVCE_MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9702221665475!2d77.5841022!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1672fcfc3f21%3A0x8979666063d8594e!2sUniversity%20Visvesvaraya%20College%20of%20Engineering%20(UVCE)!5e0!3m2!1sen!2sin!4v1646820000000!5m2!1sen!2sin";
+const UVCE_DIRECTIONS_URL =
+  "https://www.google.com/maps/dir//University+Visvesvaraya+College+of+Engineering+UVCE+Bangalore";
 
 export const Contact = () => {
   const colors = {
@@ -142,25 +145,82 @@ export const Contact = () => {
           ))}
         </div>
 
-        {/* MAP */}
+        {/* Map Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="w-full h-[420px] rounded-xl overflow-hidden border"
-          style={{ borderColor: `${colors.richGold}33` }}
+          className="p-4 sm:p-6 flex justify-center"
+          style={{
+            backgroundColor: "#0a0a0a",
+            border: `1px solid ${colors.richGold}33`,
+            clipPath:
+              "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+          }}
         >
-          <iframe
-            title="UVCE Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9702221665475!2d77.5841022!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1672fcfc3f21%3A0x8979666063d8594e!2sUniversity%20Visvesvaraya%20College%20of%20Engineering%20(UVCE)!5e0!3m2!1sen!2sin!4v1646820000000!5m2!1sen!2sin"
-            className="w-full h-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            style={{
-              filter:
-                "invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1)",
-            }}
-          />
+          <div className="max-w-xl w-full">
+            <div className="flex items-center justify-between mb-6 w-full">
+              <h3
+                className="text-3xl font-semibold"
+                style={{
+                  fontFamily: "'Rajdhani', sans-serif",
+                  color: "white",
+                }}
+              >
+                Find Us Here
+              </h3>
+              <div
+                className="w-12 h-12 rounded-lg flex items-center justify-center"
+                style={{
+                  backgroundColor: `${colors.richGold}18`,
+                  border: `1px solid ${colors.richGold}40`,
+                }}
+              >
+                <Navigation size={24} style={{ color: colors.richGold }} />
+              </div>
+            </div>
+            <div className="rounded-lg overflow-hidden border shadow-md aspect-video">
+              <iframe
+                title="UVCE Location"
+                src={UVCE_MAP_EMBED_URL}
+                className="w-full h-full border-0"
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{
+                  filter:
+                    "invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1)",
+                }}
+              />
+            </div>
+            <div className="mt-6 flex justify-center">
+              <a
+                href={UVCE_DIRECTIONS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 py-3.5 px-8 font-bold uppercase tracking-[0.2em] text-sm rounded-lg border-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  fontFamily: "'Rajdhani', sans-serif",
+                  backgroundColor: "transparent",
+                  color: colors.richGold,
+                  borderColor: colors.richGold,
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = colors.richGold;
+                  e.currentTarget.style.color = colors.royalBlack;
+                  e.currentTarget.style.boxShadow = `0 0 12px ${colors.richGold}15`;
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.color = colors.richGold;
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <MapPin size={20} strokeWidth={2} />
+                Get Directions
+              </a>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

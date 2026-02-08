@@ -14,7 +14,7 @@ export const About = () => {
   const cards = [
     {
       title: "ABOUT IMPETUS",
-      content: `IMPETUS is our Annual National-Level Technical Extravaganza. It is a two-day technical fest happening in UVCE since the year 2001 with a different theme every year, which emphasizes on the particular year's trending and concerning topics. IMPETUS serves as a platform for many participants to showcase their ideas and talents, as this fest is a hub of many Flagship events, General events and Gaming Arenas. With years passing, IMPETUS has witnessed gradual growth in participants count marking the highest of 2472 participants in the year 2023.`,
+      content: `IMPETUS is our Annual National-Level Technical Student Extravaganza. It is a two-day technical fest happening in UVCE since the year 2001 with a different theme every year, which emphasizes on the particular year's trending and concerning topics. IMPETUS serves as a platform for many participants to showcase their ideas and talents, as this fest is a hub of many Flagship events, General events and Gaming Arenas. With years passing, IMPETUS has witnessed gradual growth in participants count marking the highest of 2472 participants in the year 2023.`,
     },
     {
       title: "ABOUT IEEE UVCE",
