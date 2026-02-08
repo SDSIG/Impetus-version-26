@@ -32,7 +32,22 @@ export const Navbar = () => {
     { name: "Contact", path: "/#contact" },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const handleNavClick = (path) => {
+    if (path === "/") {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(scrollToTop, 100);
+      } else {
+        scrollToTop();
+      }
+      setIsOpen(false);
+      return;
+    }
+
     if (path.startsWith("/#")) {
       const section = path.slice(2);
 
