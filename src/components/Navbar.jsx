@@ -2,12 +2,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { useScrollDirection } from "../hooks/useScrollDirection";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const scrollDirection = useScrollDirection();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -71,14 +69,10 @@ export const Navbar = () => {
   };
 
   return (
-    <AnimatePresence>
-      {(scrollDirection === "up" || !scrolled || isOpen) && (
-        <motion.nav
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          exit={{ y: -100 }}
-          transition={{ duration: 0.3 }}
-          className="fixed top-0 left-0 right-0 z-[50] backdrop-blur-xl transition-all duration-300"
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ y: 0 }}
+      className="fixed top-0 left-0 right-0 z-[50] backdrop-blur-xl transition-all duration-300"
           style={{
             backgroundColor: scrolled
               ? `${colors.royalBlack}CC`
@@ -183,7 +177,5 @@ export const Navbar = () => {
             )}
           </AnimatePresence>
         </motion.nav>
-      )}
-    </AnimatePresence>
   );
 };
