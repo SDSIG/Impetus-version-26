@@ -145,23 +145,28 @@ export const Contact = () => {
           ))}
         </div>
 
-        {/* Map Section */}
+        {/* Map Section - centered and responsive */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-4 sm:p-6 lg:px-6 lg:py-6 flex justify-center"
+          className="flex justify-center px-0 sm:px-2"
           style={{
-            backgroundColor: "#0a0a0a",
-            border: `1px solid ${colors.richGold}33`,
-            clipPath:
-              "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+            backgroundColor: "transparent",
           }}
         >
-          <div className="max-w-xl md:max-w-2xl lg:max-w-3xl w-full">
-            <div className="flex items-center justify-between mb-4 md:mb-5 lg:mb-6 w-full">
+          <div
+            className="w-full max-w-xl sm:max-w-2xl lg:max-w-4xl mx-auto p-4 sm:p-6 min-w-0"
+            style={{
+              backgroundColor: "#0a0a0a",
+              border: `1px solid ${colors.richGold}33`,
+              clipPath:
+                "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+            }}
+          >
+            <div className="flex items-center justify-between mb-4 md:mb-5 lg:mb-6 w-full gap-3">
               <h3
-                className="text-3xl font-semibold"
+                className="text-2xl sm:text-3xl font-semibold"
                 style={{
                   fontFamily: "'Rajdhani', sans-serif",
                   color: "white",
@@ -170,7 +175,7 @@ export const Contact = () => {
                 Find Us Here
               </h3>
               <div
-                className="w-12 h-12 rounded-lg flex items-center justify-center"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0"
                 style={{
                   backgroundColor: `${colors.richGold}18`,
                   border: `1px solid ${colors.richGold}40`,
@@ -179,11 +184,11 @@ export const Contact = () => {
                 <Navigation size={24} style={{ color: colors.richGold }} />
               </div>
             </div>
-            <div className="rounded-lg overflow-hidden border shadow-md aspect-video min-h-[200px] md:min-h-[280px] lg:min-h-[380px]">
+            <div className="rounded-lg overflow-hidden border shadow-md aspect-video w-full min-h-[220px] sm:min-h-[260px] md:min-h-[280px] lg:min-h-[360px]">
               <iframe
                 title="UVCE Location"
                 src={UVCE_MAP_EMBED_URL}
-                className="w-full h-full border-0"
+                className="w-full h-full min-h-full border-0 block"
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

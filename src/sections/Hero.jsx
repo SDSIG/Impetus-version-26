@@ -111,21 +111,21 @@ export const Hero = () => {
         >
           {/* IEEE PRESENTS */}
           <div className="flex flex-col items-center mb-6 sm:mb-8">
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center flex-nowrap gap-2 sm:gap-4 mb-4 w-full justify-center px-1 min-w-0">
               <div
-                className="h-[1px] w-12"
+                className="h-[1px] w-6 sm:w-12 flex-shrink-0"
                 style={{
                   background: `linear-gradient(to right, transparent, ${colors.richGold})`,
                 }}
               />
               <p
-                className="font-orbitron font-bold tracking-[0.5em] text-[10px] sm:text-xs uppercase"
+                className="font-orbitron font-bold tracking-[0.2em] sm:tracking-[0.5em] text-[10px] sm:text-xs uppercase whitespace-nowrap flex-shrink-0"
                 style={{ color: colors.richGold }}
               >
                 IEEE UVCE PRESENTS
               </p>
               <div
-                className="h-[1px] w-12"
+                className="h-[1px] w-6 sm:w-12 flex-shrink-0"
                 style={{
                   background: `linear-gradient(to left, transparent, ${colors.richGold})`,
                 }}
