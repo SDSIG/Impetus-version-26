@@ -141,7 +141,7 @@ export const Hero = () => {
           <h1
             className="font-daggersquare text-center text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] leading-none tracking-[-0.046m] bg-clip-text text-transparent mb-6 px-2"
             style={{
-              fontFamily: "DaggerSquare, sans-serif",
+              fontFamily: "'DaggerSquare', sans-serif",
               backgroundImage: `linear-gradient(to bottom, #FFFDF5, ${colors.brightGold}, ${colors.richGold}, ${colors.burntGold})`,
               filter: `drop-shadow(0 0 20px rgba(212, 175, 55, 0.25))`,
             }}

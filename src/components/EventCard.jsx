@@ -212,7 +212,7 @@ export const EventCard = ({ event, index }) => {
                         style={{
                           borderColor: `${colors.richGold}40`,
                           color: colors.brightGold,
-                          fontFamily: "'Orbitron', sans-serif",
+                          fontFamily: "'DaggerSquare', sans-serif",
                         }}
                         onMouseOver={(e) =>
                           (e.target.style.borderColor = colors.richGold)

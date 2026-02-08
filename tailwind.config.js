@@ -14,6 +14,7 @@ export default {
 
      fontFamily: {
   orbitron: ['Orbitron', 'sans-serif'],
+  daggersquare: ['DaggerSquare', 'sans-serif'],
   space: ['Space Grotesk', 'sans-serif'],
   rajdhani: ['Rajdhani', 'sans-serif'],
 }

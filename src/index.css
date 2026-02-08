@@ -5,6 +5,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap');
 
 /* =========================
+   DAGGERSQUARE (self-hosted)
+   Add files to public/fonts/ — see public/fonts/README.md
+========================= */
+@font-face {
+  font-family: 'DaggerSquare';
+  src: url('/fonts/DaggerSquare.woff2') format('woff2'),
+       url('/fonts/DaggerSquare.woff') format('woff'),
+       url('/fonts/DaggerSquare.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
    TAILWIND
 ========================= */
 @tailwind base;
@@ -50,6 +64,10 @@
 
 .font-space {
   font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-daggersquare {
+  font-family: 'DaggerSquare', sans-serif;
 }
 
 /* =========================
