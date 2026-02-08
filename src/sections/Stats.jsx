@@ -1,7 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-const AnimatedCounter = ({ value, suffix = "", duration = 2, color }) => {
+const AnimatedCounter = ({
+  value,
+  prefix = "",
+  suffix = "",
+  duration = 2,
+  color,
+}) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -10,14 +16,16 @@ const AnimatedCounter = ({ value, suffix = "", duration = 2, color }) => {
     if (!isInView) return;
 
     let startTime = null;
-    const endValue = parseInt(value.replace(/\D/g, ""));
+    const endValue = parseInt(value.replace(/\D/g, ""), 10);
 
     const animate = (currentTime) => {
       if (!startTime) startTime = currentTime;
+
       const progress = Math.min(
-        (currentTime - startTime) / (duration * 1750),
+        (currentTime - startTime) / (duration * 1000),
         1,
       );
+
       const eased = 1 - Math.pow(1 - progress, 4);
       setCount(Math.floor(eased * endValue));
 
@@ -29,8 +37,9 @@ const AnimatedCounter = ({ value, suffix = "", duration = 2, color }) => {
   }, [isInView, value, duration]);
 
   return (
-    <span ref={ref} style={{ color: color }}>
-      {count.toLocaleString()}
+    <span ref={ref} style={{ color }}>
+      {prefix}
+      {count.toLocaleString("en-IN")}
       {suffix}
     </span>
   );
@@ -46,7 +55,7 @@ export const Stats = () => {
   const stats = [
     { value: "23", label: "Events" },
     { value: "2249", label: "Participants" },
-    { value: "125000", label: "Prize Pool", suffix: "₹" },
+    { value: "1,25,000", prefix: "₹", label: "Prize Pool" },
     { value: "50", suffix: "+", label: "Colleges" },
   ];
 
@@ -120,10 +129,11 @@ export const Stats = () => {
               }}
             >
               <div
-                className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3"
+                className="text-2xl sm:text-4xl md:text-5xl font-semibold mb-2 sm:mb-3"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
               >
                 <AnimatedCounter
+                  prefix={stat.prefix || ""}
                   value={stat.value}
                   suffix={stat.suffix || ""}
                   color={colors.brightGold}
