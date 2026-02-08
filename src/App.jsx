@@ -14,11 +14,15 @@ import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Home } from "./pages/Home";
 import { TempEvents } from "./sections/TempEvents";
+import { pageview } from "./utils/analytics";
 
 const ScrollToTopOnMount = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [pathname]);
+  useEffect(() => {
+    pageview(pathname);
   }, [pathname]);
   return null;
 };
