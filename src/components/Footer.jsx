@@ -1,99 +1,151 @@
-/*import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Twitter, Youtube, Facebook } from 'lucide-react';
+import { motion } from "framer-motion";
+import {
+  Code,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Youtube,
+} from "lucide-react";
 
 export const Footer = () => {
-  const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/ieeeuvce', label: 'Facebook' },
-    { icon: Instagram, href: 'https://www.instagram.com/ieeeuvce', label: 'Instagram' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/ieee-uvce-66563332/', label: 'LinkedIn' },
-    { icon: Mail, href: 'ieeeuvce26@gmail.com', label: 'Gmail' },
-    { icon: Twitter, href: 'https://x.com/ieeeuvce?s=21', label: 'Twitter' },
-    { icon: Youtube, href: 'https://www.youtube.com/channel/UCt9I0q7BzuuRBcJKvMcdpow', label: 'YouTube' }
-   ];
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+  };
+
+  const socials = [
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/ieeeuvce",
+      icon: Instagram,
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/ieee-uvce-66563332/",
+      icon: Linkedin,
+    },
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/ieeeuvce",
+      icon: Facebook,
+    },
+    { name: "Email", url: "mailto:ieeeuvce.ac.in", icon: Mail },
+    {
+      name: "YouTube",
+      url: "https://www.youtube.com/channel/UCt9I0q7BzuuRBcJKvMcdpow",
+      icon: Youtube,
+    },
+  ];
+
+  const developers = [
+    {
+      name: "Dhruv Rathi",
+      url: "https://www.linkedin.com/in/dhruv-rathi-399378282/",
+    },
+    {
+      name: "Lahari Priya N",
+      url: "https://www.linkedin.com/in/lahari-priya-n/",
+    },
+    {
+      name: "Rahita H Puthran",
+      url: "https://www.linkedin.com/in/rahita-puthran-1262202a5/",
+    },
+  ];
 
   return (
-    <footer className="relative border-t border-white/10 backdrop-blur-xl bg-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-        
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center">
-                <span className="text-white font-orbitron font-bold text-lg">I</span>
-              </div>
-              <div>
-                <div className="text-white font-orbitron font-bold text-lg uppercase tracking-wider">
-                  IMPETUS 26.0
-                </div>
-                <div className="text-xs text-gray-400 font-space">IEEE UVCE</div>
-              </div>
+    <footer
+      className="relative border-t backdrop-blur-xl"
+      style={{
+        backgroundColor: `${colors.royalBlack}E6`,
+        borderColor: `${colors.richGold}33`,
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-10">
+        {/* Main row: Developed by + developers on left, social icons on right */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Left – Developer credit */}
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+            <div className="flex items-center gap-3 text-sm sm:text-base lg:text-lg">
+              <Code size={20} style={{ color: colors.richGold }} />
+              <span className="font-medium text-white/90">Developed by</span>
+              <span
+                className="tracking-widest"
+                style={{
+                  fontFamily: "'DaggerSquare', sans-serif",
+                  color: "white",
+                }}
+              >
+                Software Development SIG, IEEE UVCE
+              </span>
             </div>
-            <p className="text-sm text-gray-400 font-space">
-              FutureTech: Engineering Tomorrow. Celebrating 26 years of technical excellence.
-            </p>
-          </div>
-
-        
-          <div>
-            <h3 className="text-white font-orbitron font-bold text-sm uppercase tracking-wider mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {['About', 'Events', 'Gallery', 'Sponsors', 'Contact'].map((link) => (
-                <li key={link}>
+            <div className="flex flex-wrap justify-center sm:justify-start gap-x-3 gap-y-1 text-sm sm:text-base">
+              {developers.map((dev, idx) => (
+                <span key={dev.name} className="flex items-center gap-x-3">
                   <a
-                    href={`#${link.toLowerCase()}`}
-                    className="text-gray-400 hover:text-neon-cyan font-space text-sm transition-colors duration-300"
+                    href={dev.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors duration-300 hover:underline"
+                    style={{
+                      fontFamily: "'Rajdhani', sans-serif",
+                      color: colors.richGold,
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.color = colors.brightGold;
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.color = colors.richGold;
+                    }}
                   >
-                    {link}
+                    {dev.name}
                   </a>
-                </li>
+                  {idx < developers.length - 1 && (
+                    <span
+                      className="opacity-50"
+                      style={{ color: colors.richGold }}
+                    >
+                      |
+                    </span>
+                  )}
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
 
-        
-          <div>
-            <h3 className="text-white font-orbitron font-bold text-sm uppercase tracking-wider mb-4">
-              Contact
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-gray-400 font-space text-sm">
-                <Mail className="w-4 h-4 text-neon-cyan" />
-                <a href="mailto:impetus@ieeeuvce.org" className="hover:text-neon-cyan transition-colors">
-                  impetus.ieeeuvce@gmail.com
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-gray-400 font-space text-sm">
-                <Phone className="w-4 h-4 text-neon-violet" />
-                <a href="tel:+919876543210" className="hover:text-neon-violet transition-colors">
-                  +91 63609 65351
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-gray-400 font-space text-sm">
-                <MapPin className="w-4 h-4 text-neon-green mt-1" />
-                <span>UVCE, Bangalore, Karnataka</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-white font-orbitron font-bold text-sm uppercase tracking-wider mb-4">
-              Follow Us
-            </h3>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => {
+          {/* Right – Social icons */}
+          <div className="flex justify-center sm:justify-end">
+            <div className="flex gap-4 sm:gap-5">
+              {socials.map((social) => {
                 const Icon = social.icon;
                 return (
                   <motion.a
-                    key={social.label}
-                    href={social.href}
-                    whileHover={{ scale: 1.2, y: -2 }}
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -3 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 rounded-lg backdrop-blur-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-neon-cyan hover:border-neon-cyan/50 transition-all duration-300"
-                    aria-label={social.label}
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
+                    style={{
+                      border: `1px solid ${colors.richGold}40`,
+                      backgroundColor: "rgba(255,255,255,0.03)",
+                      color: colors.richGold,
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.borderColor = colors.brightGold;
+                      e.currentTarget.style.color = colors.brightGold;
+                      e.currentTarget.style.boxShadow = `0 0 15px ${colors.richGold}40`;
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.borderColor = `${colors.richGold}40`;
+                      e.currentTarget.style.color = colors.richGold;
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
+                    aria-label={social.name}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon size={20} />
                   </motion.a>
                 );
               })}
@@ -101,143 +153,30 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/10 text-center">
-          <p className="text-gray-400 font-space text-sm">
-            © 2026 IMPETUS 26.0 - IEEE UVCE. All rights reserved.
+        {/* Thematic divider */}
+        {/* <div
+          className="mt-6 h-[1px] w-full"
+          style={{
+            background: `linear-gradient(to right, transparent, ${colors.richGold}40, transparent)`,
+          }}
+        /> */}
+
+        {/* Branding & bottom line */}
+        {/* <div className="mt-6 text-center space-y-2">
+          <p
+            className="text-lg tracking-[0.3em] font-bold"
+            style={{ fontFamily: "'DaggerSquare', sans-serif", color: "white" }}
+          >
+            © IMPETUS <span style={{ color: colors.richGold }}>26.0</span>
           </p>
-        </div>
-      </div>
-    </footer>
-  );
-};
-*/
-
-import { motion } from "framer-motion";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  Twitter,
-  Youtube,
-} from "lucide-react";
-
-export const Footer = () => {
-  const socialLinks = [
-    {
-      icon: Facebook,
-      href: "https://www.facebook.com/ieeeuvce",
-      label: "Facebook",
-    },
-    {
-      icon: Instagram,
-      href: "https://www.instagram.com/ieeeuvce",
-      label: "Instagram",
-    },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/in/ieee-uvce-66563332/",
-      label: "LinkedIn",
-    },
-    { icon: Mail, href: "mailto:ieeeuvce26@gmail.com", label: "Gmail" },
-    { icon: Twitter, href: "https://x.com/ieeeuvce?s=21", label: "Twitter" },
-    {
-      icon: Youtube,
-      href: "https://www.youtube.com/channel/UCt9I0q7BzuuRBcJKvMcdpow",
-      label: "YouTube",
-    },
-  ];
-
-  return (
-    <footer className="relative border-t border-white/10 backdrop-blur-xl bg-white/5">
-      <div className="max-w-7xl mx-auto px-4 py-10">
-        {/* Follow Us (CENTERED) */}
-        <div className="flex flex-col items-center gap-4">
-          <h3 className="text-white font-orbitron font-bold text-sm uppercase tracking-wider">
-            Follow Us
-          </h3>
-
-          <div className="flex gap-4">
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-              return (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-lg backdrop-blur-xl bg-white/5 border border-white/10
-                             flex items-center justify-center text-gray-400
-                             hover:text-neon-cyan hover:border-neon-cyan/50 transition-all"
-                  aria-label={social.label}
-                >
-                  <Icon className="w-5 h-5" />
-                </motion.a>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="mt-8 border-t border-white/10" />
-
-        {/* Footer Text */}
-        <div className="mt-8 text-center space-y-3">
-          <p className="text-gray-400 font-space text-sm">
-            © IMPETUS 26.0 — All rights reserved
-          </p>
-
-          <p className="text-gray-400 font-space text-sm">
-            Developed by{" "}
-            <span className="text-neon-cyan font-semibold">
-              Software Development SIG
-            </span>
-          </p>
-
-          {/* Names */}
-          {/* <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 text-white font-orbitron font-bold text-sm">
-            <span>Dhruv Rathi</span>
-            <span>Lahari Priya N</span>
-            <span>Rahita H Puthran</span>
-          </div> */}
-          <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 text-white font-orbitron font-bold text-sm">
-              <a
-                href="https://www.linkedin.com/in/dhruv-rathi-399378282/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-yellow-400 transition-colors duration-200 cursor-pointer"
-              >
-                Dhruv Rathi
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/lahari-priya-n/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-yellow-400 transition-colors duration-200 cursor-pointer"
-              >
-                Lahari Priya N
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/rahita-puthran-1262202a5/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-yellow-400 transition-colors duration-200 cursor-pointer"
-              >
-                Rahita H Puthran
-              </a>
-            </div>
-
-
-          <p className="text-gray-400 font-space text-xs uppercase tracking-widest">
+          <p
+            className="font-rajdhani text-[10px] uppercase tracking-[0.5em] font-bold opacity-40"
+            style={{ color: colors.richGold }}
+          >
             Secretaries, SDSIG
           </p>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
 };
-

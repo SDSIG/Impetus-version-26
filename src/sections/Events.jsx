@@ -1,172 +1,236 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { events } from "../data/events";
+import { Filter, X, Zap } from "lucide-react";
+import eventsData from "../data/events.json";
 import { EventCard } from "../components/EventCard";
+
+const categories = [
+  { id: "flagship", label: "Flagship Events" },
+  { id: "general", label: "General Events" },
+  { id: "gaming", label: "Gaming Events" },
+];
 
 export const Events = () => {
   const [activeTab, setActiveTab] = useState("flagship");
-  const [visibleCount, setVisibleCount] = useState(3);
-  const [expanded, setExpanded] = useState({
-    flagship: false,
-    general: false,
-    gaming: false,
-  });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Responsive cards count
-  useEffect(() => {
-    const updateCount = () => {
-      if (window.innerWidth < 640) setVisibleCount(1);
-      else setVisibleCount(3);
-    };
+  // THEME COLORS
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+  };
 
-    updateCount();
-    window.addEventListener("resize", updateCount);
-    return () => window.removeEventListener("resize", updateCount);
-  }, []);
+  const dataMap = {
+    flagship: eventsData.flagshipEvents || [],
+    general: eventsData.generalEvents || [],
+    gaming: eventsData.gamingEvents || [],
+  };
 
-  const categories = [
-    { id: "flagship", label: "Flagship" },
-    { id: "general", label: "General" },
-    { id: "gaming", label: "Gaming" },
-  ];
+  const categoryEvents = dataMap[activeTab] || [];
 
-  const categoryEvents = events.filter((event) => event.category === activeTab);
-  const isExpanded = expanded[activeTab];
-
-  const visibleEvents = isExpanded
-    ? categoryEvents
-    : categoryEvents.slice(0, visibleCount);
-
-  const toggleExpand = () => {
-    setExpanded((prev) => ({
-      ...prev,
-      [activeTab]: !prev[activeTab],
-    }));
+  const handleTabChange = (id) => {
+    setActiveTab(id);
+    setIsMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <section
-      id="events"
-      className="relative py-12 sm:py-16 md:py-24 bg-base overflow-hidden"
+      className="relative py-10 min-h-screen overflow-hidden"
+      style={{ backgroundColor: colors.royalBlack }}
     >
-      {/* 🌌 STAR LAYER 1 – CLEAR FLOAT */}
+      {/* STAR BACKGROUND */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         style={{
           backgroundImage: `
-            radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
-            radial-gradient(1px 1px at 220px 180px, #fff, transparent),
-            radial-gradient(2px 2px at 300px 90px, #fff, transparent),
-            radial-gradient(1px 1px at 380px 220px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 460px 40px, #fff, transparent),
-            radial-gradient(2px 2px at 520px 160px, #fff, transparent)
+            radial-gradient(1.5px 1.5px at 20px 30px, ${colors.brightGold}, transparent),
+            radial-gradient(1px 1px at 80px 120px, #fff, transparent),
+            radial-gradient(2px 2px at 150px 60px, ${colors.richGold}, transparent)
           `,
           backgroundSize: "260px 260px",
-          opacity: 0.95,
+          opacity: 0.8,
         }}
       />
 
-      {/* 🌌 STAR LAYER 2 – DEEP SPACE DRIFT */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        animate={{ x: [0, -30, 0], y: [0, 60, 0] }}
-        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-        style={{
-          backgroundImage: `
-            radial-gradient(1px 1px at 40px 70px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 120px 200px, #fff, transparent),
-            radial-gradient(2px 2px at 200px 100px, #fff, transparent),
-            radial-gradient(1px 1px at 280px 240px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 360px 150px, #fff, transparent),
-            radial-gradient(2px 2px at 440px 60px, #fff, transparent),
-            radial-gradient(1px 1px at 520px 210px, #fff, transparent)
-          `,
-          backgroundSize: "320px 320px",
-          opacity: 0.7,
-        }}
-      />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+      {/* HEADING SECTION */}
+      <div className="relative z-10 text-center mb-16 pt-10 px-4">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase mt-12 tracking-tighter"
+          style={{ fontFamily: "'DaggerSquare', sans-serif", color: "white" }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
-            Events
-          </h2>
-          <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
-            Flagship, technical and gaming events designed for the future.
-          </p>
-        </motion.div>
-
-        {/* Tabs */}
-        <div className="flex justify-center gap-2 sm:gap-4 mb-10 flex-wrap">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`px-4 py-2 rounded-lg font-orbitron text-xs sm:text-sm uppercase tracking-widest transition-all
-                ${
-                  activeTab === cat.id
-                    ? "bg-gradient-to-r from-neon-cyan to-neon-violet text-white shadow-lg"
-                    : "bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10"
-                }
-              `}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Cards */}
-        <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab + isExpanded}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {visibleEvents.map((event, index) => (
-                <EventCard key={event.id} event={event} index={index} />
-              ))}
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Fade effect when collapsed */}
-          {!isExpanded && categoryEvents.length > visibleCount && (
-            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-base to-transparent" />
-          )}
-        </div>
-
-        {/* Show More / Less */}
-        {categoryEvents.length > visibleCount && (
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={toggleExpand}
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-orbitron uppercase tracking-widest text-xs hover:bg-white/20 transition-all"
-            >
-              {isExpanded ? "Show Less" : "Show More"}
-              <motion.span
-                animate={{ rotate: isExpanded ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                ↓
-              </motion.span>
-            </button>
-          </div>
-        )}
+          Explore <span style={{ color: colors.brightGold }}>Events</span>
+        </motion.h2>
+        <p
+          className="uppercase tracking-[0.4em] mt-4 text-xs md:text-sm font-bold"
+          style={{
+            fontFamily: "'Rajdhani', sans-serif",
+            color: colors.richGold,
+          }}
+        >
+          Select a sector to view challenges
+        </p>
       </div>
+
+      {/* GRID SECTION */}
+      <div className="max-w-7xl mx-auto px-6 pb-32 relative z-10">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+          >
+            {categoryEvents.length > 0 ? (
+              categoryEvents.map((event, index) => (
+                <EventCard
+                  key={`${activeTab}-${index}`}
+                  event={event}
+                  index={index}
+                />
+              ))
+            ) : (
+              <div
+                className="col-span-full text-center py-40 border border-dashed rounded-3xl"
+                style={{ borderColor: `${colors.richGold}20` }}
+              >
+                <p
+                  className="uppercase tracking-widest text-lg"
+                  style={{
+                    fontFamily: "'Rajdhani', sans-serif",
+                    color: "#4B5563",
+                  }}
+                >
+                  System Error: No {activeTab} data retrieved.
+                </p>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* FLOATING ACTION BUTTON */}
+      <div className="fixed bottom-6 right-6 md:right-10 z-[60] pointer-events-none">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setIsMenuOpen(true)}
+          className="pointer-events-auto px-5 py-4 rounded-full flex items-center gap-2 font-bold uppercase tracking-widest text-xs shadow-2xl transition-all"
+          style={{
+            backgroundColor: colors.royalBlack,
+            color: colors.brightGold,
+            border: `1px solid ${colors.richGold}60`,
+            fontFamily: "'Rajdhani', sans-serif",
+            boxShadow: `0 0 20px ${colors.richGold}40`,
+          }}
+        >
+          <Filter size={18} />
+          <span>Filters</span>
+          <span
+            className="ml-2 px-2 py-1 text-[10px] rounded font-black"
+            style={{
+              backgroundColor: colors.richGold,
+              color: colors.royalBlack,
+            }}
+          >
+            {activeTab}
+          </span>
+        </motion.button>
+      </div>
+
+      {/* NAVIGATION DRAWER */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMenuOpen(false)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100]"
+            />
+
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 250 }}
+              className="fixed bottom-0 left-0 right-0 md:left-auto md:right-10 md:bottom-24 md:w-[360px] backdrop-blur-2xl z-[110] p-6 shadow-2xl"
+              style={{
+                backgroundColor: `${colors.royalBlack}F2`,
+                border: `1px solid ${colors.richGold}40`,
+                borderRadius:
+                  window.innerWidth > 768 ? "24px" : "24px 24px 0 0",
+              }}
+            >
+              <div className="flex justify-between items-center mb-8">
+                <div>
+                  <h3
+                    className="font-bold uppercase tracking-widest text-xl"
+                    style={{
+                      fontFamily: "'DaggerSquare', sans-serif",
+                      color: "white",
+                    }}
+                  >
+                    Filters
+                  </h3>
+                  <div
+                    className="h-[2px] w-12 mt-1"
+                    style={{ backgroundColor: colors.richGold }}
+                  />
+                </div>
+
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 rounded-full transition-colors"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.05)",
+                    color: colors.richGold,
+                  }}
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="space-y-3">
+                {categories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleTabChange(cat.id)}
+                    className="w-full px-5 py-5 rounded-2xl flex justify-between items-center font-bold uppercase tracking-widest text-sm transition-all"
+                    style={{
+                      fontFamily: "'Rajdhani', sans-serif",
+                      backgroundColor:
+                        activeTab === cat.id
+                          ? colors.richGold
+                          : "rgba(255,255,255,0.03)",
+                      color: activeTab === cat.id ? colors.royalBlack : "white",
+                      border: `1px solid ${activeTab === cat.id ? "transparent" : `${colors.richGold}20`}`,
+                    }}
+                  >
+                    {cat.label}
+                    {activeTab === cat.id && <Zap size={16} />}
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-8 flex justify-center">
+                <div
+                  className="w-16 h-1 rounded-full"
+                  style={{ backgroundColor: `${colors.richGold}40` }}
+                />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

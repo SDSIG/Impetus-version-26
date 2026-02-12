@@ -1,172 +1,248 @@
-/*import { motion } from 'framer-motion';
-import { Calendar, Users, Trophy, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-
-export const EventCard = ({ event, index }) => {
-  const navigate = useNavigate();
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -10, scale: 1.02 }}
-      className="group relative backdrop-blur-xl bg-white/5 border border-purple-500/40 rounded-xl overflow-hidden hover:bg-white/10 hover:border-purple-400/60 transition-all duration-300 cursor-pointer"
-      onClick={() => navigate(`/event/${event.id}`)}
-      style={{
-        boxShadow: '0 0 12px rgba(168, 85, 247, 0.25), 0 0 20px rgba(239, 68, 68, 0.1)',
-      }}
-    >
-      <div className="relative h-40 sm:h-48 overflow-hidden">
-        <img
-          src={event.image}
-          alt={event.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent" />
-        <div className="absolute top-2 sm:top-4 right-2 sm:right-4 px-2 sm:px-3 py-1 rounded-full bg-neon-cyan/20 backdrop-blur-sm border border-neon-cyan/50">
-          <span className="text-xs font-orbitron font-bold text-neon-cyan uppercase">
-            {event.category}
-          </span>
-        </div>
-      </div>
-      
-      <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
-        <h3 className="text-lg sm:text-xl font-orbitron font-bold text-white uppercase tracking-wide line-clamp-2">
-          {event.title}
-        </h3>
-        
-        <div className="space-y-2 text-xs sm:text-sm text-gray-300">
-          <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-neon-cyan flex-shrink-0" />
-            <span className="truncate">{event.date}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-neon-violet flex-shrink-0" />
-            <span className="truncate">{event.teamSize}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Trophy className="w-4 h-4 text-neon-green flex-shrink-0" />
-            <span className="font-bold text-neon-green truncate">{event.prizePool}</span>
-          </div>
-        </div>
-        
-        <motion.div
-          className="flex items-center gap-2 text-neon-cyan group-hover:gap-4 transition-all text-xs sm:text-sm"
-          whileHover={{ x: 5 }}
-        >
-          <span className="font-orbitron font-bold uppercase">View Details</span>
-          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-        </motion.div>
-      </div>
-      
-      <div className="absolute inset-0 border-2 border-neon-cyan/0 group-hover:border-purple-400/40 rounded-xl transition-all duration-300 pointer-events-none" />
-    </motion.div>
-  );
-};
-*/
-
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import {
+  Phone,
+  ArrowLeft,
+  Trophy,
+  Calendar,
+  Users,
+  ExternalLink,
+} from "lucide-react";
 
 export const EventCard = ({ event, index }) => {
   const [showDetails, setShowDetails] = useState(false);
 
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+    burntGold: "#78350F",
+  };
+
+  const royalShape =
+    "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)";
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.08 }}
-      className="h-[450px] sm:h-[500px] md:h-[520px] w-full"
-      style={{
-        perspective: "1000px",
-      }}
+      transition={{ delay: index * 0.06 }}
+      className="h-[480px] w-full group"
+      style={{ perspective: "2000px" }}
     >
       <motion.div
         animate={{ rotateY: showDetails ? 180 : 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative w-full h-full"
-        style={{
-          transformStyle: "preserve-3d",
+        transition={{
+          duration: 0.7,
+          type: "spring",
+          stiffness: 200,
+          damping: 25,
         }}
+        className="relative w-full h-full cursor-pointer"
+        style={{ transformStyle: "preserve-3d" }}
       >
-        {/* FRONT SIDE */}
+        {/* ================= FRONT ================= */}
         <div
-          className="absolute inset-0 rounded-xl backdrop-blur-xl bg-white/5 border border-purple-500/40 overflow-hidden flex flex-col"
+          className="absolute inset-0 flex flex-col overflow-hidden"
           style={{
             backfaceVisibility: "hidden",
+            clipPath: royalShape,
+            backgroundColor: colors.royalBlack,
+            border: `1px solid ${colors.richGold}40`,
           }}
         >
-          {/* Square Poster */}
-          <div className="aspect-square w-full overflow-hidden">
+          <div className="flex-1 overflow-hidden relative">
             <img
-              src={event.image}
-              alt={event.title}
-              className="w-full h-full object-cover"
+              src={`/event-images/${event.image}`}
+              alt={event.name}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
+            {/* Gold Overlay Wash */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-90" />
+
+            <div className="absolute bottom-6 left-6 right-6">
+              <h3
+                className="text-2xl font-bold uppercase tracking-tight"
+                style={{
+                  fontFamily: "'DaggerSquare', sans-serif",
+                  color: "white",
+                }}
+              >
+                {event.name}
+              </h3>
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="flex-1 p-4 sm:p-6 flex flex-col justify-between">
-            <h3 className="text-lg sm:text-xl font-orbitron font-bold text-white uppercase">
-              {event.title}
-            </h3>
+          <div
+            className="p-4 bg-[#0a0a0a] flex gap-3 border-t"
+            style={{ borderColor: `${colors.richGold}20` }}
+          >
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowDetails(true);
+              }}
+              className="flex-1 py-3 font-bold text-[10px] uppercase tracking-[0.2em] transition-all duration-300"
+              style={{
+                fontFamily: "'Rajdhani', sans-serif",
+                backgroundColor: colors.richGold,
+                color: colors.royalBlack,
+              }}
+            >
+              View Info
+            </button>
 
-            {/* Buttons */}
-            <div className="flex gap-3 flex-col">
-              <button
-                onClick={() => setShowDetails(true)}
-                className="w-full py-2 sm:py-3 rounded-lg bg-neon-cyan font-orbitron font-bold text-sm sm:text-base hover:scale-105 transition"
-                style={{ color: "white" }}
-              >
-                Know More
-              </button>
-
-              <a
-                href={event.registerLink || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-2 sm:py-3 rounded-lg border border-neon-violet font-orbitron font-bold text-sm sm:text-base text-center hover:bg-neon-violet transition"
-                style={{ color: "white" }}
-              >
-                Register Now
-              </a>
-            </div>
+            <a
+              href={event.reg_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex-1 py-3 border font-bold text-[10px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2"
+              style={{
+                fontFamily: "'Rajdhani', sans-serif",
+                borderColor: colors.richGold,
+                color: colors.richGold,
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = `${colors.richGold}1A`;
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = "transparent";
+              }}
+            >
+              Register <ExternalLink size={12} />
+            </a>
           </div>
         </div>
 
-        {/* BACK SIDE */}
+        {/* ================= BACK ================= */}
         <div
-          className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-900/90 to-black border border-purple-400 p-4 sm:p-6 flex flex-col justify-between"
+          className="absolute inset-0 p-8 flex flex-col"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
+            clipPath: royalShape,
+            backgroundColor: "#0a0a0a",
+            border: `1px solid ${colors.richGold}`,
           }}
         >
-          <div>
-            <h3 className="text-lg sm:text-xl font-orbitron font-bold text-white mb-4 uppercase">
-              About Event
-            </h3>
-            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-              {event.description}
-            </p>
+          <div
+            className="flex justify-between items-start mb-6 border-b pb-4"
+            style={{ borderColor: `${colors.richGold}33` }}
+          >
+            <div>
+              <h3
+                className="text-xl font-bold uppercase leading-none mb-2"
+                style={{
+                  fontFamily: "'DaggerSquare', sans-serif",
+                  color: colors.brightGold,
+                }}
+              >
+                {event.name}
+              </h3>
+              <div
+                className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest"
+                style={{ color: colors.richGold }}
+              >
+                <Trophy size={12} />
+                {event.cashPrize}
+              </div>
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowDetails(false);
+              }}
+              className="p-2 transition-colors rounded-full"
+              style={{
+                color: colors.richGold,
+                backgroundColor: `${colors.richGold}10`,
+              }}
+            >
+              <ArrowLeft size={20} />
+            </button>
           </div>
 
-          {/* <button
-            onClick={() => setShowDetails(false)}
-            className="w-full mt-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/20 text-white font-orbitron font-bold text-sm sm:text-base hover:bg-white/20 transition"
-          >
-            Back
-          </button> */}
-          <button
-  onClick={() => setShowDetails(false)}
-  className="w-full mt-4 py-2 sm:py-3 rounded-lg !text-white bg-white/10 border border-white/20  font-orbitron font-bold text-sm sm:text-base hover:border-white transition"
->
-  Back
-</button>
+          <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-6 font-rajdhani">
+            <p className="text-gray-300 text-base leading-relaxed text-justify opacity-80">
+              {event.description}
+            </p>
 
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <div
+                className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest"
+                style={{ color: colors.brightGold }}
+              >
+                <Calendar size={14} />
+                <span>{event.date}</span>
+              </div>
+              <div
+                className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest"
+                style={{ color: colors.brightGold }}
+              >
+                <Users size={14} />
+                <span>{event.teamSize}</span>
+              </div>
+            </div>
+
+            {event.contacts?.length > 0 && (
+              <div
+                className="pt-6 border-t"
+                style={{ borderColor: "rgba(255,255,255,0.05)" }}
+              >
+                <h4
+                  className="text-[10px] font-bold uppercase tracking-[0.3em] mb-4"
+                  style={{ color: colors.richGold }}
+                >
+                  Liaison Officers
+                </h4>
+                <div className="space-y-4">
+                  {event.contacts.map((c, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between items-center group/contact"
+                    >
+                      <span className="text-sm text-gray-200 font-medium tracking-wide">
+                        {c.name}
+                      </span>
+                      <a
+                        href={`tel:${c.phone}`}
+                        className="flex items-center gap-2 text-[11px] font-bold px-3 py-1.5 border transition-all"
+                        style={{
+                          borderColor: `${colors.richGold}40`,
+                          color: colors.brightGold,
+                          fontFamily: "'DaggerSquare', sans-serif",
+                        }}
+                        onMouseOver={(e) =>
+                          (e.target.style.borderColor = colors.richGold)
+                        }
+                        onMouseLeave={(e) =>
+                          (e.target.style.borderColor = `${colors.richGold}40`)
+                        }
+                      >
+                        <Phone size={10} /> {c.phone}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <a
+            href={event.reg_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 w-full py-4 font-bold text-xs uppercase tracking-[0.3em] transition-all text-center shadow-lg"
+            style={{
+              fontFamily: "'Rajdhani', sans-serif",
+              backgroundColor: colors.richGold,
+              color: colors.royalBlack,
+            }}
+          >
+            Confirm Registration
+          </a>
         </div>
       </motion.div>
     </motion.div>

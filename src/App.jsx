@@ -1,37 +1,71 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import { Loader } from './components/Loader';
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
-import { Chatbot } from './components/Chatbot';
-import { ScrollToTop } from './components/ScrollToTop';
-import { Home } from './pages/Home';
-// import { EventDetails } from './pages/EventDetails';
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+
+import { Loader } from "./components/Loader";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
+// import { Chatbot } from "./components/Chatbot";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { Home } from "./pages/Home";
+import { TempEvents } from "./sections/TempEvents";
+import { pageview } from "./utils/analytics";
+
+const ScrollToTopOnMount = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  useEffect(() => {
+    pageview(pathname);
+  }, [pathname]);
+  return null;
+};
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleLoaderComplete = () => {
-    setIsLoading(false);
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
   };
 
   return (
     <Router>
-      <div className="min-h-screen bg-base text-white">
-        <Loader onComplete={handleLoaderComplete} />
-        <AnimatePresence>
-          {!isLoading && (
-            <>
+      <ScrollToTopOnMount />
+      <div
+        className="min-h-screen text-white selection:bg-[#D4AF37]/30 selection:text-[#F9D976]"
+        style={{ backgroundColor: colors.royalBlack }}
+      >
+        <AnimatePresence mode="wait">
+          {isLoading ? (
+            <Loader key="loader" onComplete={() => setIsLoading(false)} />
+          ) : (
+            <motion.div
+              key="content"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative flex flex-col min-h-screen"
+            >
               <Navbar />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                
-              </Routes>
+
+              <main className="flex-grow">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/events" element={<TempEvents />} />
+                </Routes>
+              </main>
+
               <Footer />
-              <Chatbot />
+              {/* <Chatbot /> */}
               <ScrollToTop />
-            </>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>

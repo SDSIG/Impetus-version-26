@@ -1,184 +1,115 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { Zap } from "lucide-react";
 
 export const Sponsors = () => {
-  const sponsors = [
-    { name: 'TechCorp', tier: 'platinum', logo: 'https://via.placeholder.com/200x100/00f2ff/ffffff?text=TechCorp' },
-    { name: 'InnovateLabs', tier: 'platinum', logo: 'https://via.placeholder.com/200x100/8b5cf6/ffffff?text=InnovateLabs' },
-    { name: 'FutureTech', tier: 'gold', logo: 'https://via.placeholder.com/200x100/10b981/ffffff?text=FutureTech' },
-    { name: 'CodeForge', tier: 'gold', logo: 'https://via.placeholder.com/200x100/00f2ff/ffffff?text=CodeForge' },
-    { name: 'RoboSystems', tier: 'silver', logo: 'https://via.placeholder.com/150x75/8b5cf6/ffffff?text=RoboSystems' },
-    { name: 'AISolutions', tier: 'silver', logo: 'https://via.placeholder.com/150x75/10b981/ffffff?text=AISolutions' },
-    { name: 'CloudTech', tier: 'silver', logo: 'https://via.placeholder.com/150x75/00f2ff/ffffff?text=CloudTech' },
-    { name: 'DataVault', tier: 'silver', logo: 'https://via.placeholder.com/150x75/8b5cf6/ffffff?text=DataVault' }
-  ];
-
-  const tiers = {
-    platinum: sponsors.filter(s => s.tier === 'platinum'),
-    gold: sponsors.filter(s => s.tier === 'gold'),
-    silver: sponsors.filter(s => s.tier === 'silver')
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+    burntGold: "#78350F",
   };
 
+  const sponsors = [
+    {
+      name: "TechCorp",
+      logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=TechCorp",
+    },
+    {
+      name: "InnovateLabs",
+      logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=InnovateLabs",
+    },
+    {
+      name: "FutureTech",
+      logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=FutureTech",
+    },
+    {
+      name: "CodeForge",
+      logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=CodeForge",
+    },
+    {
+      name: "RoboSystems",
+      logo: "https://via.placeholder.com/150x75/fbbf24/000000?text=RoboSystems",
+    },
+    {
+      name: "AISolutions",
+      logo: "https://via.placeholder.com/150x75/fbbf24/000000?text=AISolutions",
+    },
+  ];
+
   return (
-    <section id="sponsors" className="relative py-12 sm:py-16 md:py-24 bg-base overflow-hidden">
-      {/* 🌌 STAR LAYER 1 – CLEAR FLOAT */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        animate={{
-          x: [0, 40, 0],
-          y: [0, -80, 0],
-        }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+    <section
+      id="sponsors"
+      className="relative py-24 overflow-hidden"
+      style={{ backgroundColor: colors.royalBlack }}
+    >
+      {/* 🌌 ATMOSPHERIC BACKGROUND */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] blur-[160px] rounded-full pointer-events-none opacity-15"
         style={{
-          backgroundImage: `
-            radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
-            radial-gradient(1px 1px at 220px 180px, #fff, transparent),
-            radial-gradient(2px 2px at 300px 90px, #fff, transparent),
-            radial-gradient(1px 1px at 380px 220px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 460px 40px, #fff, transparent),
-            radial-gradient(2px 2px at 520px 160px, #fff, transparent)
-          `,
-          backgroundSize: "260px 260px",
-          opacity: 0.95,
+          background: `radial-gradient(circle, ${colors.burntGold}, ${colors.royalBlack})`,
         }}
       />
 
-      {/* 🌌 STAR LAYER 2 – DEEP SPACE DRIFT */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        animate={{
-          x: [0, -30, 0],
-          y: [0, 60, 0],
-        }}
-        transition={{
-          duration: 45,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        style={{
-          backgroundImage: `
-            radial-gradient(1px 1px at 40px 70px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 120px 200px, #fff, transparent),
-            radial-gradient(2px 2px at 200px 100px, #fff, transparent),
-            radial-gradient(1px 1px at 280px 240px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 360px 150px, #fff, transparent),
-            radial-gradient(2px 2px at 440px 60px, #fff, transparent),
-            radial-gradient(1px 1px at 520px 210px, #fff, transparent)
-          `,
-          backgroundSize: "320px 320px",
-          opacity: 0.7,
-        }}
-      />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* UNIFIED HEADING */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
+          className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-3 sm:mb-4">
-           Our Sponsors
+          <h2
+            className="text-4xl md:text-5xl uppercase tracking-[0.2em] mb-4"
+            style={{
+              fontFamily: "'DaggerSquare', sans-serif",
+              color: "white",
+              textShadow: `0 0 15px ${colors.richGold}40`,
+            }}
+          >
+            Sponsors
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-300 font-space max-w-3xl mx-auto px-2">
-            Proudly supported by industry leaders
-          </p>
         </motion.div>
 
-        {/* Platinum */}
-        {tiers.platinum.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-8 sm:mb-12"
-          >
-            <h3 className="text-xl sm:text-2xl font-orbitron font-bold text-white uppercase tracking-wide text-center mb-6 sm:mb-8">
-              Platinum Sponsors
-            </h3>
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8">
-              {tiers.platinum.map((sponsor, index) => (
-                <motion.div
-                  key={sponsor.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="backdrop-blur-xl bg-white/5 border border-purple-500/40 rounded-xl p-6 hover:bg-white/10 hover:border-purple-400/60 transition-all duration-300"
+        {/* UNIFIED SPONSOR WALL */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+          {sponsors.map((sponsor, index) => (
+            <motion.div
+              key={sponsor.name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              whileHover={{ y: -8, scale: 1.05 }}
+              className="relative group p-[1px]"
+            >
+              {/* Outer Glow on Hover */}
+              <div
+                className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+                style={{ background: colors.richGold }}
+              />
+
+              <div
+                className="relative bg-[#0a0a0a]/80 backdrop-blur-md rounded-xl p-6 sm:p-8 flex items-center justify-center h-28 w-56 sm:h-36 sm:w-72 transition-all duration-500 overflow-hidden"
+                style={{ border: `1px solid ${colors.richGold}33` }}
+              >
+                {/* Subtle Internal Gradient */}
+                <div
+                  className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none"
                   style={{
-                    boxShadow: '0 0 12px rgba(168, 85, 247, 0.25), 0 0 20px rgba(239, 68, 68, 0.1)',
+                    background: `linear-gradient(45deg, transparent, ${colors.brightGold}, transparent)`,
                   }}
-                >
-                  <img src={sponsor.logo} alt={sponsor.name} className="h-20 object-contain" />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
+                />
 
-        {/* Gold */}
-        {tiers.gold.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}yellow-100
-            className="mb-12"
-          >
-            <h3 className="text-2xl font-orbitron font-bold text-white uppercase tracking-wide text-center mb-8">
-              Gold Sponsors
-            </h3>
-            <div className="flex flex-wrap justify-center items-center gap-6">
-              {tiers.gold.map((sponsor, index) => (
-                <motion.div
-                  key={sponsor.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-violet-400/50 transition-all duration-300"
-                >
-                  <img src={sponsor.logo} alt={sponsor.name} className="h-16 object-contain" />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-
-        {/* Silver */}
-        {tiers.silver.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-orbitron font-bold text-white uppercase tracking-wide text-center mb-8">
-              Silver Sponsors
-            </h3>
-            <div className="flex flex-wrap justify-center items-center gap-4">
-              {tiers.silver.map((sponsor, index) => (
-                <motion.div
-                  key={sponsor.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-lg p-3 hover:bg-white/10 hover:border-green-400/50 transition-all duration-300"
-                >
-                  <img src={sponsor.logo} alt={sponsor.name} className="h-12 object-contain" />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  className="h-12 sm:h-16 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

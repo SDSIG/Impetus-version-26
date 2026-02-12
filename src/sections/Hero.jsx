@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Zap, Ticket } from "lucide-react";
+import { ArrowRight, Ticket } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const desktopBgImages = [
   "/images/bg3.jpg",
@@ -18,6 +19,16 @@ const mobileBgImages = [
 export const Hero = () => {
   const [currentBg, setCurrentBg] = useState(0);
   const [bgImages, setBgImages] = useState(desktopBgImages);
+  const navigate = useNavigate();
+
+  // THEME COLORS AS CONSTANTS
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+    burntGold: "#78350F",
+    glass: "rgba(255, 255, 255, 0.03)",
+  };
 
   useEffect(() => {
     const updateBgImages = () => {
@@ -37,7 +48,7 @@ export const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % bgImages.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [bgImages]);
 
@@ -63,19 +74,22 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#020202]">
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{ backgroundColor: colors.royalBlack }}
+    >
       {/* 1. BACKGROUND IMAGES */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentBg}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.45 }}
+          animate={{ opacity: 0.35 }} // Slightly lower opacity for deeper black feel
           exit={{ opacity: 0 }}
-          transition={{ duration: 2.5, ease: "easeInOut" }}
+          transition={{ duration: 1.3, ease: "easeInOut" }}
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${bgImages[currentBg]})`,
-            filter: "grayscale(30%) contrast(1.2) brightness(0.6)",
+            filter: "grayscale(60%) contrast(1.3) brightness(0.5)", // Increased grayscale for royal look
           }}
         />
       </AnimatePresence>
@@ -84,8 +98,7 @@ export const Hero = () => {
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%)",
+          background: `radial-gradient(circle at center, rgba(5,5,5,0.1) 0%, ${colors.royalBlack} 100%)`,
         }}
       />
 
@@ -96,81 +109,153 @@ export const Hero = () => {
           transition={{ duration: 0.8 }}
           className="w-full max-w-7xl flex flex-col items-center"
         >
-          {/* IEEE HEADER */}
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-amber-500" />
-            <p className="font-rajdhani font-bold tracking-[0.5em] text-amber-500 text-[10px] sm:text-xs uppercase">
-              IEEE UVCE PRESENTS
-            </p>
-            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-amber-500" />
+          {/* IEEE PRESENTS */}
+          <div className="flex flex-col items-center mb-6 sm:mb-8">
+            <div className="flex items-center flex-nowrap gap-2 sm:gap-4 mb-4 w-full justify-center px-1 min-w-0">
+              <div
+                className="h-[1px] w-6 sm:w-12 flex-shrink-0"
+                style={{
+                  background: `linear-gradient(to right, transparent, ${colors.richGold})`,
+                }}
+              />
+              <p
+                className="font-orbitron font-bold tracking-[0.2em] sm:tracking-[0.5em] text-[10px] sm:text-xs uppercase whitespace-nowrap flex-shrink-0"
+                style={{ color: colors.richGold }}
+              >
+                IEEE UVCE PRESENTS
+              </p>
+              <div
+                className="h-[1px] w-6 sm:w-12 flex-shrink-0"
+                style={{
+                  background: `linear-gradient(to left, transparent, ${colors.richGold})`,
+                }}
+              />
+            </div>
+
+            <div className="flex items-center gap-2 text-white/40 font-rajdhani text-[10px] sm:text-xs tracking-[0.15em] uppercase text-center">
+              <span>Annual National-Level Technical Student Extravaganza</span>
+            </div>
           </div>
 
           {/* MAIN TITLE */}
           <h1
-            className="font-extrabold tracking-tighter leading-none text-center text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] bg-gradient-to-b from-[#FFFDF5] via-[#FACC15] to-[#78350f] bg-clip-text text-transparent mb-2"
+            className="font-daggersquare text-center text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] leading-none tracking-[-0.046m] bg-clip-text text-transparent mb-6 px-2"
             style={{
-              fontFamily: "'Orbitron', sans-serif",
-              filter: "drop-shadow(0 0 30px rgba(251, 191, 36, 0.2))",
+              fontFamily: "'DaggerSquare', sans-serif",
+              backgroundImage: `linear-gradient(to bottom, #FFFDF5, ${colors.brightGold}, ${colors.richGold}, ${colors.burntGold})`,
+              filter: `drop-shadow(0 0 20px rgba(212, 175, 55, 0.25))`,
             }}
           >
-            IMPETUS 26.0
+            IMPETUS&nbsp;26.0
           </h1>
 
-          {/* THEME TAGLINE */}
+          {/* THEME LOCKUP */}
           <div className="flex flex-col items-center mb-12 lg:mb-20">
             <h2 className="font-rajdhani text-2xl sm:text-4xl tracking-[0.3em] text-white font-light uppercase text-center">
-              Future<span className="text-amber-500 font-bold">Tech</span>
+              Future
+              <span style={{ color: colors.richGold }} className="font-bold">
+                Tech
+              </span>
             </h2>
-            <p className="text-amber-200/40 tracking-[0.6em] text-[10px] sm:text-xs uppercase italic mt-2 text-center">
+            <p
+              className="tracking-[0.6em] text-[10px] sm:text-xs uppercase italic mt-2 text-center"
+              style={{ color: `${colors.brightGold}66` }} // 40% opacity hex
+            >
               Engineering Tomorrow
             </p>
           </div>
 
-          {/* CONTENT ROW (Buttons & Countdown) */}
-          <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 px-4 mb-16">
-            {/* ACTION BUTTONS */}
-            <div className="flex flex-col items-center lg:items-start gap-4 order-2 lg:order-1">
-              <button className="group relative w-64 py-4 bg-amber-500 text-black font-bold tracking-[0.2em] uppercase text-xs rounded-full transition-all hover:bg-white hover:shadow-[0_0_40px_rgba(251,191,36,0.4)]">
-                <span className="relative z-10 flex items-center justify-center gap-3">
-                  Explore Events <ArrowRight size={16} />
-                </span>
-              </button>
+          {/* CONTENT ROW (Countdown centered) */}
+          <div className="flex justify-center w-full px-4 mb-16">
+            {/* CONTENT ROW (Buttons & Countdown) */}
+            {/* <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 px-4 mb-16">
+              <div className="flex flex-col items-center lg:items-start gap-4 order-2 lg:order-1">
+                <button
+                  onClick={() => navigate("/events")}
+                  className="w-64 py-4 font-orbitron font-bold uppercase tracking-[0.18em] text-xs rounded-full transition-all duration-300 ease-out active:scale-95 flex items-center justify-center gap-3"
+                  style={{
+                    border: `1px solid ${colors.richGold}`,
+                    color: colors.richGold,
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = colors.richGold;
+                    e.currentTarget.style.color = colors.royalBlack;
+                    e.currentTarget.style.boxShadow = `0 0 20px rgba(212, 175, 55, 0.35)`;
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.color = colors.richGold;
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  Explore Events
+                  <ArrowRight size={16} />
+                </button>
 
-              <button className="group relative w-64 py-4 border border-amber-500/30 text-amber-500 font-bold tracking-[0.2em] uppercase text-xs rounded-full transition-all hover:bg-amber-500/10 hover:border-amber-500">
-                <span className="flex items-center justify-center gap-3">
-                  <Ticket size={16} /> All-In-One Pass
-                </span>
-              </button>
-
-              <div className="flex items-center gap-2 mt-2 text-white/30 font-rajdhani text-[10px] tracking-[0.2em]">
-                <Zap size={10} className="text-amber-500 animate-pulse" />
-                <span>ANNUAL NATIONAL-LEVEL STUDENT EXTRAVAGANZA</span>
+                <button
+                  className="w-64 py-4 font-orbitron font-bold uppercase tracking-[0.18em] text-xs rounded-full transition-all duration-300 active:scale-95 flex items-center justify-center gap-3"
+                  style={{
+                    border: `1px solid ${colors.richGold}4D`, // 30% opacity
+                    color: colors.richGold,
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.borderColor = colors.richGold;
+                    e.currentTarget.style.backgroundColor = `${colors.richGold}1A`; // 10% opacity
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.borderColor = `${colors.richGold}4D`;
+                    e.currentTarget.style.backgroundColor = "transparent";
+                  }}
+                >
+                  <Ticket size={16} />
+                  All-In-One Pass
+                </button>
               </div>
-            </div>
+            </div> */}
 
             {/* COUNTDOWN TIMER */}
-            <div className="flex gap-3 sm:gap-6 order-1 lg:order-2">
-              {[
-                { label: "DAYS", val: timeLeft.days },
-                { label: "HRS", val: timeLeft.hours },
-                { label: "MIN", val: timeLeft.minutes },
-                { label: "SEC", val: timeLeft.seconds },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center">
-                  <div className="w-16 h-20 sm:w-20 sm:h-24 bg-[#0a0a0a]/90 border-t-2 border-amber-500/50 rounded-lg flex items-center justify-center shadow-2xl backdrop-blur-md">
-                    <span className="text-3xl sm:text-4xl font-black text-white">
-                      {String(item.val).padStart(2, "0")}
+            <div className="flex flex-col items-center gap-3">
+              <div className="flex gap-3 sm:gap-6">
+                {[
+                  { label: "DAYS", val: timeLeft.days },
+                  { label: "HRS", val: timeLeft.hours },
+                  { label: "MIN", val: timeLeft.minutes },
+                  { label: "SEC", val: timeLeft.seconds },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col items-center">
+                    <div
+                      className="w-16 h-20 sm:w-20 sm:h-24 rounded-lg flex items-center justify-center shadow-2xl backdrop-blur-md"
+                      style={{
+                        backgroundColor: `${colors.royalBlack}E6`, // 90% opacity
+                        borderTop: `2px solid ${colors.richGold}80`, // 50% opacity
+                      }}
+                    >
+                      <span className="text-3xl sm:text-4xl font-oxanium font-black text-white">
+                        {String(item.val).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <span
+                      className="mt-3 text-[9px] tracking-[0.3em] font-orbitron font-bold uppercase"
+                      style={{ color: colors.richGold }}
+                    >
+                      {item.label}
                     </span>
                   </div>
-                  <span className="mt-3 text-[9px] tracking-[0.3em] text-amber-500 font-bold uppercase">
-                    {item.label}
-                  </span>
-                </div>
-              ))}
+                ))}
+              </div>
+              <p
+                className="text-[15px] sm:text-sm tracking-[0.2em] uppercase text-center"
+                style={{
+                  color: `${colors.richGold}99`,
+                  fontFamily: "'Rajdhani', sans-serif",
+                }}
+              >
+                Registrations open soon…
+              </p>
             </div>
           </div>
 
-          {/* 🔥 LOGO AT THE BOTTOM - Smaller and subtle */}
+          {/* LOGO AT THE BOTTOM */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -182,9 +267,12 @@ export const Hero = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               <img
-                src="/images/logo.png"
+                src="/images/logo_impetus.png"
                 alt="Impetus Logo"
-                className="w-24 sm:w-28 md:w-32 opacity-80 hover:opacity-100 transition-opacity drop-shadow-[0_0_15px_rgba(251,191,36,0.2)]"
+                className="w-24 sm:w-28 md:w-32 opacity-80 hover:opacity-100 transition-opacity"
+                style={{
+                  filter: `drop-shadow(0 0 15px rgba(212, 175, 55, 0.3))`,
+                }}
               />
             </motion.div>
           </motion.div>

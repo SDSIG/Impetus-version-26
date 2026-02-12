@@ -1,0 +1,428 @@
+{
+  "flagshipEvents": [
+    {
+      "name": "CodeStorm",
+      "description": "Gear up for an electrifying coding challenge at CODESTORM! Put your problem-solving skills to the test in two intense rounds of competition, where logic, speed, and efficiency determine the best coders. Round 1: Take on four challenging coding problems designed to push your analytical and problem-solving abilities to the limit. Only the top contenders will make it to the next stage. Round 2: The ultimate test of optimization and efficiency awaits! Compete against the best to achieve the highest score and prove your coding excellence.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "1-3",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Online",
+      "image": "flagship/codestorm.jpeg",
+      "reg_link": "https://forms.gle/7894561234567890",
+      "contacts": [
+        {
+          "name": "Chandan U",
+          "phone": "+91 84535 71597"
+        },
+        {
+          "name": "Gagana K H",
+          "phone": "+91 96632 40594"
+        }
+      ]
+    },
+    {
+      "name": "Brand-IT",
+      "description": "Brand IT is a competition designed to unleash participants' creativity through the art of designing. It is a contest where using the best design skills to forge a unique brand kit turns into reality. Round 1: 'Design Your Brand Kit' - Participants pick their brand category from the spectrum of options provided and craft a brand kit within 35 hours, consisting of a logo, color palette, typography, packaging, and more. Round 2: 'Present Your Brand' - Shortlisted teams will take turns presenting their brand kits to the panel of judges. The most creative and visually compelling brand kit will be declared the winner.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "1-3",
+      "date": "20th, 21st, and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "brand-it.png",
+      "contacts": [
+        {
+          "name": "Meenakshi G Patil",
+          "phone": "+91 95139 50181"
+        },
+        {
+          "name": "Namratha Sridhar",
+          "phone": "+91 90084 16648"
+        }
+      ]
+    },
+    {
+      "name": "Civicture",
+      "description": "Civicture is a dynamic competition designed to provide a platform for participants to showcase their creativity, technical expertise, and problem-solving skills. Engineering brilliance meets architectural creativity to shape the future. Round 1: Participants face around 20 multiple-choice questions. Each question has four visual options (images or emojis). Teams with the highest points proceed. Round 2: Participants receive a set of instructions and are required to construct a model based on those instructions and demonstrate their completed model to a panel of judges.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "3-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Hybrid",
+      "image": "civicture.png",
+      "contacts": [
+        {
+          "name": "Rayan Ahmed",
+          "phone": "+91 91130 27087"
+        },
+        {
+          "name": "Kushal Sagar",
+          "phone": "+91 78999 48875"
+        }
+      ]
+    },
+    {
+      "name": "AvionX",
+      "description": "Immerse yourself in the world of aerospace with AvionX! Challenge yourself with aviation-themed tasks, solve mysteries, and design critical aerospace components in a battle of intellect, creativity, and teamwork. Round 1: A fun role-play activity where participants act as detectives, solving an aviation-themed mystery. Round 2: 'Fusion of Ideas' - Work within your domain to refine and develop key components of an aerospace system. Round 3: 'The Grand Assembly' - Engineers from different domains come together to create a complete aerospace system.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "Individual (Rounds 1 & 2), Groups (Round 3)",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "avionx.png",
+      "contacts": [
+        {
+          "name": "Arjun Pillai",
+          "phone": "+91 63624 79576"
+        },
+        {
+          "name": "Harshitha R J",
+          "phone": "+91 78927 13899"
+        }
+      ]
+    },
+    {
+      "name": "Hack-A-Maze",
+      "description": "Join the excitement of racing with Hack-A-Maze! Build a robot to follow the line track—it's your own personal F1 race with bots. Take on the Line Follower challenge and get your bot to the finish line. Round 1: Get your bot through the easier track quickly and accurately as a warm-up. Round 2: Follow the track to the exit point, passing all checkpoints for the most points. Time is key in both rounds.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "1-3",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "hack-a-maze.png",
+      "contacts": [
+        {
+          "name": "Deeksha K",
+          "phone": "+91 93805 09662"
+        },
+        {
+          "name": "Fathey Wasi",
+          "phone": "+91 96115 88716"
+        }
+      ]
+    },
+    {
+      "name": "Mock Placements",
+      "description": "Step into the world of campus placements through a simulated hiring process. Round 1: A comprehensive assessment testing logical reasoning, mathematical aptitude, and subject knowledge. IT participants may also face an online coding challenge. Round 2: Shortlisted candidates advance to face-to-face Technical & HR Interviews to demonstrate technical knowledge, problem-solving, communication, and leadership potential. Feedback is provided post-interview.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "1",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Hybrid",
+      "image": "mock-placements.png",
+      "contacts": [
+        {
+          "name": "Keerthi V Meti",
+          "phone": "+91 99011 40524"
+        },
+        {
+          "name": "Shreya Nayak B",
+          "phone": "+91 89040 02112"
+        }
+      ]
+    },
+    {
+      "name": "Silic-O-Hack",
+      "description": "Silic-O-Hack challenges participants to transform innovative ideas into practical solutions. Round 1: 'Analysis & Troubleshooting' - Participants troubleshoot and repair faulty circuits, focusing on components like resistors, capacitors, transistors, MOSFETs, and op-amps. Round 2: 'Ideation & Design' - Shortlisted participants have 24 hours to develop a solution using TinkerCAD based on a problem statement and present it to an expert panel.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "1-3",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Hybrid",
+      "image": "silic-o-hack.png",
+      "contacts": [
+        {
+          "name": "Fathey Wasi",
+          "phone": "+91 96115 88716"
+        },
+        {
+          "name": "Sandeep",
+          "phone": "+91 85508 65115"
+        }
+      ]
+    },
+    {
+      "name": "Mechronins",
+      "description": "A test of skill, strategy, and innovation where mechanical brilliance takes center stage. Round 1: 'Mech Mystery' - Mechanical puzzles testing strategy and ingenuity. Round 2: 'Machine Run 2.0' - Team adventure to solve puzzles and uncover hidden clues. Round 3: 'Design Innovators Challenge' - Tackle design problem statements, develop solutions, and present futuristic concepts to judges.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "2-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "mechronins.png",
+      "contacts": [
+        {
+          "name": "Divya P",
+          "phone": "+91 70229 85136"
+        },
+        {
+          "name": "Sagar S Komar",
+          "phone": "+91 63661 65951"
+        }
+      ]
+    },
+    {
+      "name": "Summit",
+      "description": "A Student Parliament for knowledge sharing, problem-solving, and networking. Each round is an elimination round. Panel Discussion: Insightful discussion on a thought-provoking topic held prior to the main event. Preliminary Round: Teams present solutions virtually before the main event. Round 1: Advance problem statement analysis presented via PowerPoint. Round 2: Presentation of innovative ideas following the completion of Round 1.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹7,000",
+      "teamSize": "1-3",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Online",
+      "image": "summit.png",
+      "contacts": [
+        {
+          "name": "Shravya",
+          "phone": "+91 63633 09853"
+        },
+        {
+          "name": "Amulya N",
+          "phone": "+91 98446 36446"
+        }
+      ]
+    },
+    {
+      "name": "Laser Tag",
+      "description": "An action-packed battle where strategy meets adrenaline. Navigate a darkened arena armed with infrared guns and outscore opponents in this futuristic combat game. Gear up, strategize, and dominate the battlefield!",
+      "ticketPrice": "₹100 per person",
+      "teamSize": "3-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "laser-tag.png",
+      "contacts": [
+        {
+          "name": "Akrant Debnath",
+          "phone": "+91 95318 41140"
+        },
+        {
+          "name": "Sanjay",
+          "phone": "+91 93803 25317"
+        }
+      ]
+    }
+  ],
+  "generalEvents": [
+    {
+      "name": "Brain Bids 2.0",
+      "description": "A fusion of quizzing and strategic bidding where your intellect is your currency. Participants bid on questions and outthink opponents in a battle of strategy. Round 1: 'Bid Your Knowledge' - Bid points to earn the right to answer. Round 2: Inspired by 'Kaun Banega Crorepati', a race against time to earn points.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "2-3",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "brain-bids.png",
+      "contacts": [
+        {
+          "name": "Amoghavarsha",
+          "phone": "+91 90195 51905"
+        },
+        {
+          "name": "Divya D N",
+          "phone": "+91 91108 87507"
+        }
+      ]
+    },
+    {
+      "name": "Data Quest",
+      "description": "A competition showcasing data analytics, problem-solving, and visualization skills. Round 1: 'Data Cleaning & Dashboard Creation' - Online 5-hour task cleaning datasets, solving SQL challenges, and creating insight-driven dashboards. Round 2: 'Presentation' - Top teams present their data cleaning process, SQL solutions, and key insights to judges.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "1-3",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Hybrid",
+      "image": "data-quest.png",
+      "contacts": [
+        {
+          "name": "Anagha S Shastri",
+          "phone": "+91 94803 35832"
+        },
+        {
+          "name": "Sumanth G",
+          "phone": "+91 78924 98948"
+        }
+      ]
+    },
+    {
+      "name": "The Time Traveler's Code",
+      "description": "History is scrambled! Decode encrypted messages and solve legendary mysteries using AI to rebuild the timeline. Round 1: Offline puzzles inspired by movies, games, and history to find clues and fix glitches. Round 2: Overnight challenge using basic AI techniques on corrupted datasets to restore the timeline and present solutions to judges.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "3-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Hybrid",
+      "image": "time-travelers-code.png",
+      "contacts": [
+        {
+          "name": "Krishna L",
+          "phone": "+91 96862 10829"
+        },
+        {
+          "name": "Shreyas S Rao",
+          "phone": "+91 72049 62271"
+        }
+      ]
+    },
+    {
+      "name": "Think Tank",
+      "description": "An IoT-based event testing strategic thinking. Round 1: 'Trade with Tinkercad' - Design solutions using simulation software while managing a limited point system for components and lifelines. Round 2: 'Bid to Win' - Guess a hidden company's name from its story; bidding begins if no one guesses correctly. Final scores are influenced by real-time stock performance.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "1-3",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "think-tank.png",
+      "contacts": [
+        {
+          "name": "Kankana Ghosh",
+          "phone": "+91 93534 58360"
+        },
+        {
+          "name": "Rajashekar",
+          "phone": "+91 98805 67974"
+        }
+      ]
+    },
+    {
+      "name": "Synthetic Intelligence",
+      "description": "A competition to test prompt engineering skills against top AI enthusiasts. This single-round event challenges teams to solve complex problems involving contradictions and numerical reasoning using models like GPT-4 or Claude. Success depends on selection of the right AI model and refining prompts within the given time.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "1-3",
+      "date": "22nd March, 2025",
+      "mode": "Offline",
+      "image": "synthetic-intelligence.png",
+      "contacts": [
+        {
+          "name": "Nitin Shatkar",
+          "phone": "+91 76248 06912"
+        },
+        {
+          "name": "Ramachandra",
+          "phone": "+91 63646 48120"
+        }
+      ]
+    },
+    {
+      "name": "Tantragnyana Tarka",
+      "description": "A unique Kannada event bridging cultural heritage and modern technology through decoding and debating. Round 1: 'Kannada Decode' - Cracking cryptic Kannada phrases and proverbs using encoding techniques. Round 2: 'Debate' - A stimulating discussion in Kannada focused on Bengaluru's technological evolution.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "2-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "tantragnyana-tarka.png",
+      "contacts": [
+        {
+          "name": "Bhavani P",
+          "phone": "+91 78997 47533"
+        },
+        {
+          "name": "Dhanushree R",
+          "phone": "+91 95351 53091"
+        }
+      ]
+    },
+    {
+      "name": "Escape Room: UVCE Edition",
+      "description": "The ultimate UVCE-themed detective challenge! Teams of 3-4 hunt for hidden clues and solve mind-bending puzzles while racing against the clock. Only the sharpest minds will claim exclusive prizes.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "3-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "escape-room.png",
+      "contacts": [
+        {
+          "name": "Anirudh P Bhat",
+          "phone": "+91 98445 74935"
+        },
+        {
+          "name": "Inchara V",
+          "phone": "+91 96118 01062"
+        }
+      ]
+    },
+    {
+      "name": "IPL Auction",
+      "description": "A blend of strategy and real-world IPL dynamics. Teams battle through bidding wars and strategic retention. Round 1: 'IPL Knockout Quiz' - Thrilling quiz covering all past seasons. Round 2: 'Panel Auction' - Qualified teams compete in panels with an intense shortlisting process. Round 3: 'Mega Auction' - Ultimate auction streamed live on YouTube with real-time transaction displays.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "3-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "ipl-auction.png",
+      "contacts": [
+        {
+          "name": "Nithish N S",
+          "phone": "+91 87621 04684"
+        },
+        {
+          "name": "Prashanth H M",
+          "phone": "+91 73386 72405"
+        }
+      ]
+    }
+  ],
+  "gamingEvents": [
+    {
+      "name": "BGMI Tournament",
+      "description": "A Battle Royale tournament where the number of rounds depends on registration volume. Groups are formed if teams exceed 16, with the top 12 qualifying for the final. There are 3 matches per group and 5 final matches, totaling 11 matches, with results based on table ranking.",
+      "ticketPrice": "₹60 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "3-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Online",
+      "image": "bgmi-tournament.png",
+      "contacts": [
+        {
+          "name": "Charan S",
+          "phone": "+91 90082 34225"
+        },
+        {
+          "name": "Shreyas R Shankar",
+          "phone": "+91 63631 20124"
+        }
+      ]
+    },
+    {
+      "name": "Valorant Tournament",
+      "description": "Tactical combat tournament to test squad skills and strategy. Prove you are a sharpshooter or strategic mastermind to claim glory. Format: Best of 1 until top 4, Best of 3 until top 2, and a Best of 5 final match.",
+      "ticketPrice": "₹80 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "1-5",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Online",
+      "image": "valorant-tournament.png",
+      "contacts": [
+        {
+          "name": "Shushruth",
+          "phone": "+91 77609 17384"
+        },
+        {
+          "name": "Sourav",
+          "phone": "+91 79759 55452"
+        }
+      ]
+    },
+    {
+      "name": "Chess Mania",
+      "description": "A 3-round online chess tournament where wins contribute to the points table. Round 1: Chess 960 in an Arena system (Clock 3+2) for 1 hour. Round 2: Standard in an Arena system (Clock 5+0) for 1 hour. Round 3: Standard Finals (Clock 10+0) with 1 match per player.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "1",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Online",
+      "image": "chess-mania.png",
+      "contacts": [
+        {
+          "name": "Ashwin Kashyap",
+          "phone": "+91 83100 18405"
+        },
+        {
+          "name": "Harshitha A",
+          "phone": "+91 77602 69763"
+        }
+      ]
+    }
+  ]
+}

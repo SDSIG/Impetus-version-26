@@ -1,10 +1,18 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Send } from "lucide-react";
-import { Button } from "../components/Button";
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
+import { Mail, Phone, MapPin, Navigation } from "lucide-react";
+
+const UVCE_MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9702221665475!2d77.5841022!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1672fcfc3f21%3A0x8979666063d8594e!2sUniversity%20Visvesvaraya%20College%20of%20Engineering%20(UVCE)!5e0!3m2!1sen!2sin!4v1646820000000!5m2!1sen!2sin";
+const UVCE_DIRECTIONS_URL =
+  "https://www.google.com/maps/dir//University+Visvesvaraya+College+of+Engineering+UVCE+Bangalore";
 
 export const Contact = () => {
+  const colors = {
+    royalBlack: "#050505",
+    richGold: "#D4AF37",
+    brightGold: "#F9D976",
+  };
+
   const teamContacts = [
     {
       name: "Mohith Monnappa T A",
@@ -26,47 +34,13 @@ export const Contact = () => {
     },
   ];
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    emailjs
-      .send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: "ieeeuvce26@gmail.com",
-        },
-        "YOUR_PUBLIC_KEY",
-      )
-      .then(() => {
-        alert("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-        setLoading(false);
-      })
-      .catch(() => {
-        alert("Failed to send message. Please try again.");
-        setLoading(false);
-      });
-  };
-
   return (
     <section
       id="contact"
-      className="relative py-16 sm:py-24 bg-base overflow-hidden"
+      className="relative py-20 overflow-hidden"
+      style={{ backgroundColor: colors.royalBlack }}
     >
-      {/* 🌌 STAR LAYER 1 – CLEAR FLOAT */}
+      {/* STAR LAYERS */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
@@ -74,20 +48,15 @@ export const Contact = () => {
         style={{
           backgroundImage: `
             radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-            radial-gradient(2px 2px at 80px 120px, #fff, transparent),
+            radial-gradient(2px 2px at 80px 120px, ${colors.brightGold}, transparent),
             radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
-            radial-gradient(1px 1px at 220px 180px, #fff, transparent),
-            radial-gradient(2px 2px at 300px 90px, #fff, transparent),
-            radial-gradient(1px 1px at 380px 220px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 460px 40px, #fff, transparent),
-            radial-gradient(2px 2px at 520px 160px, #fff, transparent)
+            radial-gradient(1px 1px at 220px 180px, ${colors.richGold}, transparent)
           `,
           backgroundSize: "260px 260px",
-          opacity: 0.95,
+          opacity: 0.8,
         }}
       />
 
-      {/* 🌌 STAR LAYER 2 – DEEP SPACE DRIFT */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{ x: [0, -30, 0], y: [0, 60, 0] }}
@@ -95,158 +64,169 @@ export const Contact = () => {
         style={{
           backgroundImage: `
             radial-gradient(1px 1px at 40px 70px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 120px 200px, #fff, transparent),
-            radial-gradient(2px 2px at 200px 100px, #fff, transparent),
-            radial-gradient(1px 1px at 280px 240px, #fff, transparent),
-            radial-gradient(1.5px 1.5px at 360px 150px, #fff, transparent),
-            radial-gradient(2px 2px at 440px 60px, #fff, transparent),
-            radial-gradient(1px 1px at 520px 210px, #fff, transparent)
+            radial-gradient(1.5px 1.5px at 120px 200px, ${colors.richGold}, transparent),
+            radial-gradient(2px 2px at 200px 100px, #fff, transparent)
           `,
           backgroundSize: "320px 320px",
-          opacity: 0.7,
+          opacity: 0.5,
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-4">
-        {/* Heading */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        {/* HEADING */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black text-white uppercase tracking-widest mb-4">
-            Contact Us
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl uppercase"
+            style={{ fontFamily: "'DaggerSquare', sans-serif", color: "white" }}
+          >
+            Contact <span style={{ color: colors.brightGold }}>Us</span>
           </h2>
-          <div className="w-24 h-1 bg-purple-500 mx-auto mb-6" />
-          <p className="text-gray-300 max-w-3xl mx-auto">
-            Have questions? We're here to help
-          </p>
         </motion.div>
 
-        {/* Team Contacts */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-20">
+        {/* TEAM CONTACTS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-14">
           {teamContacts.map((person, index) => (
             <motion.div
               key={person.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-6 text-center transition-all duration-300 hover:border-neon-cyan/50"
+              transition={{ delay: index * 0.08 }}
+              className="p-6 sm:p-8 text-center bg-[#0a0a0a]"
+              style={{
+                border: `1px solid ${colors.richGold}33`,
+                clipPath:
+                  "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+              }}
             >
-              <h3 className="text-lg font-orbitron font-bold text-white mb-1">
+              <h3
+                className="text-lg font-bold mb-1 text-white"
+                style={{ fontFamily: "'Rajdhani', sans-serif" }}
+              >
                 {person.name}
               </h3>
-              <p className="text-sm text-neon-cyan mb-4">{person.role}</p>
 
-              <div className="flex flex-col gap-3 text-gray-300 text-sm">
+              <p
+                className="text-xs tracking-widest mb-5"
+                style={{
+                  fontFamily: "'Rajdhani', sans-serif",
+                  color: colors.richGold,
+                }}
+              >
+                {person.role}
+              </p>
+
+              <div
+                className="space-y-3 text-sm"
+                style={{ fontFamily: "'Rajdhani', sans-serif" }}
+              >
                 <a
                   href={`tel:${person.phone.replace(/\s+/g, "")}`}
-                  className="flex items-center justify-center gap-2 hover:text-white"
+                  className="flex justify-center items-center gap-2 text-gray-400 hover:text-white transition"
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone size={14} style={{ color: colors.richGold }} />
                   {person.phone}
                 </a>
 
                 <a
                   href={`mailto:${person.email}`}
-                  className="flex items-center justify-center gap-2 hover:text-white truncate"
+                  className="flex justify-center items-center gap-2 text-gray-400 hover:text-white transition truncate"
                 >
-                  <Mail className="w-4 h-4" />
-                  <span className="truncate">{person.email}</span>
+                  <Mail size={14} style={{ color: colors.richGold }} />
+                  {person.email}
                 </a>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* FORM + MAP */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-          {/* Form */}
-          <motion.form
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            onSubmit={handleSubmit}
-            className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-8 space-y-6 transition-all duration-300 hover:border-neon-cyan/50"
+        {/* Map Section - centered and responsive */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex justify-center px-0 sm:px-2"
+          style={{
+            backgroundColor: "transparent",
+          }}
+        >
+          <div
+            className="w-full max-w-xl sm:max-w-2xl lg:max-w-4xl mx-auto p-4 sm:p-6 min-w-0"
+            style={{
+              backgroundColor: "#0a0a0a",
+              border: `1px solid ${colors.richGold}33`,
+              clipPath:
+                "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+            }}
           >
-            <div>
-              <label className="block text-sm text-gray-400 uppercase mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white focus:border-neon-cyan/50 outline-none"
-                placeholder="Your Name"
+            <div className="flex items-center justify-between mb-4 md:mb-5 lg:mb-6 w-full gap-3">
+              <h3
+                className="text-2xl sm:text-3xl font-semibold"
+                style={{
+                  fontFamily: "'Rajdhani', sans-serif",
+                  color: "white",
+                }}
+              >
+                Find Us Here
+              </h3>
+              <div
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{
+                  backgroundColor: `${colors.richGold}18`,
+                  border: `1px solid ${colors.richGold}40`,
+                }}
+              >
+                <Navigation size={24} style={{ color: colors.richGold }} />
+              </div>
+            </div>
+            <div className="rounded-lg overflow-hidden border shadow-md aspect-video w-full min-h-[220px] sm:min-h-[260px] md:min-h-[280px] lg:min-h-[360px]">
+              <iframe
+                title="UVCE Location"
+                src={UVCE_MAP_EMBED_URL}
+                className="w-full h-full min-h-full border-0 block"
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                style={{
+                  filter:
+                    "invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1)",
+                }}
               />
             </div>
-
-            <div>
-              <label className="block text-sm text-gray-400 uppercase mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white focus:border-neon-cyan/50 outline-none"
-                placeholder="your.email@example.com"
-              />
+            <div className="mt-6 flex justify-center">
+              <a
+                href={UVCE_DIRECTIONS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 py-3.5 px-8 font-bold uppercase tracking-[0.2em] text-sm rounded-lg border-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  fontFamily: "'Rajdhani', sans-serif",
+                  backgroundColor: "transparent",
+                  color: colors.richGold,
+                  borderColor: colors.richGold,
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = colors.richGold;
+                  e.currentTarget.style.color = colors.royalBlack;
+                  e.currentTarget.style.boxShadow = `0 0 12px ${colors.richGold}15`;
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.color = colors.richGold;
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <MapPin size={20} strokeWidth={2} />
+                Get Directions
+              </a>
             </div>
-
-            <div>
-              <label className="block text-sm text-gray-400 uppercase mb-2">
-                Message
-              </label>
-              <textarea
-                rows={5}
-                required
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white resize-none focus:border-neon-cyan/50 outline-none"
-                placeholder="Your Message"
-              />
-            </div>
-
-            <Button variant="primary" className="w-full" disabled={loading}>
-              <Send className="inline mr-2 w-4 h-4" />
-              {loading ? "Sending..." : "Send Message"}
-            </Button>
-          </motion.form>
-
-          {/* Map */}
-          <motion.a
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            href="https://www.google.com/maps?q=University+Visvesvaraya+College+of+Engineering+Bangalore"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan/50 transition"
-          >
-            <iframe
-              title="UVCE Map"
-              src="https://www.google.com/maps?q=University+Visvesvaraya+College+of+Engineering+Bangalore&output=embed"
-              className="w-full h-full min-h-[420px] pointer-events-none"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-black/10 hover:bg-black/0 transition" />
-          </motion.a>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

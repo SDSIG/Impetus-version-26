@@ -1,55 +1,85 @@
-import { useState, useCallback } from 'react';
-import { getResponse } from '../data/chatbotData';
+import { useState, useCallback } from "react";
 
 export const useChatbot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hello! I'm NEXUS, your AI assistant for IMPETUS 26.0. How can I help you today?",
-      sender: 'bot',
+      text: "Hello! 👋 I’m MASRO, your IMPETUS event assistant.",
+      sender: "bot",
       timestamp: new Date()
     }
   ]);
+
   const [isTyping, setIsTyping] = useState(false);
 
-  const sendMessage = useCallback((text) => {
+  // ✅ Backend URL (auto switches between local & deployed)
+  const BACKEND_URL =
+    import.meta.env.VITE_BACKEND_URL || "http://localhost:5000/chat";
+
+  const sendMessage = useCallback(async (text) => {
     if (!text.trim()) return;
 
-    // Add user message
     const userMessage = {
-      id: messages.length + 1,
-      text: text.trim(),
-      sender: 'user',
+      id: Date.now(),
+      text,
+      sender: "user",
       timestamp: new Date()
     };
 
     setMessages(prev => [...prev, userMessage]);
     setIsTyping(true);
 
-    // Simulate typing delay
-    setTimeout(() => {
-      const botResponse = {
-        id: messages.length + 2,
-        text: getResponse(text),
-        sender: 'bot',
-        timestamp: new Date()
-      };
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ question: text })
+      });
 
-      setMessages(prev => [...prev, botResponse]);
+      const data = await res.json();
+
+      setMessages(prev => [
+        ...prev,
+        {
+          id: Date.now() + 1,
+          text: data?.answer || "I couldn’t understand that.",
+          sender: "bot",
+          timestamp: new Date()
+        }
+      ]);
+    } catch (err) {
+      console.error("Chatbot error:", err);
+      setMessages(prev => [
+        ...prev,
+        {
+          id: Date.now() + 2,
+          text: "⚠️ Server not reachable. Please try again later.",
+          sender: "bot",
+          timestamp: new Date()
+        }
+      ]);
+    } finally {
       setIsTyping(false);
-    }, 1000 + Math.random() * 1000);
-  }, [messages.length]);
+    }
+  }, [BACKEND_URL]);
 
-  const clearChat = useCallback(() => {
+  const clearChat = () => {
     setMessages([
       {
         id: 1,
-        text: "Hello! I'm NEXUS, your AI assistant for IMPETUS 26.0. How can I help you today?",
-        sender: 'bot',
+        text: "Hello! 👋 I’m MASRO, your IMPETUS event assistant.",
+        sender: "bot",
         timestamp: new Date()
       }
     ]);
-  }, []);
+  };
 
-  return { messages, isTyping, sendMessage, clearChat };
+  return {
+    messages,
+    isTyping,
+    sendMessage,
+    clearChat
+  };
 };
