@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Loader } from "./components/Loader";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
-// import { Chatbot } from "./components/Chatbot";
+import { Chatbot } from "./components/Chatbot";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Home } from "./pages/Home";
 import { TempEvents } from "./sections/TempEvents";
@@ -65,7 +65,7 @@ function App() {
               </main>
 
               <Footer />
-              {/* <Chatbot /> */}
+              <Chatbot />
               <ScrollToTop />
             </motion.div>
           )}
