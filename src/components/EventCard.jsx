@@ -154,12 +154,19 @@ export const EventCard = ({ event, index }) => {
             </p>
           </div>
 
-          <button
+          {/* <button
             onClick={() => setShowDetails(false)}
             className="w-full mt-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/20 text-white font-orbitron font-bold text-sm sm:text-base hover:bg-white/20 transition"
           >
             Back
-          </button>
+          </button> */}
+          <button
+  onClick={() => setShowDetails(false)}
+  className="w-full mt-4 py-2 sm:py-3 rounded-lg !text-white bg-white/10 border border-white/20  font-orbitron font-bold text-sm sm:text-base hover:border-white transition"
+>
+  Back
+</button>
+
         </div>
       </motion.div>
     </motion.div>
