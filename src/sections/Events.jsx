@@ -5,29 +5,42 @@ import eventsData from "../data/events.json";
 import { EventCard } from "../components/EventCard";
 
 const categories = [
+  { id: "all", label: "All Events" }, // Added All Events
   { id: "flagship", label: "Flagship Events" },
   { id: "general", label: "General Events" },
   { id: "gaming", label: "Gaming Events" },
 ];
 
 export const Events = () => {
-  const [activeTab, setActiveTab] = useState("flagship");
+  const [activeTab, setActiveTab] = useState("all"); // Default to 'all'
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // THEME COLORS
   const colors = {
     royalBlack: "#050505",
     richGold: "#D4AF37",
     brightGold: "#F9D976",
   };
 
-  const dataMap = {
-    flagship: eventsData.flagshipEvents || [],
-    general: eventsData.generalEvents || [],
-    gaming: eventsData.gamingEvents || [],
+  // Logic to handle "All" or specific categories
+  const getAllEvents = () => {
+    const flagship = eventsData.flagshipEvents || [];
+    const general = eventsData.generalEvents || [];
+    const gaming = eventsData.gamingEvents || [];
+
+    if (activeTab === "all") {
+      return [...flagship, ...general, ...gaming];
+    }
+
+    const dataMap = {
+      flagship,
+      general,
+      gaming,
+    };
+
+    return dataMap[activeTab] || [];
   };
 
-  const categoryEvents = dataMap[activeTab] || [];
+  const categoryEvents = getAllEvents();
 
   const handleTabChange = (id) => {
     setActiveTab(id);
@@ -64,7 +77,7 @@ export const Events = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase mt-12 tracking-tighter"
           style={{ fontFamily: "'DaggerSquare', sans-serif", color: "white" }}
         >
-          Explore <span style={{ color: colors.brightGold }}>Events</span>
+          EVENTS
         </motion.h2>
         <p
           className="uppercase tracking-[0.4em] mt-4 text-xs md:text-sm font-bold"
@@ -73,25 +86,25 @@ export const Events = () => {
             color: colors.richGold,
           }}
         >
-          Select a sector to view challenges
+          {categories.find((c) => c.id === activeTab)?.label.toUpperCase()}
         </p>
       </div>
 
       {/* GRID SECTION */}
       <div className="max-w-7xl mx-auto px-6 pb-32 relative z-10">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
           >
             {categoryEvents.length > 0 ? (
               categoryEvents.map((event, index) => (
                 <EventCard
-                  key={`${activeTab}-${index}`}
+                  key={`${event.id || index}`}
                   event={event}
                   index={index}
                 />
@@ -101,14 +114,8 @@ export const Events = () => {
                 className="col-span-full text-center py-40 border border-dashed rounded-3xl"
                 style={{ borderColor: `${colors.richGold}20` }}
               >
-                <p
-                  className="uppercase tracking-widest text-lg"
-                  style={{
-                    fontFamily: "'Rajdhani', sans-serif",
-                    color: "#4B5563",
-                  }}
-                >
-                  System Error: No {activeTab} data retrieved.
+                <p className="uppercase tracking-widest text-lg font-rajdhani text-gray-500">
+                  No events scheduled in this sector yet.
                 </p>
               </div>
             )}
@@ -122,7 +129,7 @@ export const Events = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsMenuOpen(true)}
-          className="pointer-events-auto px-5 py-4 rounded-full flex items-center gap-2 font-bold uppercase tracking-widest text-xs shadow-2xl transition-all"
+          className="pointer-events-auto px-6 py-4 rounded-full flex items-center gap-3 font-bold uppercase tracking-widest text-xs shadow-2xl transition-all"
           style={{
             backgroundColor: colors.royalBlack,
             color: colors.brightGold,
@@ -134,13 +141,13 @@ export const Events = () => {
           <Filter size={18} />
           <span>Filters</span>
           <span
-            className="ml-2 px-2 py-1 text-[10px] rounded font-black"
+            className="ml-2 px-2 py-0.5 text-[10px] rounded font-black"
             style={{
               backgroundColor: colors.richGold,
               color: colors.royalBlack,
             }}
           >
-            {activeTab}
+            {categories.find((c) => c.id === activeTab)?.label.split(" ")[0]}
           </span>
         </motion.button>
       </div>
@@ -158,35 +165,27 @@ export const Events = () => {
             />
 
             <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 250 }}
               className="fixed bottom-0 left-0 right-0 md:left-auto md:right-10 md:bottom-24 md:w-[360px] backdrop-blur-2xl z-[110] p-6 shadow-2xl"
               style={{
                 backgroundColor: `${colors.royalBlack}F2`,
                 border: `1px solid ${colors.richGold}40`,
-                borderRadius:
-                  window.innerWidth > 768 ? "24px" : "24px 24px 0 0",
+                borderRadius: "24px",
               }}
             >
               <div className="flex justify-between items-center mb-8">
                 <div>
-                  <h3
-                    className="font-bold uppercase tracking-widest text-xl"
-                    style={{
-                      fontFamily: "'DaggerSquare', sans-serif",
-                      color: "white",
-                    }}
-                  >
-                    Filters
+                  <h3 className="font-bold uppercase tracking-widest text-xl text-white font-dagger">
+                    Select Sector
                   </h3>
                   <div
                     className="h-[2px] w-12 mt-1"
                     style={{ backgroundColor: colors.richGold }}
                   />
                 </div>
-
                 <button
                   onClick={() => setIsMenuOpen(false)}
                   className="p-2 rounded-full transition-colors"
@@ -219,13 +218,6 @@ export const Events = () => {
                     {activeTab === cat.id && <Zap size={16} />}
                   </button>
                 ))}
-              </div>
-
-              <div className="mt-8 flex justify-center">
-                <div
-                  className="w-16 h-1 rounded-full"
-                  style={{ backgroundColor: `${colors.richGold}40` }}
-                />
               </div>
             </motion.div>
           </>

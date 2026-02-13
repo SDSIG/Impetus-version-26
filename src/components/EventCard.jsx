@@ -1,13 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import {
-  Phone,
-  ArrowLeft,
-  Trophy,
-  Calendar,
-  Users,
-  ExternalLink,
-} from "lucide-react";
+import { ArrowLeft, Trophy, Calendar, ExternalLink, Info } from "lucide-react";
 
 export const EventCard = ({ event, index }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -16,124 +9,110 @@ export const EventCard = ({ event, index }) => {
     royalBlack: "#050505",
     richGold: "#D4AF37",
     brightGold: "#F9D976",
-    burntGold: "#78350F",
   };
 
-  const royalShape =
-    "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)";
+  // UPDATED SHAPE: Clean top (no cuts), mirrored cyber-cuts on both bottom corners
+  const techShape =
+    "polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 24px 100%, 0 calc(100% - 24px))";
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.06 }}
-      className="h-[480px] w-full group"
+      transition={{ delay: index * 0.08, duration: 0.6 }}
+      whileHover={{ scale: 1.02 }}
+      className="w-full group transition-all duration-300 hover:shadow-[0_0_25px_rgba(212,175,55,0.15)]"
       style={{ perspective: "2000px" }}
     >
       <motion.div
         animate={{ rotateY: showDetails ? 180 : 0 }}
+        whileHover={!showDetails ? { rotateX: 4, rotateY: -4 } : {}}
         transition={{
           duration: 0.7,
           type: "spring",
-          stiffness: 200,
-          damping: 25,
+          stiffness: 90,
+          damping: 20,
         }}
-        className="relative w-full h-full cursor-pointer"
+        className="relative w-full min-h-[520px] cursor-default"
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* ================= FRONT ================= */}
+        {/* ================= FRONT: THE DISPLAY CASE ================= */}
         <div
           className="absolute inset-0 flex flex-col overflow-hidden"
           style={{
             backfaceVisibility: "hidden",
-            clipPath: royalShape,
+            clipPath: techShape,
             backgroundColor: colors.royalBlack,
             border: `1px solid ${colors.richGold}40`,
           }}
         >
-          <div className="flex-1 overflow-hidden relative">
-            <img
-              src={`/event-images/${event.image}`}
-              alt={event.name}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            {/* Gold Overlay Wash */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-90" />
-
-            <div className="absolute bottom-6 left-6 right-6">
-              <h3
-                className="text-2xl font-bold uppercase tracking-tight"
-                style={{
-                  fontFamily: "'DaggerSquare', sans-serif",
-                  color: "white",
-                }}
-              >
-                {event.name}
-              </h3>
+          {/* 1. Poster Area (Maximized Spacing) */}
+          <div className="w-full aspect-square bg-black p-3 border-b border-white/5">
+            <div className="w-full h-full border border-[#D4AF37]/20 flex items-center justify-center overflow-hidden">
+              <img
+                src={`/event-images/${event.image}`}
+                alt={event.name}
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
 
-          <div
-            className="p-4 bg-[#0a0a0a] flex gap-3 border-t"
-            style={{ borderColor: `${colors.richGold}20` }}
-          >
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowDetails(true);
-              }}
-              className="flex-1 py-3 font-bold text-[10px] uppercase tracking-[0.2em] transition-all duration-300"
+          {/* 2. Content Area (Tightened Spacing) */}
+          <div className="flex-1 flex flex-col justify-between p-5 bg-[#0a0a0a]">
+            <h3
+              className="text-2xl  font-bold uppercase text-center leading-tight line-clamp-2"
               style={{
-                fontFamily: "'Rajdhani', sans-serif",
-                backgroundColor: colors.richGold,
-                color: colors.royalBlack,
+                fontFamily: "'DaggerSquare', sans-serif",
+                color: colors.brightGold,
               }}
             >
-              View Info
-            </button>
+              {event.name}
+            </h3>
 
-            <a
-              href={event.reg_link}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex-1 py-3 border font-bold text-[10px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2"
-              style={{
-                fontFamily: "'Rajdhani', sans-serif",
-                borderColor: colors.richGold,
-                color: colors.richGold,
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = `${colors.richGold}1A`;
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = "transparent";
-              }}
-            >
-              Register <ExternalLink size={12} />
-            </a>
+            <div className="grid grid-cols-2 gap-3 mt-4">
+              <button
+                onClick={() => setShowDetails(true)}
+                className="py-3 flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all bg-white/5 border border-[#D4AF37] hover:bg-[#D4AF37]10"
+                style={{
+                  color: colors.brightGold,
+                  fontFamily: "'Rajdhani', sans-serif",
+                }}
+              >
+                <Info size={14} /> Details
+              </button>
+
+              <a
+                href={event.reg_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-center transition-all hover:brightness-110 flex items-center justify-center gap-2"
+                style={{
+                  backgroundColor: colors.richGold,
+                  color: colors.royalBlack,
+                  fontFamily: "'Rajdhani', sans-serif",
+                }}
+              >
+                Register <ExternalLink size={12} />
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* ================= BACK ================= */}
+        {/* ================= BACK: THE DOSSIER ================= */}
         <div
-          className="absolute inset-0 p-8 flex flex-col"
+          className="absolute inset-0 p-7 flex flex-col bg-[#0a0a0a]"
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            clipPath: royalShape,
-            backgroundColor: "#0a0a0a",
-            border: `1px solid ${colors.richGold}`,
+            clipPath: techShape,
+            border: `1.5px solid ${colors.richGold}`,
           }}
         >
-          <div
-            className="flex justify-between items-start mb-6 border-b pb-4"
-            style={{ borderColor: `${colors.richGold}33` }}
-          >
-            <div>
+          <div className="flex justify-between items-start mb-6">
+            <div className="border-l-2 border-[#D4AF37] pl-4">
               <h3
-                className="text-xl font-bold uppercase leading-none mb-2"
+                className="text-xl font-bold uppercase mb-1"
                 style={{
                   fontFamily: "'DaggerSquare', sans-serif",
                   color: colors.brightGold,
@@ -141,107 +120,35 @@ export const EventCard = ({ event, index }) => {
               >
                 {event.name}
               </h3>
-              <div
-                className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest"
-                style={{ color: colors.richGold }}
-              >
-                <Trophy size={12} />
-                {event.cashPrize}
-              </div>
             </div>
+
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowDetails(false);
-              }}
-              className="p-2 transition-colors rounded-full"
-              style={{
-                color: colors.richGold,
-                backgroundColor: `${colors.richGold}10`,
-              }}
+              onClick={() => setShowDetails(false)}
+              className="p-1.5 transition-colors hover:bg-white/5 rounded-full"
+              style={{ color: colors.richGold }}
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={18} />
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-6 font-rajdhani">
-            <p className="text-gray-300 text-base leading-relaxed text-justify opacity-80">
+          <div className="flex-1 overflow-y-auto">
+            <p className="text-gray-400 text-sm leading-relaxed text-justify font-rajdhani border-l border-white/10 pl-4 italic">
               {event.description}
             </p>
-
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              <div
-                className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest"
-                style={{ color: colors.brightGold }}
-              >
-                <Calendar size={14} />
-                <span>{event.date}</span>
-              </div>
-              <div
-                className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest"
-                style={{ color: colors.brightGold }}
-              >
-                <Users size={14} />
-                <span>{event.teamSize}</span>
-              </div>
-            </div>
-
-            {event.contacts?.length > 0 && (
-              <div
-                className="pt-6 border-t"
-                style={{ borderColor: "rgba(255,255,255,0.05)" }}
-              >
-                <h4
-                  className="text-[10px] font-bold uppercase tracking-[0.3em] mb-4"
-                  style={{ color: colors.richGold }}
-                >
-                  Liaison Officers
-                </h4>
-                <div className="space-y-4">
-                  {event.contacts.map((c, i) => (
-                    <div
-                      key={i}
-                      className="flex justify-between items-center group/contact"
-                    >
-                      <span className="text-sm text-gray-200 font-medium tracking-wide">
-                        {c.name}
-                      </span>
-                      <a
-                        href={`tel:${c.phone}`}
-                        className="flex items-center gap-2 text-[11px] font-bold px-3 py-1.5 border transition-all"
-                        style={{
-                          borderColor: `${colors.richGold}40`,
-                          color: colors.brightGold,
-                          fontFamily: "'DaggerSquare', sans-serif",
-                        }}
-                        onMouseOver={(e) =>
-                          (e.target.style.borderColor = colors.richGold)
-                        }
-                        onMouseLeave={(e) =>
-                          (e.target.style.borderColor = `${colors.richGold}40`)
-                        }
-                      >
-                        <Phone size={10} /> {c.phone}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
 
           <a
             href={event.reg_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 w-full py-4 font-bold text-xs uppercase tracking-[0.3em] transition-all text-center shadow-lg"
+            className="mt-6 w-full py-4 text-xs font-bold uppercase tracking-[0.4em] text-center transition-all shadow-lg"
             style={{
-              fontFamily: "'Rajdhani', sans-serif",
               backgroundColor: colors.richGold,
               color: colors.royalBlack,
+              fontFamily: "'Rajdhani', sans-serif",
             }}
           >
-            Confirm Registration
+            Confirm Entry
           </a>
         </div>
       </motion.div>

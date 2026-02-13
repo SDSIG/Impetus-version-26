@@ -193,7 +193,12 @@ export const Chatbot = () => {
                   ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleSend()}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSend();
+                    }
+                  }}
                   placeholder="Query System..."
                   className="w-full px-4 py-3 pr-12 bg-black border text-white text-sm rounded-xl focus:outline-none transition-all placeholder:opacity-30"
                   style={{

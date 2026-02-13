@@ -75,6 +75,7 @@ export const Hero = () => {
 
   return (
     <section
+      id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ backgroundColor: colors.royalBlack }}
     >
