@@ -2,11 +2,11 @@
   "flagshipEvents": [
     {
       "name": "CodeStorm",
-      "description": "Gear up for an electrifying coding challenge at CODESTORM! Put your problem-solving skills to the test in two intense rounds of competition, where logic, speed, and efficiency determine the best coders. Round 1: Take on four challenging coding problems designed to push your analytical and problem-solving abilities to the limit. Only the top contenders will make it to the next stage. Round 2: The ultimate test of optimization and efficiency awaits! Compete against the best to achieve the highest score and prove your coding excellence.",
+      "description": "CODESTORM is a flagship coding competition focused on logical thinking and code optimization through structured rounds of increasing difficulty. Participants solve challenging problems that build efficient programming skills essential for engineering tomorrow’s technology.",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "1-3",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Online",
       "image": "flagship/codestorm.jpeg",
       "reg_link": "https://forms.gle/7894561234567890",
@@ -23,11 +23,11 @@
     },
     {
       "name": "Brand-IT",
-      "description": "Brand IT is a competition designed to unleash participants' creativity through the art of designing. It is a contest where using the best design skills to forge a unique brand kit turns into reality. Round 1: 'Design Your Brand Kit' - Participants pick their brand category from the spectrum of options provided and craft a brand kit within 35 hours, consisting of a logo, color palette, typography, packaging, and more. Round 2: 'Present Your Brand' - Shortlisted teams will take turns presenting their brand kits to the panel of judges. The most creative and visually compelling brand kit will be declared the winner.",
+      "description": "Welcome to Brand It, where innovation meets strategy! Teams will craft a brand from scratch, creating logos, color palettes, product visuals, and packaging designs. Stand out by presenting impactful promotional materials in this exciting multi-day battle of creativity and competition. Get ready to build, brand, and shine like a pro!",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "1-3",
-      "date": "20th, 21st, and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Offline",
       "image": "brand-it.png",
       "contacts": [
@@ -43,11 +43,11 @@
     },
     {
       "name": "Civicture",
-      "description": "Civicture is a dynamic competition designed to provide a platform for participants to showcase their creativity, technical expertise, and problem-solving skills. Engineering brilliance meets architectural creativity to shape the future. Round 1: Participants face around 20 multiple-choice questions. Each question has four visual options (images or emojis). Teams with the highest points proceed. Round 2: Participants receive a set of instructions and are required to construct a model based on those instructions and demonstrate their completed model to a panel of judges.",
+      "description": "Civicture is an immersive platform for future-tech engineering and innovation. It begins with a concept challenge where participants present bold ideas using emerging technologies. The event then moves into a detailed engineering and system design phase, transforming ideas into precise technical models and futuristic solutions. Be part of building tomorrow’s technology-driven world!",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "3-4",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Hybrid",
       "image": "civicture.png",
       "contacts": [
@@ -63,11 +63,11 @@
     },
     {
       "name": "AvionX",
-      "description": "Immerse yourself in the world of aerospace with AvionX! Challenge yourself with aviation-themed tasks, solve mysteries, and design critical aerospace components in a battle of intellect, creativity, and teamwork. Round 1: A fun role-play activity where participants act as detectives, solving an aviation-themed mystery. Round 2: 'Fusion of Ideas' - Work within your domain to refine and develop key components of an aerospace system. Round 3: 'The Grand Assembly' - Engineers from different domains come together to create a complete aerospace system.",
+      "description": "An exciting aerospace challenge that blends analytical thinking with engineering creativity. The event begins with an interactive problem-solving round testing logic, adaptability, and teamwork. It then moves into a technical stage where ideas are converted into structured designs under realistic aerospace constraints. Precision, innovation, and collaboration define the experience.",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "Individual (Rounds 1 & 2), Groups (Round 3)",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Offline",
       "image": "avionx.png",
       "contacts": [
@@ -83,11 +83,11 @@
     },
     {
       "name": "Hack-A-Maze",
-      "description": "Join the excitement of racing with Hack-A-Maze! Build a robot to follow the line track—it's your own personal F1 race with bots. Take on the Line Follower challenge and get your bot to the finish line. Round 1: Get your bot through the easier track quickly and accurately as a warm-up. Round 2: Follow the track to the exit point, passing all checkpoints for the most points. Time is key in both rounds.",
+      "description": "Dive into Hack-A-Maze, an adrenaline-packed challenge that tasks you with building a self-driven obstacle bot to conquer mazes on its own and the quickest escape claims victory!",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "1-3",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Offline",
       "image": "hack-a-maze.png",
       "contacts": [
@@ -103,11 +103,11 @@
     },
     {
       "name": "Mock Placements",
-      "description": "Step into the world of campus placements through a simulated hiring process. Round 1: A comprehensive assessment testing logical reasoning, mathematical aptitude, and subject knowledge. IT participants may also face an online coding challenge. Round 2: Shortlisted candidates advance to face-to-face Technical & HR Interviews to demonstrate technical knowledge, problem-solving, communication, and leadership potential. Feedback is provided post-interview.",
+      "description": "Mock placement closely resemble actual corporate recruitment processes. By simulating real interviews, they help candidates understand expectations and improve their performance through expert feedback. Participants also have the flexibility to choose their preferred domain, allowing them to tailor the experience to their career aspirations and strengths. An opportunity exclusively available to the students of UVCE!",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "1",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Hybrid",
       "image": "mock-placements.png",
       "contacts": [
@@ -123,11 +123,11 @@
     },
     {
       "name": "Silic-O-Hack",
-      "description": "Silic-O-Hack challenges participants to transform innovative ideas into practical solutions. Round 1: 'Analysis & Troubleshooting' - Participants troubleshoot and repair faulty circuits, focusing on components like resistors, capacitors, transistors, MOSFETs, and op-amps. Round 2: 'Ideation & Design' - Shortlisted participants have 24 hours to develop a solution using TinkerCAD based on a problem statement and present it to an expert panel.",
+      "description": "Silic-O-Hack is a flagship simulated hardware hackathon that challenges participants to solve real-world problems using creativity, logic, and electronics skills. Shortlisted teams design, simulate, and present innovative circuit-based solutions using TinkerCAD, highlighting technical excellence and practical innovation.",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "1-3",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Hybrid",
       "image": "silic-o-hack.png",
       "contacts": [
@@ -143,11 +143,11 @@
     },
     {
       "name": "Mechronins",
-      "description": "A test of skill, strategy, and innovation where mechanical brilliance takes center stage. Round 1: 'Mech Mystery' - Mechanical puzzles testing strategy and ingenuity. Round 2: 'Machine Run 2.0' - Team adventure to solve puzzles and uncover hidden clues. Round 3: 'Design Innovators Challenge' - Tackle design problem statements, develop solutions, and present futuristic concepts to judges.",
+      "description": "This lively three-round event blends mechanical quizzes, creative thinking, and presentations into an experience that keeps you involved from start to finish. Sharpen your ideas, step into the challenge, and let your engineering instincts take the lead.",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "2-4",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Offline",
       "image": "mechronins.png",
       "contacts": [
@@ -163,11 +163,11 @@
     },
     {
       "name": "Summit",
-      "description": "A Student Parliament for knowledge sharing, problem-solving, and networking. Each round is an elimination round. Panel Discussion: Insightful discussion on a thought-provoking topic held prior to the main event. Preliminary Round: Teams present solutions virtually before the main event. Round 1: Advance problem statement analysis presented via PowerPoint. Round 2: Presentation of innovative ideas following the completion of Round 1.",
+      "description": "Summit is a flagship event for students that provides a formal platform for thoughtful discussions. Participants collaborate to design impactful and practical solutions, sharpening their problem-solving and leadership skills. The event inspires socially responsible thinking and empowers students to become effective agents of change.",
       "ticketPrice": "₹60 per person",
       "cashPrize": "Upto ₹7,000",
       "teamSize": "1-3",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Online",
       "image": "summit.png",
       "contacts": [
@@ -183,10 +183,10 @@
     },
     {
       "name": "Laser Tag",
-      "description": "An action-packed battle where strategy meets adrenaline. Navigate a darkened arena armed with infrared guns and outscore opponents in this futuristic combat game. Gear up, strategize, and dominate the battlefield!",
+      "description": "Step into the battlefield with Laser Tag, a high-energy combat arena where strategy, speed, and teamwork decide the winner. Gear up, lock targets, and outsmart your opponents in an tactical face-off—only the sharpest shooters and smartest tacticians will dominate the arena.",
       "ticketPrice": "₹100 per person",
       "teamSize": "3-4",
-      "date": "21st and 22nd March, 2025",
+      "date": "13th & 14th March, 2026",
       "mode": "Offline",
       "image": "laser-tag.png",
       "contacts": [
