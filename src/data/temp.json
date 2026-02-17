@@ -1,0 +1,437 @@
+{
+    "flagshipEvents": [
+        {
+            "name": "CodeStorm",
+            "description": "CODESTORM is a flagship coding competition focused on logical thinking and code optimization through structured rounds of increasing difficulty. Participants solve challenging problems that build efficient programming skills essential for engineering tomorrow’s technology.",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "1-3",
+            "date": "13th & 14th March, 2026",
+            "mode": "Online",
+            "image": "flagship/codestorm.jpeg",
+            "reg_link": "https://www.evynte.com/event/codestormimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Chandan U",
+                    "phone": "+91 84535 71597"
+                },
+                {
+                    "name": "Gagana K H",
+                    "phone": "+91 96632 40594"
+                }
+            ]
+        },
+        {
+            "name": "Brand-IT",
+            "description": "Welcome to Brand It, where innovation meets strategy! Teams will craft a brand from scratch, creating logos, color palettes, product visuals, and packaging designs. Stand out by presenting impactful promotional materials in this exciting multi-day battle of creativity and competition. Get ready to build, brand, and shine like a pro!",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "1-3",
+            "date": "13th & 14th March, 2026",
+            "mode": "Offline",
+            "image": "flagship/Brand-It.jpg",
+            "reg_link": "https://www.evynte.com/event/branditimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Meenakshi G Patil",
+                    "phone": "+91 95139 50181"
+                },
+                {
+                    "name": "Namratha Sridhar",
+                    "phone": "+91 90084 16648"
+                }
+            ]
+        },
+        {
+            "name": "Civicture",
+            "description": "Civicture is an immersive platform for future-tech engineering and innovation. It begins with a concept challenge where participants present bold ideas using emerging technologies. The event then moves into a detailed engineering and system design phase, transforming ideas into precise technical models and futuristic solutions. Be part of building tomorrow’s technology-driven world!",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "3-4",
+            "date": "13th & 14th March, 2026",
+            "mode": "Hybrid",
+            "image": "flagship/civicture.jpg",
+            "reg_link": "https://www.evynte.com/event/civictureimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Rayan Ahmed",
+                    "phone": "+91 91130 27087"
+                },
+                {
+                    "name": "Kushal Sagar",
+                    "phone": "+91 78999 48875"
+                }
+            ]
+        },
+        {
+            "name": "AvionX",
+            "description": "An exciting aerospace challenge that blends analytical thinking with engineering creativity. The event begins with an interactive problem-solving round testing logic, adaptability, and teamwork. It then moves into a technical stage where ideas are converted into structured designs under realistic aerospace constraints. Precision, innovation, and collaboration define the experience.",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "Individual (Rounds 1 & 2), Groups (Round 3)",
+            "date": "13th & 14th March, 2026",
+            "mode": "Offline",
+            "image": "flagship/AvionX.jpg",
+            "reg_link": "https://www.evynte.com/event/avionximpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Arjun Pillai",
+                    "phone": "+91 63624 79576"
+                },
+                {
+                    "name": "Harshitha R J",
+                    "phone": "+91 78927 13899"
+                }
+            ]
+        },
+        {
+            "name": "Hack-A-Maze",
+            "description": "Dive into Hack-A-Maze, an adrenaline-packed challenge that tasks you with building a self-driven obstacle bot to conquer mazes on its own and the quickest escape claims victory!",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "1-3",
+            "date": "13th & 14th March, 2026",
+            "mode": "Offline",
+            "image": "flagship/Hack-A-Maze.jpg",
+            "reg_link": "https://www.evynte.com/event/hackamazeimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Deeksha K",
+                    "phone": "+91 93805 09662"
+                },
+                {
+                    "name": "Fathey Wasi",
+                    "phone": "+91 96115 88716"
+                }
+            ]
+        },
+        {
+            "name": "Mock Placements",
+            "description": "Mock placement closely resemble actual corporate recruitment processes. By simulating real interviews, they help candidates understand expectations and improve their performance through expert feedback. Participants also have the flexibility to choose their preferred domain, allowing them to tailor the experience to their career aspirations and strengths. An opportunity exclusively available to the students of UVCE!",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "1",
+            "date": "13th & 14th March, 2026",
+            "mode": "Hybrid",
+            "image": "flagship/Mock Placements .jpg",
+            "reg_link": "https://www.evynte.com/event/mockplacementsimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Keerthi V Meti",
+                    "phone": "+91 99011 40524"
+                },
+                {
+                    "name": "Shreya Nayak B",
+                    "phone": "+91 89040 02112"
+                }
+            ]
+        },
+        {
+            "name": "Silic-O-Hack",
+            "description": "Silic-O-Hack is a flagship simulated hardware hackathon that challenges participants to solve real-world problems using creativity, logic, and electronics skills. Shortlisted teams design, simulate, and present innovative circuit-based solutions using TinkerCAD, highlighting technical excellence and practical innovation.",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "1-3",
+            "date": "13th & 14th March, 2026",
+            "mode": "Hybrid",
+            "image": "flagship/Silic-O-Hack.jpg",
+            "reg_link": "https://www.evynte.com/event/silicohackimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Fathey Wasi",
+                    "phone": "+91 96115 88716"
+                },
+                {
+                    "name": "Sandeep",
+                    "phone": "+91 85508 65115"
+                }
+            ]
+        },
+        {
+            "name": "Mechronins",
+            "description": "This lively three-round event blends mechanical quizzes, creative thinking, and presentations into an experience that keeps you involved from start to finish. Sharpen your ideas, step into the challenge, and let your engineering instincts take the lead.",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "2-4",
+            "date": "13th & 14th March, 2026",
+            "mode": "Offline",
+            "image": "flagship/Mechronins.jpg",
+            "reg_link": "https://www.evynte.com/event/mechroninsimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Divya P",
+                    "phone": "+91 70229 85136"
+                },
+                {
+                    "name": "Sagar S Komar",
+                    "phone": "+91 63661 65951"
+                }
+            ]
+        },
+        {
+            "name": "Summit",
+            "description": "Summit is a flagship event for students that provides a formal platform for thoughtful discussions. Participants collaborate to design impactful and practical solutions, sharpening their problem-solving and leadership skills. The event inspires socially responsible thinking and empowers students to become effective agents of change.",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹7,000",
+            "teamSize": "1-3",
+            "date": "13th & 14th March, 2026",
+            "mode": "Online",
+            "image": "flagship/Summit .jpg",
+            "reg_link": "https://www.evynte.com/event/summitimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Shravya",
+                    "phone": "+91 63633 09853"
+                },
+                {
+                    "name": "Amulya N",
+                    "phone": "+91 98446 36446"
+                }
+            ]
+        },
+        {
+            "name": "Laser Tag",
+            "description": "Step into the battlefield with Laser Tag, a high-energy combat arena where strategy, speed, and teamwork decide the winner. Gear up, lock targets, and outsmart your opponents in an tactical face-off—only the sharpest shooters and smartest tacticians will dominate the arena.",
+            "ticketPrice": "₹100 per person",
+            "teamSize": "3-4",
+            "date": "13th & 14th March, 2026",
+            "mode": "Offline",
+            "image": "flagship/Laser Tag .jpg",
+            "reg_link": "https://www.evynte.com/event/lasertagimpetus26/preview",
+            "contacts": [
+                {
+                    "name": "Akrant Debnath",
+                    "phone": "+91 95318 41140"
+                },
+                {
+                    "name": "Sanjay",
+                    "phone": "+91 93803 25317"
+                }
+            ]
+        }
+    ],
+    "generalEvents": [
+        {
+            "name": "Brain Bids 2.0",
+            "description": "A fusion of quizzing and strategic bidding where your intellect is your currency. Participants bid on questions and outthink opponents in a battle of strategy. Round 1: 'Bid Your Knowledge' - Bid points to earn the right to answer. Round 2: Inspired by 'Kaun Banega Crorepati', a race against time to earn points.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "2-3",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "brain-bids.png",
+            "contacts": [
+                {
+                    "name": "Amoghavarsha",
+                    "phone": "+91 90195 51905"
+                },
+                {
+                    "name": "Divya D N",
+                    "phone": "+91 91108 87507"
+                }
+            ]
+        },
+        {
+            "name": "Data Quest",
+            "description": "A competition showcasing data analytics, problem-solving, and visualization skills. Round 1: 'Data Cleaning & Dashboard Creation' - Online 5-hour task cleaning datasets, solving SQL challenges, and creating insight-driven dashboards. Round 2: 'Presentation' - Top teams present their data cleaning process, SQL solutions, and key insights to judges.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1-3",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Hybrid",
+            "image": "data-quest.png",
+            "contacts": [
+                {
+                    "name": "Anagha S Shastri",
+                    "phone": "+91 94803 35832"
+                },
+                {
+                    "name": "Sumanth G",
+                    "phone": "+91 78924 98948"
+                }
+            ]
+        },
+        {
+            "name": "The Time Traveler's Code",
+            "description": "History is scrambled! Decode encrypted messages and solve legendary mysteries using AI to rebuild the timeline. Round 1: Offline puzzles inspired by movies, games, and history to find clues and fix glitches. Round 2: Overnight challenge using basic AI techniques on corrupted datasets to restore the timeline and present solutions to judges.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "3-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Hybrid",
+            "image": "time-travelers-code.png",
+            "contacts": [
+                {
+                    "name": "Krishna L",
+                    "phone": "+91 96862 10829"
+                },
+                {
+                    "name": "Shreyas S Rao",
+                    "phone": "+91 72049 62271"
+                }
+            ]
+        },
+        {
+            "name": "Think Tank",
+            "description": "An IoT-based event testing strategic thinking. Round 1: 'Trade with Tinkercad' - Design solutions using simulation software while managing a limited point system for components and lifelines. Round 2: 'Bid to Win' - Guess a hidden company's name from its story; bidding begins if no one guesses correctly. Final scores are influenced by real-time stock performance.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1-3",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "think-tank.png",
+            "contacts": [
+                {
+                    "name": "Kankana Ghosh",
+                    "phone": "+91 93534 58360"
+                },
+                {
+                    "name": "Rajashekar",
+                    "phone": "+91 98805 67974"
+                }
+            ]
+        },
+        {
+            "name": "Synthetic Intelligence",
+            "description": "A competition to test prompt engineering skills against top AI enthusiasts. This single-round event challenges teams to solve complex problems involving contradictions and numerical reasoning using models like GPT-4 or Claude. Success depends on selection of the right AI model and refining prompts within the given time.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1-3",
+            "date": "22nd March, 2025",
+            "mode": "Offline",
+            "image": "synthetic-intelligence.png",
+            "contacts": [
+                {
+                    "name": "Nitin Shatkar",
+                    "phone": "+91 76248 06912"
+                },
+                {
+                    "name": "Ramachandra",
+                    "phone": "+91 63646 48120"
+                }
+            ]
+        },
+        {
+            "name": "Tantragnyana Tarka",
+            "description": "A unique Kannada event bridging cultural heritage and modern technology through decoding and debating. Round 1: 'Kannada Decode' - Cracking cryptic Kannada phrases and proverbs using encoding techniques. Round 2: 'Debate' - A stimulating discussion in Kannada focused on Bengaluru's technological evolution.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "2-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "tantragnyana-tarka.png",
+            "contacts": [
+                {
+                    "name": "Bhavani P",
+                    "phone": "+91 78997 47533"
+                },
+                {
+                    "name": "Dhanushree R",
+                    "phone": "+91 95351 53091"
+                }
+            ]
+        },
+        {
+            "name": "Escape Room: UVCE Edition",
+            "description": "The ultimate UVCE-themed detective challenge! Teams of 3-4 hunt for hidden clues and solve mind-bending puzzles while racing against the clock. Only the sharpest minds will claim exclusive prizes.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "3-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "escape-room.png",
+            "contacts": [
+                {
+                    "name": "Anirudh P Bhat",
+                    "phone": "+91 98445 74935"
+                },
+                {
+                    "name": "Inchara V",
+                    "phone": "+91 96118 01062"
+                }
+            ]
+        },
+        {
+            "name": "IPL Auction",
+            "description": "A blend of strategy and real-world IPL dynamics. Teams battle through bidding wars and strategic retention. Round 1: 'IPL Knockout Quiz' - Thrilling quiz covering all past seasons. Round 2: 'Panel Auction' - Qualified teams compete in panels with an intense shortlisting process. Round 3: 'Mega Auction' - Ultimate auction streamed live on YouTube with real-time transaction displays.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "3-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "ipl-auction.png",
+            "contacts": [
+                {
+                    "name": "Nithish N S",
+                    "phone": "+91 87621 04684"
+                },
+                {
+                    "name": "Prashanth H M",
+                    "phone": "+91 73386 72405"
+                }
+            ]
+        }
+    ],
+    "gamingEvents": [
+        {
+            "name": "BGMI Tournament",
+            "description": "A Battle Royale tournament where the number of rounds depends on registration volume. Groups are formed if teams exceed 16, with the top 12 qualifying for the final. There are 3 matches per group and 5 final matches, totaling 11 matches, with results based on table ranking.",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "3-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Online",
+            "image": "bgmi-tournament.png",
+            "contacts": [
+                {
+                    "name": "Charan S",
+                    "phone": "+91 90082 34225"
+                },
+                {
+                    "name": "Shreyas R Shankar",
+                    "phone": "+91 63631 20124"
+                }
+            ]
+        },
+        {
+            "name": "Valorant Tournament",
+            "description": "Tactical combat tournament to test squad skills and strategy. Prove you are a sharpshooter or strategic mastermind to claim glory. Format: Best of 1 until top 4, Best of 3 until top 2, and a Best of 5 final match.",
+            "ticketPrice": "₹80 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1-5",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Online",
+            "image": "valorant-tournament.png",
+            "contacts": [
+                {
+                    "name": "Shushruth",
+                    "phone": "+91 77609 17384"
+                },
+                {
+                    "name": "Sourav",
+                    "phone": "+91 79759 55452"
+                }
+            ]
+        },
+        {
+            "name": "Chess Mania",
+            "description": "A 3-round online chess tournament where wins contribute to the points table. Round 1: Chess 960 in an Arena system (Clock 3+2) for 1 hour. Round 2: Standard in an Arena system (Clock 5+0) for 1 hour. Round 3: Standard Finals (Clock 10+0) with 1 match per player.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Online",
+            "image": "chess-mania.png",
+            "contacts": [
+                {
+                    "name": "Ashwin Kashyap",
+                    "phone": "+91 83100 18405"
+                },
+                {
+                    "name": "Harshitha A",
+                    "phone": "+91 77602 69763"
+                }
+            ]
+        }
+    ]
+}
