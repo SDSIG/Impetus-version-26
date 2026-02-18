@@ -169,7 +169,7 @@ export const Hero = () => {
           {/* CONTENT ROW (Countdown centered) */}
           <div className="flex justify-center w-full px-4 mb-16">
             {/* CONTENT ROW (Buttons & Countdown) */}
-            <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 px-4 mb-16">
+            {/* <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 px-4 mb-16">
               <div className="flex flex-col items-center lg:items-start gap-4 order-2 lg:order-1">
                 <button
                   onClick={() => navigate("/events")}
@@ -212,7 +212,7 @@ export const Hero = () => {
                   All-In-One Pass
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {/* COUNTDOWN TIMER */}
             <div className="flex flex-col items-center gap-3">
