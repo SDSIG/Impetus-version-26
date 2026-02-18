@@ -166,57 +166,11 @@ export const Hero = () => {
             </p>
           </div>
 
-          {/* CONTENT ROW (Countdown centered) */}
-          <div className="flex justify-center w-full px-4 mb-16">
-            {/* CONTENT ROW (Buttons & Countdown) */}
-            {/* <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 px-4 mb-16">
-              <div className="flex flex-col items-center lg:items-start gap-4 order-2 lg:order-1">
-                <button
-                  onClick={() => navigate("/events")}
-                  className="w-64 py-4 font-orbitron font-bold uppercase tracking-[0.18em] text-xs rounded-full transition-all duration-300 ease-out active:scale-95 flex items-center justify-center gap-3"
-                  style={{
-                    border: `1px solid ${colors.richGold}`,
-                    color: colors.richGold,
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.backgroundColor = colors.richGold;
-                    e.currentTarget.style.color = colors.royalBlack;
-                    e.currentTarget.style.boxShadow = `0 0 20px rgba(212, 175, 55, 0.35)`;
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.backgroundColor = "transparent";
-                    e.currentTarget.style.color = colors.richGold;
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                >
-                  Explore Events
-                  <ArrowRight size={16} />
-                </button>
-
-                <button
-                  className="w-64 py-4 font-orbitron font-bold uppercase tracking-[0.18em] text-xs rounded-full transition-all duration-300 active:scale-95 flex items-center justify-center gap-3"
-                  style={{
-                    border: `1px solid ${colors.richGold}4D`, // 30% opacity
-                    color: colors.richGold,
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.borderColor = colors.richGold;
-                    e.currentTarget.style.backgroundColor = `${colors.richGold}1A`; // 10% opacity
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.borderColor = `${colors.richGold}4D`;
-                    e.currentTarget.style.backgroundColor = "transparent";
-                  }}
-                >
-                  <Ticket size={16} />
-                  All-In-One Pass
-                </button>
-              </div>
-            </div> */}
-
-            {/* COUNTDOWN TIMER */}
-            <div className="flex flex-col items-center gap-3">
-              <div className="flex gap-3 sm:gap-6">
+          {/* CONTENT ROW (Responsive Layout) */}
+          <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 px-4 mb-16">
+            {/* TIMER (Top on small/medium, right on large) */}
+            <div className="flex flex-col items-center gap-3 order-1 lg:order-2 w-full lg:w-auto">
+              <div className="flex gap-3 sm:gap-6 justify-center">
                 {[
                   { label: "DAYS", val: timeLeft.days },
                   { label: "HRS", val: timeLeft.hours },
@@ -225,18 +179,18 @@ export const Hero = () => {
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col items-center">
                     <div
-                      className="w-16 h-20 sm:w-20 sm:h-24 rounded-lg flex items-center justify-center shadow-2xl backdrop-blur-md"
+                      className="w-14 h-18 sm:w-16 sm:h-20 md:w-18 md:h-22 lg:w-20 lg:h-24 rounded-lg flex items-center justify-center shadow-2xl backdrop-blur-md"
                       style={{
-                        backgroundColor: `${colors.royalBlack}E6`, // 90% opacity
-                        borderTop: `2px solid ${colors.richGold}80`, // 50% opacity
+                        backgroundColor: `${colors.royalBlack}E6`,
+                        borderTop: `2px solid ${colors.richGold}80`,
                       }}
                     >
-                      <span className="text-3xl sm:text-4xl font-oxanium font-black text-white">
+                      <span className="text-2xl sm:text-3xl md:text-4xl font-oxanium font-black text-white">
                         {String(item.val).padStart(2, "0")}
                       </span>
                     </div>
                     <span
-                      className="mt-3 text-[9px] tracking-[0.3em] font-orbitron font-bold uppercase"
+                      className="mt-3 text-[8px] sm:text-[9px] tracking-[0.3em] font-orbitron font-bold uppercase"
                       style={{ color: colors.richGold }}
                     >
                       {item.label}
@@ -244,15 +198,60 @@ export const Hero = () => {
                   </div>
                 ))}
               </div>
-              <p
-                className="text-[15px] sm:text-sm tracking-[0.2em] uppercase text-center"
+
+              {/* <p
+                className="text-xs sm:text-sm tracking-[0.2em] uppercase text-center"
                 style={{
                   color: `${colors.richGold}99`,
                   fontFamily: "'Rajdhani', sans-serif",
                 }}
               >
                 Registrations are open!
-              </p>
+              </p> */}
+            </div>
+
+            {/* BUTTONS (Below timer on small/medium, left on large) */}
+            <div className="flex flex-col items-center lg:items-start gap-4 order-2 lg:order-1 w-full lg:w-auto">
+              <button
+                onClick={() => navigate("/events")}
+                className="w-64 py-4 font-orbitron font-bold uppercase tracking-[0.18em] text-xs rounded-full transition-all duration-300 ease-out active:scale-95 flex items-center justify-center gap-3"
+                style={{
+                  border: `1px solid ${colors.richGold}`,
+                  color: colors.richGold,
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = colors.richGold;
+                  e.currentTarget.style.color = colors.royalBlack;
+                  e.currentTarget.style.boxShadow = `0 0 20px rgba(212, 175, 55, 0.35)`;
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.color = colors.richGold;
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                Explore Events
+                <ArrowRight size={16} />
+              </button>
+
+              {/* <button
+                className="w-64 py-4 font-orbitron font-bold uppercase tracking-[0.18em] text-xs rounded-full transition-all duration-300 active:scale-95 flex items-center justify-center gap-3"
+                style={{
+                  border: `1px solid ${colors.richGold}4D`,
+                  color: colors.richGold,
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.borderColor = colors.richGold;
+                  e.currentTarget.style.backgroundColor = `${colors.richGold}1A`;
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.borderColor = `${colors.richGold}4D`;
+                  e.currentTarget.style.backgroundColor = "transparent";
+                }}
+              >
+                <Ticket size={16} />
+                All-In-One Pass
+              </button> */}
             </div>
           </div>
 
