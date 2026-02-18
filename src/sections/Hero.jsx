@@ -251,7 +251,7 @@ export const Hero = () => {
                   fontFamily: "'Rajdhani', sans-serif",
                 }}
               >
-                Registrations open soon…
+                Registrations are open!
               </p>
             </div>
           </div>
