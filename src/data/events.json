@@ -209,5 +209,229 @@
         }
       ]
     }
-  ]
+  ],
+  "generalEvents": [
+        {
+            "name": "CTRL+Z",
+            "description": "CTRL+Z is a unique event where participants use ChatGPT to solve challenging questions. The goal is simple ask better, think smarter, and generate the best possible answer!",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "2-3",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": ".general/jpg",
+            "contacts": [
+                {
+                    "name": "Amoghavarsha",
+                    "phone": "+91 90195 51905"
+                },
+                {
+                    "name": "Divya D N",
+                    "phone": "+91 91108 87507"
+                }
+            ]
+        },
+        {
+            "name": "Design Disaster",
+            "description": "Design Disaster is a creative UI/UX challenge where participants intentionally break design rules and then turn the chaos into accessible user experiences.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1-3",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Hybrid",
+            "image": "general/.jpg",
+            "contacts": [
+                {
+                    "name": "Anagha S Shastri",
+                    "phone": "+91 94803 35832"
+                },
+                {
+                    "name": "Sumanth G",
+                    "phone": "+91 78924 98948"
+                }
+            ]
+        },
+        {
+            "name": "IPL Auction",
+            "description": "Step into the shoes of a team owner and experience the thrill of live bidding! With a fixed budget in hand, strategize and compete to build your dream squad. Face intense rounds that test your cricket knowledge and decision-making skills. Only the smartest team will create the ultimate championship lineup!",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "3-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Hybrid",
+            "image": "time-travelers-code.png",
+            "contacts": [
+                {
+                    "name": "Krishna L",
+                    "phone": "+91 96862 10829"
+                },
+                {
+                    "name": "Shreyas S Rao",
+                    "phone": "+91 72049 62271"
+                }
+            ]
+        },
+        {
+            "name": "Project 2049",
+            "description": "Project 2049 is a fun event where the team will design their own sci-fi gadget on PC and make their own rules about the science behind it's working, and will participate in a high energy debate challenging other team's ideas and defending your own.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1-3",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "think-tank.png",
+            "contacts": [
+                {
+                    "name": "Kankana Ghosh",
+                    "phone": "+91 93534 58360"
+                },
+                {
+                    "name": "Rajashekar",
+                    "phone": "+91 98805 67974"
+                }
+            ]
+        },
+        {
+            "name": "Prompt & Pursuit",
+            "description": "Step into the world of CRM innovation where strategy meets automation! Prompt & Pursuit challenges teams to solve real-time business problems using data, AI logic, and workflow design. From building digital CRM blueprints to pitching in a Shark Tank style finale with a surprise crisis twist, this event is where future business technologists rise.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1-3",
+            "date": "22nd March, 2025",
+            "mode": "Offline",
+            "image": "synthetic-intelligence.png",
+            "contacts": [
+                {
+                    "name": "Nitin Shatkar",
+                    "phone": "+91 76248 06912"
+                },
+                {
+                    "name": "Ramachandra",
+                    "phone": "+91 63646 48120"
+                }
+            ]
+        },
+        {
+            "name": "ತಂತ್ರಜ್ಞಾನ ತರ್ಕ 2.0",
+            "description": "ತಂತ್ರಜ್ಞಾನ ತರ್ಕ 2.0 is a fun event that combines Kannada language and technology. It includes a Kannada skill-based written round and an exciting debate on technology and heritage. Participate in teams, test your skills, win cash prizes and certificates.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "2-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "tantragnyana-tarka.png",
+            "contacts": [
+                {
+                    "name": "Bhavani P",
+                    "phone": "+91 78997 47533"
+                },
+                {
+                    "name": "Dhanushree R",
+                    "phone": "+91 95351 53091"
+                }
+            ]
+        },
+        {
+            "name": "Quiz O'Clock",
+            "description": "Stay ahead of the curve with Quiz O'Clock, a fast-paced trivia event covering the latest breakthroughs in Engineering and IT. We bridge the gap between core programming and modern tech current affairs. Whether it's legacy code or next-gen innovation, show us you have the engineering mindset to win.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "3-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "escape-room.png",
+            "contacts": [
+                {
+                    "name": "Anirudh P Bhat",
+                    "phone": "+91 98445 74935"
+                },
+                {
+                    "name": "Inchara V",
+                    "phone": "+91 96118 01062"
+                }
+            ]
+        },
+        {
+            "name": "Tech Tambola",
+            "description": "Tech Tambola is an interactive, knowledge-based twist on the traditional tambola game designed for engineering and technology enthusiasts. Instead of numbers, participants mark technical and general science concepts based on clue-based calls. The event combines awareness, quick thinking, and strategy to create an engaging and competitive experience.",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "3-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Offline",
+            "image": "ipl-auction.png",
+            "contacts": [
+                {
+                    "name": "Nithish N S",
+                    "phone": "+91 87621 04684"
+                },
+                {
+                    "name": "Prashanth H M",
+                    "phone": "+91 73386 72405"
+                }
+            ]
+        }
+    ],
+  "gamingEvents": [
+        {
+            "name": "FREE FIRE MAX",
+            "description": "Step into the ultimate survival battleground where strategy, reflexes, and skill decide the champion. Land on the island, loot weapons, and outlast your opponents in fast-paced combat as the safe zone closes in. Adapt quickly and prove your dominance.",
+            "ticketPrice": "₹60 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "3-4",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Online",
+            "image": "bgmi-tournament.png",
+            "contacts": [
+                {
+                    "name": "Charan S",
+                    "phone": "+91 90082 34225"
+                },
+                {
+                    "name": "Shreyas R Shankar",
+                    "phone": "+91 63631 20124"
+                }
+            ]
+        },
+        {
+            "name": "VALORANT",
+            "description": "Valorant is an online multiplayer computer game, produced by Riot Games. It is a first-person shooter game, consisting of two teams of five, where one team attacks and the other defends. Players control characters known as 'agents', who all have different abilities to use during gameplay.",
+            "ticketPrice": "₹80 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1-5",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Online",
+            "image": "valorant-tournament.png",
+            "contacts": [
+                {
+                    "name": "Shushruth",
+                    "phone": "+91 77609 17384"
+                },
+                {
+                    "name": "Sourav",
+                    "phone": "+91 79759 55452"
+                }
+            ]
+        },
+        {
+            "name": "CHESSFRENZY",
+            "description": "Chessfrenzy is a fast-paced chess showdown blending strategy, speed, and blitz tactics for ultimate brain gamers. Battle through intense rounds, outsmart opponents, and claim chessboard glory. Ideal for tacticians ready to unleash their inner grandmaster!",
+            "ticketPrice": "₹40 per person",
+            "cashPrize": "Upto ₹5,000",
+            "teamSize": "1",
+            "date": "21st and 22nd March, 2025",
+            "mode": "Online",
+            "image": "chess-mania.png",
+            "contacts": [
+                {
+                    "name": "Ashwin Kashyap",
+                    "phone": "+91 83100 18405"
+                },
+                {
+                    "name": "Harshitha A",
+                    "phone": "+91 77602 69763"
+                }
+            ]
+        }
+    ]
 }
