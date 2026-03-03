@@ -29,6 +29,15 @@ export const Sponsors = () => {
         url: "https://www.woodkraft.com/",
       },
     ],
+
+    // ✅ ADDED MERCHANDISE SPONSOR
+    merchandise: [
+      {
+        name: "Chumbak",
+        logo: "/sponsors/chumbak.png", // ⬅️ Put your uploaded image here
+        url: "https://www.chumbak.com",
+      },
+    ],
   };
 
   return (
@@ -37,7 +46,6 @@ export const Sponsors = () => {
       className="relative py-20 md:py-28 overflow-hidden"
       style={{ backgroundColor: colors.royalBlack }}
     >
-      {/* ⭐ SAME STAR BACKGROUND AS EVENTSINFO */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
@@ -55,7 +63,6 @@ export const Sponsors = () => {
       />
 
       <div className="relative max-w-6xl mx-auto px-4">
-        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,27 +81,12 @@ export const Sponsors = () => {
             SPONSORS
           </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 uppercase tracking-[0.4em] text-sm"
-            style={{
-              fontFamily: "'Rajdhani', sans-serif",
-              color: colors.richGold,
-            }}
-          >
-            Impetus 26.0 – Powered By HAL
-          </motion.p>
-
           <div
             className="w-40 h-[2px] mx-auto mt-6"
             style={{ backgroundColor: colors.richGold }}
           />
         </motion.div>
 
-        {/* SPONSOR GRID */}
         <div className="space-y-16">
           <TierBlock
             title="Platinum Sponsor"
@@ -105,6 +97,12 @@ export const Sponsors = () => {
           <TierBlock title="Gold Sponsor" sponsors={sponsors.gold} />
 
           <TierBlock title="General Sponsor" sponsors={sponsors.general} />
+
+          {/* ✅ NEW TIER ADDED BELOW GENERAL */}
+          <TierBlock
+            title="Merchandise Sponsor"
+            sponsors={sponsors.merchandise}
+          />
         </div>
       </div>
     </section>
@@ -160,7 +158,6 @@ const TierBlock = ({ title, sponsors, large }) => {
           </motion.a>
         ))}
 
-        {/* Subtle Visit Button */}
         {sponsors.map((sponsor) => (
           <a
             key={sponsor.name + "-btn"}
