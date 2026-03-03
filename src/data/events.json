@@ -315,6 +315,48 @@
           "phone": "+91 95351 53091"
         }
       ]
+    },
+    {
+      "name": "Quiz O'Clock",
+      "description": "Stay ahead of the curve with Quiz O'Clock, a fast-paced trivia event covering the latest breakthroughs in Engineering and IT. We bridge the gap between core programming and modern tech current affairs. Whether it's legacy code or next-gen innovation, show us you have the engineering mindset to win.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "3-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "general/QuizOClock.jpeg",
+      "reg_link": "https://www.evynte.com/event/quizoclockimpetus26/preview",
+      "contacts": [
+        {
+          "name": "Anirudh P Bhat",
+          "phone": "+91 98445 74935"
+        },
+        {
+          "name": "Inchara V",
+          "phone": "+91 96118 01062"
+        }
+      ]
+    },
+    {
+      "name": "Tech Tambola",
+      "description": "Tech Tambola is an interactive, knowledge-based twist on the traditional tambola game designed for engineering and technology enthusiasts. Instead of numbers, participants mark technical and general science concepts based on clue-based calls. The event combines awareness, quick thinking, and strategy to create an engaging and competitive experience.",
+      "ticketPrice": "₹40 per person",
+      "cashPrize": "Upto ₹5,000",
+      "teamSize": "3-4",
+      "date": "21st and 22nd March, 2025",
+      "mode": "Offline",
+      "image": "general/TechTambola.jpeg",
+      "reg_link": "https://www.evynte.com/event/techtambolaimpetus26/preview",
+      "contacts": [
+        {
+          "name": "Nithish N S",
+          "phone": "+91 87621 04684"
+        },
+        {
+          "name": "Prashanth H M",
+          "phone": "+91 73386 72405"
+        }
+      ]
     }
   ]
 }
