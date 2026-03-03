@@ -11,14 +11,14 @@ export const Sponsors = () => {
     platinum: [
       {
         name: "HAL",
-        logo: "/sponsors/hal.jpg",
+        logo: "/sponsors/halB.png",
         url: "https://hal-india.co.in",
       },
     ],
     gold: [
       {
         name: "KPTCL",
-        logo: "/sponsors/kptcl.jpg",
+        logo: "/sponsors/kptclB.png",
         url: "https://kptcl.karnataka.gov.in",
       },
     ],
@@ -26,13 +26,14 @@ export const Sponsors = () => {
       {
         name: "Woodkraft",
         logo: "/sponsors/woodkraft.png",
-        url: "https://woodkraft.in",
+        url: "https://www.woodkraft.com/",
       },
     ],
   };
 
   return (
     <section
+      id="sponsors"
       className="relative py-20 md:py-28 overflow-hidden"
       style={{ backgroundColor: colors.royalBlack }}
     >

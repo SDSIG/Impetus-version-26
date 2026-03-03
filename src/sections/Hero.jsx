@@ -151,21 +151,71 @@ export const Hero = () => {
           </h1>
 
           {/* THEME LOCKUP */}
-          <div className="flex flex-col items-center mb-12 lg:mb-20">
+          <div className="flex flex-col items-center mb-12 lg:mb-20 mt-5">
             <h2 className="font-rajdhani text-2xl sm:text-4xl tracking-[0.3em] text-white font-light uppercase text-center">
               Future
               <span style={{ color: colors.richGold }} className="font-bold">
                 Tech
               </span>
             </h2>
+
             <p
               className="tracking-[0.6em] text-[10px] sm:text-xs uppercase italic mt-2 text-center"
-              style={{ color: `${colors.brightGold}66` }} // 40% opacity hex
+              style={{ color: `${colors.brightGold}66` }}
             >
               Engineering Tomorrow
             </p>
-          </div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-col items-center mt-10"
+            >
+              <p
+                className="uppercase tracking-[0.5em] text-[10px] mb-3 font-orbitron"
+                style={{ color: `${colors.richGold}99` }}
+              >
+                Powered By
+              </p>
+
+              <div className="flex items-center gap-5">
+                <div
+                  className="h-[1px] w-12"
+                  style={{
+                    background: `linear-gradient(to right, transparent, ${colors.richGold}80)`,
+                  }}
+                />
+
+                <span
+                  className="text-xl sm:text-2xl tracking-[0.25em] font-black uppercase italic"
+                  style={{
+                    fontFamily: "'Rajdhani', sans-serif",
+                    backgroundImage: `linear-gradient(to bottom, #FFFDF5, ${colors.brightGold}, ${colors.richGold})`,
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    textShadow: `0 0 20px ${colors.richGold}55`,
+                  }}
+                >
+                  HAL
+                </span>
+
+                <div
+                  className="h-[1px] w-12"
+                  style={{
+                    background: `linear-gradient(to left, transparent, ${colors.richGold}80)`,
+                  }}
+                />
+              </div>
+
+              <p
+                className="text-[9px] sm:text-[11px] tracking-[0.3em] font-medium uppercase mt-2 opacity-70"
+                style={{ color: colors.richGold }}
+              >
+                Hindustan Aeronautics Limited
+              </p>
+            </motion.div>
+          </div>
           {/* CONTENT ROW (Responsive Layout) */}
           <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-12 px-4 mb-16">
             {/* TIMER (Top on small/medium, right on large) */}
