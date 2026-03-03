@@ -13,7 +13,6 @@ import { Footer } from "./components/Footer";
 import { Chatbot } from "./components/Chatbot";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Home } from "./pages/Home";
-import { TempEvents } from "./sections/TempEvents";
 import { Events } from "./sections/Events";
 import { pageview } from "./utils/analytics";
 

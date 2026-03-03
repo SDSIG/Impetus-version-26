@@ -11,111 +11,79 @@ const groq = new Groq({
 
 let lastEvent = null;
 
-// Normalize casual text
+/* ---------------- NORMALIZE ---------------- */
 function normalize(text) {
-  if (!text) return "";
   return text
-    .toLowerCase()
+    ?.toLowerCase()
+    .replace(/\?/g, "")
     .replace(/\bwt\b/g, "what")
     .replace(/\bwht\b/g, "what")
-    .replace(/\br\b/g, "are")
     .replace(/\bu\b/g, "you")
-    .replace(/\?/g, "")
-    .trim();
+    .replace(/\br\b/g, "are")
+    .trim() || "";
 }
 
-function findEvent(query) {
-  return eventDocuments.find(e =>
-    query.includes(e.title.toLowerCase()) ||
-    query.includes(e.id.replace("-", ""))
-  );
+/* ---------------- KEYWORD FILTER ---------------- */
+function keywordFilter(query) {
+  const q = normalize(query);
+
+  const filtered = eventDocuments.filter(e => {
+    const text = e.text.toLowerCase();
+
+    return (
+      text.includes(q) ||
+      q.split(" ").some(word => text.includes(word))
+    );
+  });
+
+  return filtered;
 }
 
+/* ---------------- MAIN FUNCTION ---------------- */
 export async function askQuestion(userQuestion) {
   const q = normalize(userQuestion);
 
-  /* -------------------------
-     1️⃣ BASIC CHAT
-  ------------------------- */
-  if (["hi", "hello", "hey", "hai"].some(g => q.startsWith(g)))
-    return "Hello! 👋 Ask me about any IMPETUS event.";
+  if (["hi", "hello", "hey"].some(g => q.startsWith(g)))
+    return "Hello! 👋 Ask me anything about IMPETUS 26.0 events.";
 
-  if (q.includes("thank"))
-    return "You're welcome! 😊";
+  // Try keyword filtering first
+  let relevantEvents = keywordFilter(userQuestion);
 
-  if (q.includes("bye"))
-    return "Bye! 👋 See you at IMPETUS 26.0 🚀";
-
-  /* -------------------------
-     2️⃣ EVENT IDENTIFICATION
-  ------------------------- */
-  const event = findEvent(q) || lastEvent;
-  if (event) lastEvent = event;
-
-  /* -------------------------
-     3️⃣ SUMMARY / EXPLANATION
-  ------------------------- */
-  if (
-    q.startsWith("what is") ||
-    q.startsWith("tell me about") ||
-    q.startsWith("explain") ||
-    q === "this event" ||
-    q === "this"
-  ) {
-    if (!event) return "I don't have information about that.";
-
-    return `**${event.title}** is a ${event.category} event held on ${event.date} at ${event.venue}.
-It focuses on ${event.description.split(".")[0]}.
-Team size: ${event.teamSize}. Fee: ${event.fee}.`;
+  // If nothing matched, try fallback: return all events
+  if (relevantEvents.length === 0) {
+    relevantEvents = eventDocuments;
   }
 
-  /* -------------------------
-     4️⃣ DIRECT QUESTIONS
-  ------------------------- */
-  if (q.includes("rule") && event)
-    return event.rules.join("; ");
+  const context = relevantEvents.map(e => e.text).join("\n---\n");
 
-  if (q.includes("team") && event)
-    return event.teamSize;
-
-  if (q.includes("fee") && event)
-    return event.fee;
-
-  if (q.includes("venue") && event)
-    return event.venue;
-
-  if (q.includes("time") && event)
-    return event.time;
-
-  if (q.includes("coordinator") && event)
-    return event.coordinators
-      .map(c => `${c.name} (${c.phone})`)
-      .join(", ");
-
-  /* -------------------------
-     5️⃣ SUGGESTIONS → LLM
-  ------------------------- */
-  const context = eventDocuments.map(e => e.text).join("\n---\n");
-
-  const prompt = `
+  const finalPrompt = `
 ${systemPrompt}
 
-Event Information:
+Event Data:
 ${context}
 
 User Question:
 ${userQuestion}
 
-Rules:
-- Suggestions only → bullet points
-- No paragraphs
+If the question is unrelated to events, say:
+"I'm trained only for IMPETUS event information. For more details, please visit the Contact section."
+
+Otherwise answer properly.
 `;
 
-  const completion = await groq.chat.completions.create({
-    model: "llama-3.1-8b-instant",
-    messages: [{ role: "user", content: prompt }],
-    temperature: 0.2
-  });
+  try {
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.1-8b-instant",
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: finalPrompt }
+      ],
+      temperature: 0.4
+    });
 
-  return completion.choices[0].message.content.trim();
+    return completion.choices[0].message.content.trim();
+  } catch (error) {
+    console.error(error);
+    return "Error processing your question.";
+  }
 }

@@ -58,9 +58,9 @@ export const Home = () => {
           <Gallery />
         </section>
 
-        {/* <section id="sponsors" className="relative z-10">
+        <section id="sponsors" className="relative z-10">
           <Sponsors />
-        </section> */}
+        </section>
 
         <section id="contact" className="relative z-10">
           <Contact />

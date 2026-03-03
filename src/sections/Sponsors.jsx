@@ -1,116 +1,182 @@
 import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
 
 export const Sponsors = () => {
   const colors = {
     royalBlack: "#050505",
     richGold: "#D4AF37",
     brightGold: "#F9D976",
-    burntGold: "#78350F",
   };
 
-  const sponsors = [
-    {
-      name: "TechCorp",
-      logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=TechCorp",
-    },
-    {
-      name: "InnovateLabs",
-      logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=InnovateLabs",
-    },
-    {
-      name: "FutureTech",
-      logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=FutureTech",
-    },
-    {
-      name: "CodeForge",
-      logo: "https://via.placeholder.com/200x100/fbbf24/000000?text=CodeForge",
-    },
-    {
-      name: "RoboSystems",
-      logo: "https://via.placeholder.com/150x75/fbbf24/000000?text=RoboSystems",
-    },
-    {
-      name: "AISolutions",
-      logo: "https://via.placeholder.com/150x75/fbbf24/000000?text=AISolutions",
-    },
-  ];
+  const sponsors = {
+    platinum: [
+      {
+        name: "HAL",
+        logo: "/sponsors/halB.png",
+        url: "https://hal-india.co.in",
+      },
+    ],
+    gold: [
+      {
+        name: "KPTCL",
+        logo: "/sponsors/kptclB.png",
+        url: "https://kptcl.karnataka.gov.in",
+      },
+    ],
+    general: [
+      {
+        name: "Woodkraft",
+        logo: "/sponsors/woodkraft.png",
+        url: "https://www.woodkraft.com/",
+      },
+    ],
+  };
 
   return (
     <section
       id="sponsors"
-      className="relative py-24 overflow-hidden"
+      className="relative py-20 md:py-28 overflow-hidden"
       style={{ backgroundColor: colors.royalBlack }}
     >
-      {/* 🌌 ATMOSPHERIC BACKGROUND */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] blur-[160px] rounded-full pointer-events-none opacity-15"
+      {/* ⭐ SAME STAR BACKGROUND AS EVENTSINFO */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        animate={{ x: [0, 40, 0], y: [0, -80, 0] }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         style={{
-          background: `radial-gradient(circle, ${colors.burntGold}, ${colors.royalBlack})`,
+          backgroundImage: `
+            radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+            radial-gradient(2px 2px at 80px 120px, ${colors.brightGold}, transparent),
+            radial-gradient(1.5px 1.5px at 150px 60px, #fff, transparent),
+            radial-gradient(1px 1px at 220px 180px, ${colors.richGold}, transparent)
+          `,
+          backgroundSize: "260px 260px",
+          opacity: 0.8,
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* UNIFIED HEADING */}
+      <div className="relative max-w-6xl mx-auto px-4">
+        {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
           <h2
-            className="text-4xl md:text-5xl uppercase tracking-[0.2em] mb-4"
+            className="text-4xl md:text-5xl font-bold uppercase tracking-[0.2em] mb-3"
             style={{
               fontFamily: "'DaggerSquare', sans-serif",
               color: "white",
               textShadow: `0 0 15px ${colors.richGold}40`,
             }}
           >
-            Sponsors
+            SPONSORS
           </h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-4 uppercase tracking-[0.4em] text-sm"
+            style={{
+              fontFamily: "'Rajdhani', sans-serif",
+              color: colors.richGold,
+            }}
+          >
+            Impetus 26.0 – Powered By HAL
+          </motion.p>
+
+          <div
+            className="w-40 h-[2px] mx-auto mt-6"
+            style={{ backgroundColor: colors.richGold }}
+          />
         </motion.div>
 
-        {/* UNIFIED SPONSOR WALL */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-          {sponsors.map((sponsor, index) => (
-            <motion.div
-              key={sponsor.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              whileHover={{ y: -8, scale: 1.05 }}
-              className="relative group p-[1px]"
-            >
-              {/* Outer Glow on Hover */}
-              <div
-                className="absolute inset-0 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500"
-                style={{ background: colors.richGold }}
-              />
+        {/* SPONSOR GRID */}
+        <div className="space-y-16">
+          <TierBlock
+            title="Platinum Sponsor"
+            sponsors={sponsors.platinum}
+            large
+          />
 
-              <div
-                className="relative bg-[#0a0a0a]/80 backdrop-blur-md rounded-xl p-6 sm:p-8 flex items-center justify-center h-28 w-56 sm:h-36 sm:w-72 transition-all duration-500 overflow-hidden"
-                style={{ border: `1px solid ${colors.richGold}33` }}
-              >
-                {/* Subtle Internal Gradient */}
-                <div
-                  className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none"
-                  style={{
-                    background: `linear-gradient(45deg, transparent, ${colors.brightGold}, transparent)`,
-                  }}
-                />
+          <TierBlock title="Gold Sponsor" sponsors={sponsors.gold} />
 
-                <img
-                  src={sponsor.logo}
-                  alt={sponsor.name}
-                  className="h-12 sm:h-16 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                />
-              </div>
-            </motion.div>
-          ))}
+          <TierBlock title="General Sponsor" sponsors={sponsors.general} />
         </div>
       </div>
     </section>
+  );
+};
+
+const TierBlock = ({ title, sponsors, large }) => {
+  const colors = {
+    richGold: "#D4AF37",
+    royalBlack: "#050505",
+  };
+
+  return (
+    <div className="text-center">
+      <h3
+        className="text-2xl uppercase mb-8 tracking-wider"
+        style={{
+          fontFamily: "'Rajdhani', sans-serif",
+          color: colors.richGold,
+        }}
+      >
+        {title}
+      </h3>
+
+      <div className="flex flex-col items-center gap-6">
+        {sponsors.map((sponsor) => (
+          <motion.a
+            key={sponsor.name}
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            className={`
+              relative bg-gradient-to-b from-[#0b0b0b] to-[#050505]
+              ${large ? "w-[240px] h-[240px]" : "w-[200px] h-[200px]"}
+              flex items-center justify-center
+              transition-all duration-300
+            `}
+            style={{
+              clipPath:
+                "polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px)",
+              border: `1.5px solid ${colors.richGold}`,
+            }}
+          >
+            <img
+              src={sponsor.logo}
+              alt={sponsor.name}
+              className={`
+                object-contain
+                ${large ? "w-[200px] h-[200px]" : "w-[150px] h-[150px]"}
+              `}
+            />
+          </motion.a>
+        ))}
+
+        {/* Subtle Visit Button */}
+        {sponsors.map((sponsor) => (
+          <a
+            key={sponsor.name + "-btn"}
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs uppercase tracking-[0.3em] transition-all duration-300 hover:tracking-[0.4em]"
+            style={{
+              fontFamily: "'Rajdhani', sans-serif",
+              color: colors.richGold,
+            }}
+          >
+            Visit Website ↗
+          </a>
+        ))}
+      </div>
+    </div>
   );
 };

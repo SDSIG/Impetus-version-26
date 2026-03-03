@@ -55,7 +55,7 @@ export const Stats = () => {
   const stats = [
     { value: "23", label: "Events" },
     { value: "2249", label: "Participants" },
-    { value: "1,25,000", prefix: "₹", label: "Prize Pool" },
+    { value: "1,00,000", prefix: "₹", suffix: "+", label: "Prize Pool" },
     { value: "50", suffix: "+", label: "Colleges" },
   ];
 

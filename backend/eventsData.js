@@ -1,28 +1,26 @@
-import { events } from "../src/data/events.js";
+import data from "../src/data/events.json" with { type: "json" };
 
-export const eventDocuments = events.map(event => ({
-  id: event.id,
-  title: event.title,
-  category: event.category,
+const events = data.flagshipEvents;
+
+export const eventDocuments = events.map((event, index) => ({
+  id: index + 1,
+  title: event.name,
+  category: "Flagship Event",
   date: event.date,
-  time: event.time,
-  venue: event.venue,
+  venue: event.mode,
   teamSize: event.teamSize,
-  fee: event.fee,
-  prizePool: event.prizePool,
+  fee: event.ticketPrice,
+  prizePool: event.cashPrize,
   description: event.description,
-  rules: event.rules,
-  coordinators: event.coordinators,
+  coordinators: event.contacts,
   text: `
-Event Name: ${event.title}
-Category: ${event.category}
+Event Name: ${event.name}
 Date: ${event.date}
-Time: ${event.time}
-Venue: ${event.venue}
+Mode: ${event.mode}
 Team Size: ${event.teamSize}
-Fee: ${event.fee}
-Prize Pool: ${event.prizePool}
+Ticket Price: ${event.ticketPrice}
+Cash Prize: ${event.cashPrize}
 Description: ${event.description}
-Rules: ${event.rules.join("; ")}
+Contacts: ${event.contacts?.map(c => `${c.name} (${c.phone})`).join("; ")}
 `
 }));
