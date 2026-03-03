@@ -8,9 +8,27 @@ export const Sponsors = () => {
   };
 
   const sponsors = {
-    platinum: [{ name: "HAL", logo: "/sponsors/hal.jpg" }],
-    gold: [{ name: "KPTCL", logo: "/sponsors/kptcl.jpg" }],
-    general: [{ name: "Woodkraft", logo: "/sponsors/woodkraft.png" }],
+    platinum: [
+      {
+        name: "HAL",
+        logo: "/sponsors/hal.jpg",
+        url: "https://hal-india.co.in",
+      },
+    ],
+    gold: [
+      {
+        name: "KPTCL",
+        logo: "/sponsors/kptcl.jpg",
+        url: "https://kptcl.karnataka.gov.in",
+      },
+    ],
+    general: [
+      {
+        name: "Woodkraft",
+        logo: "/sponsors/woodkraft.png",
+        url: "https://woodkraft.in",
+      },
+    ],
   };
 
   return (
@@ -95,6 +113,7 @@ export const Sponsors = () => {
 const TierBlock = ({ title, sponsors, large }) => {
   const colors = {
     richGold: "#D4AF37",
+    royalBlack: "#050505",
   };
 
   return (
@@ -109,15 +128,19 @@ const TierBlock = ({ title, sponsors, large }) => {
         {title}
       </h3>
 
-      <div className="flex justify-center">
+      <div className="flex flex-col items-center gap-6">
         {sponsors.map((sponsor) => (
-          <motion.div
+          <motion.a
             key={sponsor.name}
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             className={`
               relative bg-gradient-to-b from-[#0b0b0b] to-[#050505]
               ${large ? "w-[240px] h-[240px]" : "w-[200px] h-[200px]"}
               flex items-center justify-center
+              transition-all duration-300
             `}
             style={{
               clipPath:
@@ -133,7 +156,24 @@ const TierBlock = ({ title, sponsors, large }) => {
                 ${large ? "w-[200px] h-[200px]" : "w-[150px] h-[150px]"}
               `}
             />
-          </motion.div>
+          </motion.a>
+        ))}
+
+        {/* Subtle Visit Button */}
+        {sponsors.map((sponsor) => (
+          <a
+            key={sponsor.name + "-btn"}
+            href={sponsor.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs uppercase tracking-[0.3em] transition-all duration-300 hover:tracking-[0.4em]"
+            style={{
+              fontFamily: "'Rajdhani', sans-serif",
+              color: colors.richGold,
+            }}
+          >
+            Visit Website ↗
+          </a>
         ))}
       </div>
     </div>
