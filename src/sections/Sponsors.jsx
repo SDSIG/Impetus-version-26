@@ -22,6 +22,11 @@ export const Sponsors = () => {
         logo: "/sponsors/kptclB.png",
         url: "https://kptcl.karnataka.gov.in",
       },
+      {
+        name: "Nexteer",
+        logo: "/sponsors/nexteer.png",
+        url: "https://www.nexteer.com/",
+      },
     ],
 
     silver: [
